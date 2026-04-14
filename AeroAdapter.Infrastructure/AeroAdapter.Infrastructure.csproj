@@ -6,4 +6,23 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Libs/" />
+    <Folder Include="Libs/Linux/" />
+    <Folder Include="Libs/Window/" />
+    <Folder Include="Messaging/" />
+    <Folder Include="Persistences/" />
+    <Folder Include="Persistences/Entities/" />
+    <Folder Include="Repositories/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.1" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../AeroAdapter.Application/AeroAdapter.Application.csproj" />
+  </ItemGroup>
+
 </Project>
