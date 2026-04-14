@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json;
+using AeroAdapter.Application.Events;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -13,7 +14,7 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
         var connection = await factory.CreateConnectionAsync(stoppingToken);
         var channel = await connection.CreateChannelAsync(cancellationToken: stoppingToken);
 
-        var queueName = nameof(OperatorCreatedEvent);
+        var queueName = nameof(DeviceCreatedEvent);
 
         Console.WriteLine(queueName);
 
@@ -32,9 +33,9 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
             try
             {
                 var json = Encoding.UTF8.GetString(ea.Body.ToArray());
-                var oper = JsonSerializer.Deserialize<OperatorCreatedEvent>(json);
+                var device = JsonSerializer.Deserialize<DeviceCreatedEvent>(json);
 
-                Console.WriteLine($"Processing Order {oper?.operatorId}");
+                Console.WriteLine($"Processing Order {device?.Name}");
 
                 await channel.BasicAckAsync(ea.DeliveryTag, false);
             }

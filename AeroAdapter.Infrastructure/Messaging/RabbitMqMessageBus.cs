@@ -6,35 +6,29 @@ using RabbitMQ.Client;
 
 namespace AeroAdapter.Infrastructure.Messaging;
 
-public class RabbitMqMessageBus : IMessageBus
+public class RabbitMqMessageBus(IRabbitMqPersistenceConnection connection) : IMessageBus
 {
-  private readonly ConnectionFactory _factory;
-
-  public RabbitMqMessageBus()
-  {
-    _factory = new ConnectionFactory()
-    {
-      HostName = "localhost"
-    };
-  }
   public async Task PublishAsync<T>(T Message)
   {
-    using var connection = await _factory.CreateConnectionAsync();
-    await using var channel = await connection.CreateChannelAsync();
+    var conn = await connection.GetConnectionAsync();
+    await using var channel = await conn.CreateChannelAsync();
+
+    var queueName = typeof(T).Name;
+
+    Console.WriteLine(queueName);
 
     await channel.QueueDeclareAsync(
-            queue: "order-created",
-            durable: false,
-            exclusive: false,
-            autoDelete: false,
-            arguments: null);
+        queue: queueName,
+        durable: true,
+        exclusive: false,
+        autoDelete: false,
+        arguments: null);
 
-    var json = JsonSerializer.Serialize(Message);
-    var body = Encoding.UTF8.GetBytes(json);
+    var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(Message));
 
     await channel.BasicPublishAsync(
         exchange: "",
-        routingKey: "order-created",
+        routingKey: queueName,
         body: body
         );
 

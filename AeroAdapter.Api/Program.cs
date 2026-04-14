@@ -1,4 +1,6 @@
 
+using AeroAdapter.Api.Settings;
+
 namespace AeroAdapter.Api;
 
 public class Program
@@ -6,6 +8,11 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        //=============
+        // Configuration File
+        //=============
+        ConfigurationFile.ReadConfiguration(builder);
 
         // Add services to the container.
 
