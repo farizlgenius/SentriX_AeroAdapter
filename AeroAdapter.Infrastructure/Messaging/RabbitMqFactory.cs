@@ -9,7 +9,7 @@ public interface IRabbitMqFactory : IDisposable
 {
   Task<IConnection> GetConnectionAsync(CancellationToken cancellationToken = default);
 }
-public sealed class RabbitMqFactory
+public sealed class RabbitMqFactory : IRabbitMqFactory
 {
   private readonly ConnectionFactory _factory;
   private IConnection? _connection;
@@ -24,6 +24,7 @@ public sealed class RabbitMqFactory
       Port = settings.Port,
       UserName = settings.Username,
       Password = settings.Password,
+      VirtualHost = "/",
       //DispatchConsumersAsync = true,
       RequestedConnectionTimeout = TimeSpan.FromSeconds(10),
       SocketReadTimeout = TimeSpan.FromSeconds(10),
@@ -51,6 +52,7 @@ public sealed class RabbitMqFactory
     try
     {
       _connection = await _factory.CreateConnectionAsync(cancellationToken);
+      Console.WriteLine("Connected");
       return _connection;
     }
     catch (BrokerUnreachableException ex)

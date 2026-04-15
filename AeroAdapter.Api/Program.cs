@@ -1,5 +1,11 @@
 
+using System.Threading.Channels;
 using AeroAdapter.Api.Settings;
+using AeroAdapter.Application.Interfaces;
+using AeroAdapter.Infrastructure.Messaging;
+using AeroAdapter.Infrastructure.Settings;
+using AeroAdapter.Infrastructure.Worker;
+using HID.Aero.ScpdNet.Wrapper;
 
 namespace AeroAdapter.Api;
 
@@ -10,9 +16,25 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         //=============
-        // Configuration File
+        // Configuration Filerovider => provider.GetRequiredService<BackgroundWorker>()
         //=============
         ConfigurationFile.ReadConfiguration(builder);
+        builder.Services.AddHostedService<AeroAdapter.Infrastructure.Worker.BackgroundWorker>();
+        builder.Services.AddOptions<RabbitMqOption>()
+        .Bind(builder.Configuration.GetSection("RabbitMQ"))
+        .ValidateOnStart();
+        builder.Services.AddScoped<IRabbitMqFactory,RabbitMqFactory>();
+        builder.Services.AddSingleton<IRabbitMqOption>(sp => sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<RabbitMqOption>>().Value);
+        builder.Services.AddSingleton(
+                Channel.CreateBounded<SCPReplyMessage>(
+                 new BoundedChannelOptions(10_000)
+                    {
+                        FullMode = BoundedChannelFullMode.DropOldest,
+                        SingleReader = true,
+                        SingleWriter = false
+                    }
+                )
+             );
 
         // Add services to the container.
 

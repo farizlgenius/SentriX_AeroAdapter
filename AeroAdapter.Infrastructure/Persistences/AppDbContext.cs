@@ -4,8 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AeroAdapter.Infrastructure.Persistences;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+public sealed class AppDbContext : DbContext
 {
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
     public DbSet<SystemLevelSpecification> SystemLevelSpecifications {get; set;}
     public DbSet<CreateChannel> CreateChannels {get; set;}
 
@@ -17,6 +18,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         .HasData(
             new SystemLevelSpecification
             {
+                id=1,
                 n_ports = 1024,
                 n_scps = 1024,
                 n_timezones = 0,
@@ -31,6 +33,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         .HasData(
             new CreateChannel
             {
+                id=1,
                 n_channel_id = 1,
                 c_type = 7,
                 c_port = 0,
