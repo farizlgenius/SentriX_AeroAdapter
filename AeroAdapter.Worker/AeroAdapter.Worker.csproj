@@ -16,4 +16,10 @@
     <ProjectReference Include="../AeroAdapter.Application/AeroAdapter.Application.csproj" />
     <ProjectReference Include="../AeroAdapter.Infrastructure/AeroAdapter.Infrastructure.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+  <Reference Include="HIDAeroWrap64">
+    <HintPath>..\AeroAdapter.Infrastructure\Libs\Windows\HIDAeroWrap64.dll</HintPath>
+  </Reference>
+</ItemGroup>
 </Project>

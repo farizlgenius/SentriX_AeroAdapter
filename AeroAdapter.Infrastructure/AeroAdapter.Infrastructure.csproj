@@ -9,12 +9,14 @@
   <ItemGroup>
     <Folder Include="Libs/" />
     <Folder Include="Libs/Linux/" />
-    <Folder Include="Libs/Window/" />
+    <Folder Include="Libs/Windows/" />
+    <Folder Include="Listener\" />
     <Folder Include="Messaging/" />
     <Folder Include="Persistences/" />
     <Folder Include="Persistences/Entities/" />
     <Folder Include="Repositories/" />
     <Folder Include="Settings/" />
+    <Folder Include="Writer\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,5 +27,11 @@
   <ItemGroup>
     <ProjectReference Include="../AeroAdapter.Application/AeroAdapter.Application.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+  <Reference Include="HIDAeroWrap64">
+    <HintPath>Libs\Windows\HIDAeroWrap64.dll</HintPath>
+  </Reference>
+</ItemGroup>
 
 </Project>
