@@ -1,0 +1,15 @@
+using System;
+using System.Text;
+using System.Text.Json;
+
+namespace AeroAdapter.Infrastructure.Helpers;
+
+public static class MessageHelper
+{
+  public static byte[] Serialize<T>(T obj)
+        => Encoding.UTF8.GetBytes(JsonSerializer.Serialize(obj));
+
+  public static T Deserialize<T>(byte[] body)
+      => JsonSerializer.Deserialize<T>(Encoding.UTF8.GetString(body))!;
+
+}

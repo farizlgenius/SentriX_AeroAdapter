@@ -11,11 +11,9 @@
     <Folder Include="Libs/Linux/" />
     <Folder Include="Libs/Windows/" />
     <Folder Include="Listener\" />
-    <Folder Include="Messaging/" />
     <Folder Include="Persistences/" />
     <Folder Include="Persistences/Entities/" />
     <Folder Include="Repositories/" />
-    <Folder Include="Settings/" />
     <Folder Include="Writer\" />
   </ItemGroup>
 

@@ -5,17 +5,17 @@ using RabbitMQ.Client.Exceptions;
 
 namespace AeroAdapter.Infrastructure.Messaging;
 
-public interface IRabbitMqPersistenceConnection : IDisposable
+public interface IRabbitMqFactory : IDisposable
 {
   Task<IConnection> GetConnectionAsync(CancellationToken cancellationToken = default);
 }
-public class RabbitMqPersistenceConnection
+public sealed class RabbitMqFactory
 {
   private readonly ConnectionFactory _factory;
   private IConnection? _connection;
   private readonly object _lock = new();
 
-  public RabbitMqPersistenceConnection(IRabbitMQ settings)
+  public RabbitMqFactory(IRabbitMqOption settings)
   {
 
     _factory = new ConnectionFactory
@@ -24,7 +24,6 @@ public class RabbitMqPersistenceConnection
       Port = settings.Port,
       UserName = settings.Username,
       Password = settings.Password,
-      VirtualHost = settings.VirtualHost,
       //DispatchConsumersAsync = true,
       RequestedConnectionTimeout = TimeSpan.FromSeconds(10),
       SocketReadTimeout = TimeSpan.FromSeconds(10),

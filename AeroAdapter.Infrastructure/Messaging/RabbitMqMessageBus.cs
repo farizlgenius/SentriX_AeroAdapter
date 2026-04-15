@@ -6,7 +6,7 @@ using RabbitMQ.Client;
 
 namespace AeroAdapter.Infrastructure.Messaging;
 
-public class RabbitMqMessageBus(IRabbitMqPersistenceConnection connection) : IMessageBus
+public class RabbitMqMessageBus(IRabbitMqFactory connection) : IMessageBus
 {
   public async Task PublishAsync<T>(T Message)
   {
