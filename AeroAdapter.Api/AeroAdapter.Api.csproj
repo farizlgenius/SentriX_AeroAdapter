@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<RuntimeIdentifier>linux-arm64</RuntimeIdentifier>
 	</PropertyGroup>
 
   <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">

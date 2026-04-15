@@ -1,7 +1,6 @@
 using System.Text;
 using System.Text.Json;
 using System.Threading.Channels;
-using AeroAdapter.Application.Events;
 using HID.Aero.ScpdNet.Wrapper;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -12,48 +11,10 @@ public class Worker(Channel<SCPReplyMessage> queue, ILogger<Worker> logger, ISer
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
-        var connection = await factory.CreateConnectionAsync(stoppingToken);
-        var channel = await connection.CreateChannelAsync(cancellationToken: stoppingToken);
-
-        var queueName = nameof(DeviceCreatedEvent);
-
-        Console.WriteLine(queueName);
-
-        await channel.QueueDeclareAsync(
-            queue: queueName,
-            durable: true,
-            exclusive: false,
-            autoDelete: false,
-            arguments: null,
-            cancellationToken: stoppingToken);
-
-        var consumer = new AsyncEventingBasicConsumer(channel);
-
-        consumer.ReceivedAsync += async (sender, ea) =>
+        while (!stoppingToken.IsCancellationRequested)
         {
-            try
-            {
-                var json = Encoding.UTF8.GetString(ea.Body.ToArray());
-                var device = JsonSerializer.Deserialize<DeviceCreatedEvent>(json);
-
-                Console.WriteLine($"Processing Order {device?.Name}");
-
-                await channel.BasicAckAsync(ea.DeliveryTag, false);
-            }
-            catch
-            {
-                await channel.BasicNackAsync(ea.DeliveryTag, false, true);
-            }
-        };
-
-        await channel.BasicConsumeAsync(
-            queue: queueName,
-            autoAck: false,
-            consumer: consumer,
-            cancellationToken: stoppingToken);
-
-
+            
+        }
         await foreach (var message in queue.Reader.ReadAllAsync(stoppingToken))
         {
             Console.WriteLine("Message received");
