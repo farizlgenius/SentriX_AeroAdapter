@@ -1,12 +1,14 @@
 using System;
 using System.Threading.Channels;
+using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Infrastructure.Helpers;
+using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
 using Microsoft.Extensions.Logging;
 
 namespace AeroAdapter.Infrastructure.Listener;
 
-public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Channel<SCPReplyMessage> queue)
+public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Channel<SCPReplyMessageDto> queue,IObjectMapper mapper)
 {
       private bool _shutdownFlag;
 
@@ -30,12 +32,12 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
             SCPReplyMessage message = new SCPReplyMessage();
             if (message.GetMessage())
             {
-                  ProcessMessage(message);
+                  ProcessMessage(mapper.Map<SCPReplyMessageDto>(message));
             }
 
       }
 
-      private void ProcessMessage(SCPReplyMessage message)
+      private void ProcessMessage(SCPReplyMessageDto message)
       {
             // using var scope = scopeFactory.CreateScope();
             switch (message.ReplyType)

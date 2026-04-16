@@ -11,6 +11,7 @@
     <Folder Include="Libs/Linux/" />
     <Folder Include="Libs/Windows/" />
     <Folder Include="Listener\" />
+    <Folder Include="Mapper\" />
     <Folder Include="Persistences/" />
     <Folder Include="Persistences/Entities/" />
     <Folder Include="Repositories/" />

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-		<RuntimeIdentifier>linux-arm64</RuntimeIdentifier>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
 
   <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
@@ -40,10 +40,5 @@
     <ProjectReference Include="../AeroAdapter.Infrastructure/AeroAdapter.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-  <Reference Include="HIDAeroWrap64">
-    <HintPath>Libs\Windows\HIDAeroWrap64.dll</HintPath>
-  </Reference>
-</ItemGroup>
 
 </Project>

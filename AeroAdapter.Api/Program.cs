@@ -5,7 +5,7 @@ using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Infrastructure.Messaging;
 using AeroAdapter.Infrastructure.Settings;
 using AeroAdapter.Infrastructure.Worker;
-using HID.Aero.ScpdNet.Wrapper;
+using Application.Contracts.GeneratedDtos;
 
 namespace AeroAdapter.Api;
 
@@ -26,7 +26,7 @@ public class Program
         builder.Services.AddScoped<IRabbitMqFactory,RabbitMqFactory>();
         builder.Services.AddSingleton<IRabbitMqOption>(sp => sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<RabbitMqOption>>().Value);
         builder.Services.AddSingleton(
-                Channel.CreateBounded<SCPReplyMessage>(
+                Channel.CreateBounded<SCPReplyMessageDto>(
                  new BoundedChannelOptions(10_000)
                     {
                         FullMode = BoundedChannelFullMode.DropOldest,

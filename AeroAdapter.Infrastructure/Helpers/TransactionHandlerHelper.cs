@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Channels;
 using AeroAdapter.Infrastructure.Listener;
+using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
 using Microsoft.Extensions.Logging;
 
@@ -8,7 +9,7 @@ namespace AeroAdapter.Infrastructure.Helpers;
 
 public sealed class TransactionHandlerHelper
 {
-      public static void SCPReplyTransactionHandler(SCPReplyMessage message, Channel<SCPReplyMessage> queue, ILogger<AeroMessageListener> logger)
+      public static void SCPReplyTransactionHandler(SCPReplyMessageDto message, Channel<SCPReplyMessageDto> queue, ILogger<AeroMessageListener> logger)
       {
             switch (message.tran.tran_type)
             {      

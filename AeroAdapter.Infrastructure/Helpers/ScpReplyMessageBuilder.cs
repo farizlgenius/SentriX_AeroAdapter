@@ -2,6 +2,7 @@ using System;
 using System.Data.Common;
 using System.Reflection;
 using System.Text;
+using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
 
 namespace AeroAdapter.Infrastructure.Helpers;
@@ -43,7 +44,7 @@ public class ScpReplyMessageBuilder
 
 
     }
-      public static string BuildNakMessage(SCPReplyMessage message)
+      public static string BuildNakMessage(SCPReplyMessageDto message)
       {
             switch (message.nak.reason)
             {
@@ -74,23 +75,23 @@ public class ScpReplyMessageBuilder
             }
       }
 
-      public static string CommStatusMessage(SCPReplyMessage message)
+      public static string CommStatusMessage(SCPReplyMessageDto message)
       {
             return $"{DateTime.UtcNow.ToLocalTime()} [CommStatus] Status: {message.comm.status}, Status Desc: {DescriptionHelper.GetReplyStatusDesc(message.comm.status)} Error: {message.comm.error_code} Error Desc: {DescriptionHelper.GetErrorCodeDesc((int)message.comm.error_code)} Channel ID: {message.comm.nChannelId}";
       }
 
-      public static string IdReportMessage(SCPReplyMessage message)
+      public static string IdReportMessage(SCPReplyMessageDto message)
       {
             return $"{DateTime.UtcNow.ToLocalTime()} [ID Report] SCP Version: {message.id.device_ver}, Firmware Version: {message.id.sft_rev_major}.{message.id.sft_rev_minor}, Serial Number: {message.id.serial_number}, Mac Address: {UtilitiesHelper.ByteToHexStr(message.id.mac_addr)}, TLS Status : {message.id.tls_status}";
       }
 
 
-      public static string TranStatusMessage(SCPReplyMessage message)
+      public static string TranStatusMessage(SCPReplyMessageDto message)
       {
             return $"{DateTime.UtcNow.ToLocalTime()} [Transaction Status] Capacity: {message.tran_sts.capacity}, Oldest: {message.tran_sts.oldest}, Last report: {message.tran_sts.last_loggd}, Status: {message.tran_sts.disabled}, Status Desc: {DescriptionHelper.GetStatusTranReportDesc(message.tran_sts.disabled)}";
       }
 
-      public static string Msp1DrvrMessage(SCPReplyMessage message)
+      public static string Msp1DrvrMessage(SCPReplyMessageDto message)
       {
             return $"{DateTime.UtcNow.ToLocalTime()} [SrMsp1Drvr] Number: {message.sts_drvr.number}, Port: {message.sts_drvr.port}, Mode: {(message.sts_drvr.mode == 0 ? "Disabled" : "Enabled")}, Baudrate: {message.sts_drvr.baud_rate}";
       }

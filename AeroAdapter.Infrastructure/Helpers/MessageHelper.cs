@@ -10,6 +10,10 @@ public static class MessageHelper
         => Encoding.UTF8.GetBytes(JsonSerializer.Serialize(obj));
 
   public static T Deserialize<T>(byte[] body)
-      => JsonSerializer.Deserialize<T>(Encoding.UTF8.GetString(body))!;
+      {
+            var message = Encoding.UTF8.GetString(body);
+            Console.WriteLine($"Deserialized message: {message}");
+            return JsonSerializer.Deserialize<T>(message)!;
+      }
 
 }

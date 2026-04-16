@@ -10,7 +10,7 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-        optionsBuilder.UseNpgsql("Host=192.168.100.1;Port=5432;Database=SentriXAero;Username=postgres;Password=password;");
+        optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=SentriXAero;Username=postgres;Password=password;");
 
         return new AppDbContext(optionsBuilder.Options);
     }

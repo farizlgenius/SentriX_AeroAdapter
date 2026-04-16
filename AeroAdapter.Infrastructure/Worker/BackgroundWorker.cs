@@ -3,6 +3,7 @@ using System.Threading.Channels;
 using AeroAdapter.Domain.Entities;
 using AeroAdapter.Infrastructure.Helpers;
 using AeroAdapter.Infrastructure.Messaging;
+using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,7 +12,7 @@ using RabbitMQ.Client.Events;
 
 namespace AeroAdapter.Infrastructure.Worker;
 
-public sealed class BackgroundWorker(Channel<SCPReplyMessage> queue, IServiceScopeFactory scopeFactory) : BackgroundService
+public sealed class BackgroundWorker(Channel<SCPReplyMessageDto> queue, IServiceScopeFactory scopeFactory) : BackgroundService
 {
     protected async override Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -40,9 +41,11 @@ public sealed class BackgroundWorker(Channel<SCPReplyMessage> queue, IServiceSco
     {
         var message = MessageHelper.Deserialize<Event>(ea.Body.ToArray());
 
+    
         Console.WriteLine("AERO Adapter received:");
         Console.WriteLine($"Type: {message.DeviceType}");
         Console.WriteLine($"Event: {message.EventType}");
+         Console.WriteLine($"Metadata: {message.Metadata}");
 
         await Task.Delay(500);
 
@@ -52,7 +55,7 @@ public sealed class BackgroundWorker(Channel<SCPReplyMessage> queue, IServiceSco
     {
         Console.WriteLine($"Error: {ex.Message}");
 
-        await channel.BasicNackAsync(ea.DeliveryTag, false, true); // requeue
+        await channel.BasicNackAsync(ea.DeliveryTag, false, false); // requeue
     }
 };
 
