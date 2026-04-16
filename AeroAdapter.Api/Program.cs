@@ -2,10 +2,14 @@
 using System.Threading.Channels;
 using AeroAdapter.Api.Settings;
 using AeroAdapter.Application.Interfaces;
+using AeroAdapter.Infrastructure.Listener;
 using AeroAdapter.Infrastructure.Messaging;
+using AeroAdapter.Infrastructure.Persistences;
 using AeroAdapter.Infrastructure.Settings;
 using AeroAdapter.Infrastructure.Worker;
+using AeroAdapter.Infrastructure.Writer;
 using Application.Contracts.GeneratedDtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace AeroAdapter.Api;
 
@@ -37,12 +41,55 @@ public class Program
              );
 
         // Add services to the container.
+        builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseNpgsql(
+                    builder.Configuration.GetConnectionString("PostgresConnection"),
+                    npgsqlOptions => npgsqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)
+                    ));
+        builder.Services.AddScoped<ICommandWriter, CommandWrite>();
+        builder.Services.AddScoped<IObjectMapper, DeepReflectionMapper>();
+        builder.Services.AddSingleton<AeroMessageListener>();
 
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
         var app = builder.Build();
+
+        var readDriver = app.Services.GetRequiredService<AeroMessageListener>();
+        // var writer = app.Services.GetRequiredService<ICommandWriter>();
+
+        using (var scope = app.Services.CreateScope())
+            {
+                var w = scope.ServiceProvider.GetRequiredService<ICommandWriter>();
+                // Now you can safely use sys here
+                if(!w.SystemLevelSpecification())
+                {
+                    Console.WriteLine("Initial driver failed. Shutting down app...");
+                    app.Lifetime.StopApplication(); // graceful shutdown
+                }
+
+                // Now you can safely use sys here
+                if(!w.CreateChannel())
+                {
+                   Console.WriteLine("Initial driver failed. Shutting down app...");
+                    app.Lifetime.StopApplication(); // graceful shutdown
+                }
+            }
+
+            var threadListener = new Thread(readDriver.GetTransactionUntilShutDown);
+            threadListener.Start();
+
+
+            app.Lifetime.ApplicationStopping.Register(async () =>
+            {
+          
+                readDriver.SetShutDownFlag();
+                Thread.Sleep(1000);
+                
+            });
+
+
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())

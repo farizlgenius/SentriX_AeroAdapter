@@ -8,9 +8,9 @@ namespace AeroAdapter.Infrastructure.Writer;
 
 public sealed class CommandWrite(AppDbContext context) : ICommandWriter
 {
-    public async Task<bool> SystemLevelSpecification()
+    public bool SystemLevelSpecification()
     {
-        var data = await context.SystemLevelSpecifications.OrderByDescending(x => x.id).FirstOrDefaultAsync();
+        var data = context.SystemLevelSpecifications.OrderByDescending(x => x.id).FirstOrDefault();
         if(data == null)
             return false;
 
@@ -25,7 +25,31 @@ public sealed class CommandWrite(AppDbContext context) : ICommandWriter
         {
             c.nDebugArg[i] = data.n_debug_arg;
         }
-        return Send((short)enCfgCmnd.enCcSystem,c);
+        var result = Send((short)enCfgCmnd.enCcSystem,c);
+        if(result)
+            Console.WriteLine("System level specification command sent successfully.");
+        return result;
+    }
+
+    public bool CreateChannel()
+    {
+
+        CC_CHANNEL c = new CC_CHANNEL();
+        c.nChannelId = 1;
+        c.cType = 7;
+        c.cPort = 3333;
+        c.baud_rate = 0;
+        c.timer1 = 3000;
+        c.timer2 = 0;
+        for(int i= 0;i < c.cModemId.Length;i++)
+        {
+            c.cModemId[i] = '\0';
+        }
+        c.cRTSMode = 0;
+        var result = Send((short)enCfgCmnd.enCcCreateChannel,c);
+        if(result)
+            Console.WriteLine("Create channel command sent successfully.");
+        return result;
     }
 
     //private readonly ConcurrentDictionary<Guid, int> _pending = new();

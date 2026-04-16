@@ -16,6 +16,7 @@ public sealed class BackgroundWorker(Channel<SCPReplyMessageDto> queue, IService
 {
     protected async override Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        Console.WriteLine("Background worker started.");
         while (!stoppingToken.IsCancellationRequested)
         {
             // Message Broker
@@ -256,6 +257,9 @@ public sealed class BackgroundWorker(Channel<SCPReplyMessageDto> queue, IService
                             break;
                         case (int)enSCPReplyType.enSCPReplyIDReport:
                             // await hw.HandleFoundHardware(message);
+                            Console.WriteLine("Id : " + message.id.scp_id);
+                            Console.WriteLine("Major : " + message.id.sft_rev_major);
+                            Console.WriteLine("Minor : " + message.id.sft_rev_minor);
                             break;
                         case (int)enSCPReplyType.enSCPReplyCommStatus:
                             // hw = scope.ServiceProvider.GetRequiredService<IDeviceService>();

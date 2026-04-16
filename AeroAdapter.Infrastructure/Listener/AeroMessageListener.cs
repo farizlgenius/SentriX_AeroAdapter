@@ -4,11 +4,12 @@ using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Infrastructure.Helpers;
 using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace AeroAdapter.Infrastructure.Listener;
 
-public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Channel<SCPReplyMessageDto> queue,IObjectMapper mapper)
+public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Channel<SCPReplyMessageDto> queue,IServiceScopeFactory factory)
 {
       private bool _shutdownFlag;
 
@@ -29,6 +30,7 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
 
       private void GetTransaction()
       {
+            var mapper = factory.CreateScope().ServiceProvider.GetRequiredService<IObjectMapper>();
             SCPReplyMessage message = new SCPReplyMessage();
             if (message.GetMessage())
             {
@@ -64,6 +66,8 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
                         break;
                   case (int)enSCPReplyType.enSCPReplyIDReport:
                         logger.LogInformation(ScpReplyMessageBuilder.IdReportMessage(message));
+                        logger.LogInformation(ScpReplyMessageBuilder.ToJsonString(message));
+                        logger.LogInformation(ScpReplyMessageBuilder.ToString(message));
                         queue.Writer.TryWrite(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplyTranStatus:
