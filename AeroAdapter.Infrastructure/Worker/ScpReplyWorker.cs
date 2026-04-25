@@ -1,77 +1,32 @@
 using System;
 using System.Threading.Channels;
-using AeroAdapter.Domain.Entities;
-using AeroAdapter.Infrastructure.Helpers;
-using AeroAdapter.Infrastructure.Messaging;
+using AeroAdapter.Application.Interfaces;
+
 using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
 namespace AeroAdapter.Infrastructure.Worker;
 
-public sealed class BackgroundWorker(Channel<SCPReplyMessageDto> queue, IServiceScopeFactory scopeFactory) : BackgroundService
+public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<ScpReplyWorker> logger,IServiceScopeFactory scopeFactory) : BackgroundService
 {
     protected async override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         Console.WriteLine("Background worker started.");
         while (!stoppingToken.IsCancellationRequested)
         {
-            // Message Broker
-            using var scope = scopeFactory.CreateScope();
-            var factory = scope.ServiceProvider.GetRequiredService<IRabbitMqFactory>();
-            var connection = await factory.GetConnectionAsync();
-            var channel = await connection.CreateChannelAsync();
-
-            await channel.ExchangeDeclareAsync("sentrix-exchange", ExchangeType.Topic, true);
-
-            await channel.QueueDeclareAsync("aero-device-queue", true, false, false);
-
-            await channel.QueueBindAsync(
-                queue: "aero-device-queue",
-                exchange: "sentrix-exchange",
-                routingKey: "device.aero.create");
-
-            var consumer = new AsyncEventingBasicConsumer(channel);
-
-            consumer.ReceivedAsync += async (sender, ea) =>
-{
-    try
-    {
-        var message = MessageHelper.Deserialize<Event>(ea.Body.ToArray());
-
-    
-        Console.WriteLine("AERO Adapter received:");
-        Console.WriteLine($"Type: {message.DeviceType}");
-        Console.WriteLine($"Event: {message.EventType}");
-         Console.WriteLine($"Metadata: {message.Metadata}");
-
-        await Task.Delay(500);
-
-        await channel.BasicAckAsync(ea.DeliveryTag, false);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error: {ex.Message}");
-
-        await channel.BasicNackAsync(ea.DeliveryTag, false, false); // requeue
-    }
-};
-
-            await channel.BasicConsumeAsync("aero-device-queue", false, consumer);
-
-
-
-
-
+            
             // Aero Message
             await foreach (var message in queue.Reader.ReadAllAsync(stoppingToken))
             {
                 Console.WriteLine("Message received");
 
-                // using var scope = scopeFactory.CreateScope();
+                using var scope = scopeFactory.CreateScope();
                 // var qhw = scope.ServiceProvider.GetRequiredService<IDeviceRepository>();
                 // var rhw = scope.ServiceProvider.GetRequiredService<IDeviceRepository>();
                 // var hw = scope.ServiceProvider.GetRequiredService<IDeviceService>();
@@ -256,10 +211,8 @@ public sealed class BackgroundWorker(Channel<SCPReplyMessageDto> queue, IService
                             // await publisher.EventNotifyRecieve();
                             break;
                         case (int)enSCPReplyType.enSCPReplyIDReport:
-                            // await hw.HandleFoundHardware(message);
-                            Console.WriteLine("Id : " + message.id.scp_id);
-                            Console.WriteLine("Major : " + message.id.sft_rev_major);
-                            Console.WriteLine("Minor : " + message.id.sft_rev_minor);
+                            var scp = scope.ServiceProvider.GetRequiredService<IScpService>();
+                            scp.HandleIdReport(message.id);
                             break;
                         case (int)enSCPReplyType.enSCPReplyCommStatus:
                             // hw = scope.ServiceProvider.GetRequiredService<IDeviceService>();
@@ -357,6 +310,7 @@ public sealed class BackgroundWorker(Channel<SCPReplyMessageDto> queue, IService
                 catch (Exception ex)
                 {
                     ///
+                    logger.LogError(ex.Message);
                 }
 
 

@@ -9,6 +9,10 @@ public sealed class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
     public DbSet<SystemLevelSpecification> SystemLevelSpecifications {get; set;}
     public DbSet<CreateChannel> CreateChannels {get; set;}
+    public DbSet<Scp> Scps {get; set;}
+    public DbSet<ScpDeviceSpecification> ScpDeviceSpecifications {get; set;}
+    public DbSet<AccessDatabaseSpecification> AccessDatabaseSpecifications {get; set;}
+    public DbSet<WriterAudit> WriterAudits {get; set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -43,6 +47,64 @@ public sealed class AppDbContext : DbContext
                 c_model_id = 0,
                 c_rts_mode = 0
             }
+        );
+
+        modelBuilder.Entity<ScpDeviceSpecification>()
+        .HasData(
+            new ScpDeviceSpecification
+            {
+                id=1,
+                scp_id = 0,
+                mac = string.Empty,
+                n_msp1_port = 3,
+                n_transcations = 60000,
+                n_sio = 33,
+                n_mp = 615,
+                n_cp = 388,
+                n_acr = 64,
+                n_alvl = 32000,
+                n_trgr = 1024,
+                n_proc = 1024,
+                gmt_offset = -25200,
+                n_dst_id = 0,
+                n_tz = 255,
+                n_hol = 255,
+                n_mpg = 128,
+                n_tran_limit = 60000,
+                n_oper_mode = 0,
+                oper_type = 1,
+                n_language = 0
+            }
+        );
+
+        modelBuilder.Entity<AccessDatabaseSpecification>()
+        .HasData(
+            new AccessDatabaseSpecification
+            {
+                id=1,
+                scp_id = 0,
+                mac = string.Empty,
+                n_card = 1000,
+                n_alvl = 8,
+                n_pin_digits = 324,
+                b_issue_code = 1,
+                b_apb_location = 1,
+                b_act_date = 2,
+                b_deact_date = 2,
+                b_vacation_date = 1,
+                b_upgrade_date = 1,
+                b_user_level = 7,
+                b_use_limit = 1,
+                b_support_time_apb = 1,
+                n_tz = 64,
+                b_asset_group = 0,
+                n_host_response_timeout = 5,
+                n_alvl_use4arg = 0,
+                n_escort_timeout = 15,
+                n_multi_card_timeout = 15,
+
+            }
+
         );
     }
 }

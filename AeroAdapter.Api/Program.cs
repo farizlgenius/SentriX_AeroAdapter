@@ -23,7 +23,10 @@ public class Program
         // Configuration Filerovider => provider.GetRequiredService<BackgroundWorker>()
         //=============
         ConfigurationFile.ReadConfiguration(builder);
-        builder.Services.AddHostedService<AeroAdapter.Infrastructure.Worker.BackgroundWorker>();
+        
+        //=============
+        // Configuration RabbitMQ
+        //=============
         builder.Services.AddOptions<RabbitMqOption>()
         .Bind(builder.Configuration.GetSection("RabbitMQ"))
         .ValidateOnStart();
@@ -40,15 +43,18 @@ public class Program
                 )
              );
 
+        //=============
+        // Configuration Dependency Injection
+        //=============
+        DISetting.DISettingHelper(builder);
+
         // Add services to the container.
         builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(
                     builder.Configuration.GetConnectionString("PostgresConnection"),
                     npgsqlOptions => npgsqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)
                     ));
-        builder.Services.AddScoped<ICommandWriter, CommandWrite>();
-        builder.Services.AddScoped<IObjectMapper, DeepReflectionMapper>();
-        builder.Services.AddSingleton<AeroMessageListener>();
+        
 
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -61,7 +67,8 @@ public class Program
 
         using (var scope = app.Services.CreateScope())
             {
-                var w = scope.ServiceProvider.GetRequiredService<ICommandWriter>();
+                var w = scope.ServiceProvider.GetRequiredService<IDriverWriter>();
+                var w2 = scope.ServiceProvider.GetRequiredService<IScpWriter>();
                 // Now you can safely use sys here
                 if(!w.SystemLevelSpecification())
                 {
@@ -70,7 +77,7 @@ public class Program
                 }
 
                 // Now you can safely use sys here
-                if(!w.CreateChannel())
+                if(!w2.CreateChannel())
                 {
                    Console.WriteLine("Initial driver failed. Shutting down app...");
                     app.Lifetime.StopApplication(); // graceful shutdown

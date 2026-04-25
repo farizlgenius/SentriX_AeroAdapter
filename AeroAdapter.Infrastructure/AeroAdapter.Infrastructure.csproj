@@ -12,11 +12,6 @@
     <Folder Include="Libs/Windows/" />
     <Folder Include="Listener\" />
     <Folder Include="Mapper\" />
-    <Folder Include="Persistences/" />
-    <Folder Include="Persistences/Entities/" />
-    <Folder Include="Repositories/" />
-    <Folder Include="Worker/" />
-    <Folder Include="Writer\" />
   </ItemGroup>
 
   <ItemGroup>

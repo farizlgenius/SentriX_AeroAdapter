@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Channels;
 using AeroAdapter.Application.Interfaces;
+using AeroAdapter.Domain.Helpers;
 using AeroAdapter.Infrastructure.Helpers;
 using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
@@ -66,8 +67,8 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
                         break;
                   case (int)enSCPReplyType.enSCPReplyIDReport:
                         logger.LogInformation(ScpReplyMessageBuilder.IdReportMessage(message));
-                        logger.LogInformation(ScpReplyMessageBuilder.ToJsonString(message));
-                        logger.LogInformation(ScpReplyMessageBuilder.ToString(message));
+                        logger.LogInformation(MessageHelper.ToJsonString(message));
+                        logger.LogInformation(MessageHelper.ToString(message));
                         queue.Writer.TryWrite(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplyTranStatus:

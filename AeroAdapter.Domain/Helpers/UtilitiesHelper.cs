@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Net;
 using System.Text;
 
-namespace AeroAdapter.Infrastructure.Helpers;
+namespace AeroAdapter.Domain.Helpers;
 
 public class UtilitiesHelper
 {

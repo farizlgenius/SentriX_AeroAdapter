@@ -1,8 +1,9 @@
 
 namespace AeroAdapter.Application.Interfaces;
 
-public interface ICommandWriter
+public interface IDriverWriter
 {
     bool SystemLevelSpecification();
-   bool CreateChannel(); 
+    
+   
 }
