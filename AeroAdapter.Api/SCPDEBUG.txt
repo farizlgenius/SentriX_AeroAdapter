@@ -1,10 +1,488 @@
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Thu Apr 16 23:30:06 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 20:59:59 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Thu Apr 16 23:31:09 2026
+12000.014 WSAStartup ok
+12000.016 RNG_X931A24 Initialized
+12000.016 1, enCcSystem: 011 1 1024 0 0 1
+12000.016 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+12000.022 listen(lsock) created socket=2136 on port 3333
+12000.022 Listen Successful, port: 3333
+12004.946  tcpIpAccept() lsock = 2136, sSock = 2584
+12004.946 Connection accepted from [::ffff:192.168.0.51]:47959
+12004.946 Found available channel object, Chnl-1
+12004.946 Incoming socket connection assigned to Chnl-1 (highest available)
+12004.946 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+12004.946 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+12004.952 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 63 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+12004.952 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+12004.952 Attached incoming Scp-1 as Primary
+12004.952 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+12004.952 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+12004.952 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 63 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+12004.952 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+12004.952 . D9 01 12 00 00 00
+12004.952 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+12004.952 > B0 0B 22 05 20 03 98 3A 00
+12004.952 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+12004.961 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+12005.020 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+12005.020 > FF FF FF FF
+12020.022 SCP detach: found it, detaching it, SCP-1, Chnl-1
+12020.022 scpCloseChannelSock(): Closing Socket-2584, Chnl-1
+12020.022 Setting SCP-1 for delete on IP Client detach
+12020.022 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+12020.022 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+12020.022 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+12020.022 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+12020.022 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+12020.022 Did not find any SCPs to delete on detach, clear pending delete flag
+12025.106  tcpIpAccept() lsock = 2136, sSock = 2608
+12025.106 Connection accepted from [::ffff:192.168.0.51]:47960
+12025.106 Found available channel object, Chnl-1
+12025.106 Incoming socket connection assigned to Chnl-1 (highest available)
+12025.106 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+12025.106 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+12025.118 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 77 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+12025.118 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+12025.118 Attached incoming Scp-1 as Primary
+12025.118 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+12025.118 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+12025.118 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 77 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+12025.118 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+12025.118 . D9 01 12 00 00 00
+12025.118 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+12025.118 > B0 0B 22 05 20 03 98 3A 00
+12025.118 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+12025.118 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+12025.174 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+12025.174 > FF FF FF FF
+12040.179 SCP detach: found it, detaching it, SCP-1, Chnl-1
+12040.179 scpCloseChannelSock(): Closing Socket-2608, Chnl-1
+12040.179 Setting SCP-1 for delete on IP Client detach
+12040.179 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+12040.179 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+12040.179 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+12040.183 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+12040.183 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+12040.183 Did not find any SCPs to delete on detach, clear pending delete flag
+12045.258  tcpIpAccept() lsock = 2136, sSock = 2220
+12045.258 Connection accepted from [::ffff:192.168.0.51]:47961
+12045.258 Found available channel object, Chnl-1
+12045.258 Incoming socket connection assigned to Chnl-1 (highest available)
+12045.258 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+12045.258 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+12045.269 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 8C 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+12045.269 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+12045.269 Attached incoming Scp-1 as Primary
+12045.269 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+12045.269 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+12045.269 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 8C 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+12045.269 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+12045.269 . D9 01 12 00 00 00
+12045.269 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+12045.269 > B0 0B 22 05 20 03 98 3A 00
+12045.269 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+12045.269 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+12045.327 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+12045.327 > FF FF FF FF
+12060.320 SCP detach: found it, detaching it, SCP-1, Chnl-1
+12060.320 scpCloseChannelSock(): Closing Socket-2220, Chnl-1
+12060.320 Setting SCP-1 for delete on IP Client detach
+12060.320 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+12060.320 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+12060.320 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+12060.321 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+12060.321 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+12060.321 Did not find any SCPs to delete on detach, clear pending delete flag
+12065.393  tcpIpAccept() lsock = 2136, sSock = 2224
+12065.393 Connection accepted from [::ffff:192.168.0.51]:47962
+12065.393 Found available channel object, Chnl-1
+12065.393 Incoming socket connection assigned to Chnl-1 (highest available)
+12065.393 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+12065.393 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+12065.408 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 A0 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+12065.408 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+12065.408 Attached incoming Scp-1 as Primary
+12065.408 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+12065.408 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+12065.408 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 A0 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+12065.408 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+12065.408 . D9 01 12 00 00 00
+12065.408 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+12065.408 > B0 0B 22 05 20 03 98 3A 00
+12065.408 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+12065.408 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+12065.473 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+12065.473 > FF FF FF FF
+12068.920 Shutting down debug Thread...
+File closed Sun Apr 26 21:01:08 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:08:33 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Thu Apr 16 23:33:18 2026
+12514.066 WSAStartup ok
+12514.067 RNG_X931A24 Initialized
+12514.067 1, enCcSystem: 011 1 1024 0 0 1
+12514.068 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+12514.073 listen(lsock) created socket=2136 on port 3333
+12514.073 Listen Successful, port: 3333
+12517.521  tcpIpAccept() lsock = 2136, sSock = 2536
+12517.521 Connection accepted from [::ffff:192.168.0.51]:47977
+12517.521 Found available channel object, Chnl-1
+12517.521 Incoming socket connection assigned to Chnl-1 (highest available)
+12517.521 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+12517.521 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+12517.530 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 64 1C EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+12517.530 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+12517.530 Attached incoming Scp-1 as Primary
+12517.530 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+12517.530 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+12517.530 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 64 1C EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+12517.530 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+12517.530 . D9 01 12 00 00 00
+12517.530 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+12517.530 > B0 0B 22 05 20 03 98 3A 00
+12517.530 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+12517.537 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+12517.591 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+12517.591 > FF FF FF FF
+12517.841 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+12517.841 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
+12517.841 > 01 18 00 00 00
+12517.841 > 02 60 EA 00 00
+12517.841 > 03 FC 03 00 00
+12517.841 > 04 FF 00 00 00
+12517.842 > 05 FF 00 00 00
+12517.842 > 06 03 00 00 00
+12517.842 > 07 21 00 00 00
+12517.842 > 08 80 00 00 00
+12517.842 > 09 84 01 00 00
+12517.842 > 0A 40 00 00 00
+12517.842 > 0C 00 7D 00 00
+12517.842 > 0D 00 04 00 00
+12517.842 > 0E 00 04 00 00
+12517.842 > 10 01 00 00 00
+12517.847 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 22 81 02 00 09 00
+12517.847 > 04 06 00 00 00 02 02 00 00
+12517.847 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+12517.847 > 00 00 80 00
+12517.847 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+12517.852 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 23 81 02 00 05 00
+12517.852 > 04 00 00 00 00
+12517.852 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+12517.852 > 60 EA 00 00
+12517.852 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+12517.858 Command Status: Scp-1.0, (tag-3-ok)
+12517.939 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+12517.939 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 03 07 01 00 2A 00
+12517.939 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+12517.939 . 0F 0F 00 00 00 00 00
+12517.942 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 01 02 02 00 05 00
+12517.942 > 0B E8 03 00 00
+12517.942 Command Status: Scp-1.0, (tag-4-ok)
+12517.947 Command Status: Scp-1.0, (tag-5-ok)
+12517.947 1(6), enCcTime: 0302 1 0
+12517.952 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 03 01 04 00 09 00
+12517.952 > 65 1C EE 69 90 9D FF FF 00
+12517.952 1(7), enCcMsp1: 0108 0 1 0 3 -1 90 0 0
+12517.957 1(9), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+12517.958 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 15 00 01 03 01 00 09 00
+12517.958 > 03 00 FF FF 5A 00 02 00 00
+12517.958 Command Status: Scp-1.0, (tag-6-ok)
+12517.964 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 22 00 02 03 02 00 16 00
+12517.964 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+12517.964 Command Status: Scp-1.0, (tag-7-ok)
+12517.969 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 13 00 03 03 03 00 07 00
+12517.969 > 00 01 00 00 00 03 00
+12517.969 Command Status: Scp-1.0, (tag-8-ok)
+12517.974 Command Status: Scp-1.0, (tag-9-ok)
+12733.730 Shutting down debug Thread...
+File closed Sun Apr 26 21:12:13 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:34:44 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Thu Apr 16 23:36:46 2026
+14085.058 WSAStartup ok
+14085.059 RNG_X931A24 Initialized
+14085.059 1, enCcSystem: 011 1 1024 0 0 1
+14085.061 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+14085.065 listen(lsock) created socket=2140 on port 3333
+14085.065 Listen Successful, port: 3333
+14088.802  tcpIpAccept() lsock = 2140, sSock = 2544
+14088.802 Connection accepted from [::ffff:192.168.0.51]:48023
+14088.802 Found available channel object, Chnl-1
+14088.802 Incoming socket connection assigned to Chnl-1 (highest available)
+14088.802 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+14088.802 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+14088.822 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 87 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+14088.822 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+14088.822 Attached incoming Scp-1 as Primary
+14088.822 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+14088.822 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+14088.822 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 87 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+14088.822 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+14088.822 . D9 01 12 00 00 00
+14088.822 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+14088.822 > B0 0B 22 05 20 03 98 3A 00
+14088.822 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+14088.824 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+14088.881 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+14088.881 > FF FF FF FF
+14092.441 Shutting down debug Thread...
+File closed Sun Apr 26 21:34:52 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:35:31 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Mon Apr 20 21:35:33 2026
+14132.649 WSAStartup ok
+14132.649 RNG_X931A24 Initialized
+14132.649 1, enCcSystem: 011 1 1024 0 0 1
+14132.653 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+14132.658 listen(lsock) created socket=2136 on port 3333
+14132.658 Listen Successful, port: 3333
+14134.548  tcpIpAccept() lsock = 2136, sSock = 2564
+14134.548 Connection accepted from [::ffff:192.168.0.51]:48025
+14134.548 Found available channel object, Chnl-1
+14134.548 Incoming socket connection assigned to Chnl-1 (highest available)
+14134.548 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+14134.548 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+14134.564 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 B5 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+14134.564 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+14134.564 Attached incoming Scp-1 as Primary
+14134.564 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+14134.564 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+14134.564 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 B5 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+14134.564 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+14134.564 . D9 01 12 00 00 00
+14134.564 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+14134.564 > B0 0B 22 05 20 03 98 3A 00
+14134.564 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+14134.575 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+14134.627 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+14134.627 > FF FF FF FF
+14135.020 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+14135.020 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
+14135.020 > 01 18 00 00 00
+14135.020 > 02 60 EA 00 00
+14135.020 > 03 FC 03 00 00
+14135.020 > 04 FF 00 00 00
+14135.020 > 05 FF 00 00 00
+14135.020 > 06 03 00 00 00
+14135.020 > 07 21 00 00 00
+14135.020 > 08 80 00 00 00
+14135.020 > 09 84 01 00 00
+14135.020 > 0A 40 00 00 00
+14135.020 > 0C 00 7D 00 00
+14135.020 > 0D 00 04 00 00
+14135.020 > 0E 00 04 00 00
+14135.020 > 10 01 00 00 00
+14135.037 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 22 81 02 00 09 00
+14135.037 > 04 06 00 00 00 02 02 00 00
+14135.037 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+14135.037 > 00 00 80 00
+14135.037 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+14135.045 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 23 81 02 00 05 00
+14135.045 > 04 00 00 00 00
+14135.045 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+14135.045 > 60 EA 00 00
+14135.045 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+14135.045 Command Status: Scp-1.0, (tag-3-ok)
+14135.121 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+14135.121 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 03 07 01 00 2A 00
+14135.121 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+14135.121 . 0F 0F 00 00 00 00 00
+14135.137 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 01 02 02 00 05 00
+14135.137 > 0B E8 03 00 00
+14135.137 Command Status: Scp-1.0, (tag-4-ok)
+14135.140 1(6), enCcTime: 0302 1 0
+14135.142 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 02 01 04 00 09 00
+14135.142 > B7 22 EE 69 90 9D FF FF 00
+14135.142 Command Status: Scp-1.0, (tag-5-ok)
+14135.146 1(7), enCcMsp1: 0108 0 1 0 3 -1 90 0 0
+14135.148 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 15 00 03 03 01 00 09 00
+14135.148 > 03 00 FF FF 5A 00 02 00 00
+14135.148 Command Status: Scp-1.0, (tag-6-ok)
+14135.149 1(9), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+14135.154 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 22 00 01 03 02 00 16 00
+14135.154 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+14135.154 Command Status: Scp-1.0, (tag-7-ok)
+14135.157 1(10), enCcInput: 0110 0 1 -1 -1 0 2 5
+14135.160 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 13 00 02 03 03 00 07 00
+14135.160 > 00 01 00 00 00 03 00
+14135.160 Command Status: Scp-1.0, (tag-8-ok)
+14135.162 1(10), enCcInput: 0110 0 1 -1 -1 0 2 5
+14135.165 1(10), enCcInput: 0110 0 1 -1 -1 0 2 5
+14135.165 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 1B 00 03 04 01 00 05 00
+14135.165 > FF FF 00 02 05
+14135.165 > FF FF 00 02 05
+14135.165 > FF FF 00 02 05
+14135.165 Command Status: Scp-1.0, (tag-9-ok)
+14135.165 1(11), enCcInput: 0110 0 1 -1 -1 0 2 5
+14135.172 Chnl-1, SCP-1.0 (32/0), (10) rx: 6B 80 11 00 23 81 02 00 05 00
+14135.172 > 04 00 00 00 00
+14135.172 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 11 00 01 04 01 00 05 00
+14135.172 > FF FF 00 02 05
+14135.172 Command Status: Scp-1.0, (tag-10-nak), NAK: reason:4, rec=0
+14135.178 Chnl-1, SCP-1.0 (32/0), (11) rx: 6B 80 11 00 21 81 02 00 05 00
+14135.178 > 04 00 00 00 00
+14135.178 Command Status: Scp-1.0, (tag-11-nak), NAK: reason:4, rec=0
+14147.124 Shutting down debug Thread...
+File closed Sun Apr 26 21:35:47 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:38:13 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+14294.705 WSAStartup ok
+14294.706 RNG_X931A24 Initialized
+14294.706 1, enCcSystem: 011 1 1024 0 0 1
+14294.708 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+14294.714 listen(lsock) created socket=2156 on port 3333
+14294.714 Listen Successful, port: 3333
+14302.249  tcpIpAccept() lsock = 2156, sSock = 2580
+14302.249 Connection accepted from [::ffff:192.168.0.51]:48031
+14302.249 Found available channel object, Chnl-1
+14302.249 Incoming socket connection assigned to Chnl-1 (highest available)
+14302.249 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+14302.249 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+14302.261 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 5D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+14302.261 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+14302.261 Attached incoming Scp-1 as Primary
+14302.261 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+14302.261 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+14302.261 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 5D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+14302.261 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+14302.261 . D9 01 12 00 00 00
+14302.262 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+14302.262 > B0 0B 22 05 20 03 98 3A 00
+14302.262 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+14302.270 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+14302.323 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+14302.323 > FF FF FF FF
+14317.319 SCP detach: found it, detaching it, SCP-1, Chnl-1
+14317.319 scpCloseChannelSock(): Closing Socket-2580, Chnl-1
+14317.319 Setting SCP-1 for delete on IP Client detach
+14317.319 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+14317.319 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+14317.322 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+14317.323 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+14317.323 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+14317.323 Did not find any SCPs to delete on detach, clear pending delete flag
+14322.401  tcpIpAccept() lsock = 2156, sSock = 2528
+14322.401 Connection accepted from [::ffff:192.168.0.51]:48032
+14322.401 Found available channel object, Chnl-1
+14322.401 Incoming socket connection assigned to Chnl-1 (highest available)
+14322.401 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+14322.401 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+14322.412 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 71 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+14322.412 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+14322.412 Attached incoming Scp-1 as Primary
+14322.412 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+14322.412 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+14322.412 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 71 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+14322.412 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+14322.412 . D9 01 12 00 00 00
+14322.412 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+14322.412 > B0 0B 22 05 20 03 98 3A 00
+14322.412 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+14322.413 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+14322.468 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+14322.468 > FF FF FF FF
+14325.681 Shutting down debug Thread...
+File closed Sun Apr 26 21:38:45 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:38:52 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+14333.406 WSAStartup ok
+14333.408 RNG_X931A24 Initialized
+14333.408 1, enCcSystem: 011 1 1024 0 0 1
+14333.410 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+14333.416 listen(lsock) created socket=2148 on port 3333
+14333.416 Listen Successful, port: 3333
+14333.783  tcpIpAccept() lsock = 2148, sSock = 2484
+14333.783 Connection accepted from [::ffff:192.168.0.51]:48033
+14333.783 Found available channel object, Chnl-1
+14333.783 Incoming socket connection assigned to Chnl-1 (highest available)
+14333.783 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+14333.783 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+14333.793 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 7D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+14333.793 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+14333.793 Attached incoming Scp-1 as Primary
+14333.793 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+14333.793 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+14333.793 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 7D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+14333.793 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+14333.793 . D9 01 12 00 00 00
+14333.793 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+14333.793 > B0 0B 22 05 20 03 98 3A 00
+14333.793 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+14333.802 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+14333.851 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+14333.851 > FF FF FF FF
+14334.211 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+14334.211 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
+14334.212 > 01 18 00 00 00
+14334.212 > 02 60 EA 00 00
+14334.212 > 03 FC 03 00 00
+14334.212 > 04 FF 00 00 00
+14334.213 > 05 FF 00 00 00
+14334.213 > 06 03 00 00 00
+14334.213 > 07 21 00 00 00
+14334.213 > 08 80 00 00 00
+14334.213 > 09 84 01 00 00
+14334.213 > 0A 40 00 00 00
+14334.213 > 0C 00 7D 00 00
+14334.213 > 0D 00 04 00 00
+14334.213 > 0E 00 04 00 00
+14334.213 > 10 01 00 00 00
+14334.218 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 22 81 02 00 09 00
+14334.218 > 04 06 00 00 00 02 02 00 00
+14334.218 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+14334.218 > 00 00 80 00
+14334.219 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+14334.225 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 23 81 02 00 05 00
+14334.225 > 04 00 00 00 00
+14334.225 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+14334.225 > 60 EA 00 00
+14334.225 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+14334.230 Command Status: Scp-1.0, (tag-3-ok)
+14334.310 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+14334.310 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 03 07 01 00 2A 00
+14334.310 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+14334.310 . 0F 0F 00 00 00 00 00
+14334.313 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 01 02 02 00 05 00
+14334.313 > 0B E8 03 00 00
+14334.313 Command Status: Scp-1.0, (tag-4-ok)
+14334.318 1(6), enCcTime: 0302 1 0
+14334.321 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 02 01 04 00 09 00
+14334.321 > 7E 23 EE 69 90 9D FF FF 00
+14334.321 Command Status: Scp-1.0, (tag-5-ok)
+14334.324 1(7), enCcMsp1: 0108 0 1 0 3 -1 90 0 0
+14334.327 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 15 00 03 03 01 00 09 00
+14334.328 > 03 00 FF FF 5A 00 02 00 00
+14334.328 Command Status: Scp-1.0, (tag-6-ok)
+14334.330 1(9), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+14334.333 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 22 00 01 03 02 00 16 00
+14334.333 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+14334.333 Command Status: Scp-1.0, (tag-7-ok)
+14334.338 1(10), enCcInput: 0110 0 1 0 -1 0 2 5
+14334.339 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 13 00 02 03 03 00 07 00
+14334.340 > 00 01 00 00 00 03 00
+14334.340 Command Status: Scp-1.0, (tag-8-ok)
+14334.342 1(10), enCcInput: 0110 0 1 0 -1 0 2 5
+14334.345 1(10), enCcInput: 0110 0 1 0 -1 0 2 5
+14334.346 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 1B 00 03 04 01 00 05 00
+14334.346 > 00 FF 00 02 05
+14334.346 > 00 FF 00 02 05
+14334.346 > 00 FF 00 02 05
+14334.346 Command Status: Scp-1.0, (tag-9-ok)
+14334.349 1(11), enCcInput: 0110 0 1 0 -1 0 2 5
+14334.352 Chnl-1, SCP-1.0 (32/0), (10) rx: 6B 80 11 00 23 81 02 00 05 00
+14334.352 > 04 00 00 00 00
+14334.353 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 11 00 01 04 01 00 05 00
+14334.353 > 00 FF 00 02 05
+14334.353 Command Status: Scp-1.0, (tag-10-nak), NAK: reason:4, rec=0
+14334.357 Chnl-1, SCP-1.0 (32/0), (11) rx: 6B 80 11 00 21 81 02 00 05 00
+14334.357 > 04 00 00 00 00
+14334.357 Command Status: Scp-1.0, (tag-11-nak), NAK: reason:4, rec=0
+14343.643 Shutting down debug Thread...
+File closed Sun Apr 26 21:39:03 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:41:01 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+14462.385 WSAStartup ok
+14462.386 RNG_X931A24 Initialized
+14462.386 1, enCcSystem: 011 1 1024 0 0 1
+14462.391 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+14462.398 listen(lsock) created socket=2148 on port 3333
+14462.398 Listen Successful, port: 3333
+14464.796 Shutting down debug Thread...
+File closed Sun Apr 26 21:41:04 2026

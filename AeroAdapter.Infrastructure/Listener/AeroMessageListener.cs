@@ -21,6 +21,36 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
             _shutdownFlag = true;
       }
 
+      public void TurnOffDebug()
+      {
+            bool flag = SCPDLL.scpDebugSet((int)enSCPDebugLevel.enSCPDebugOff);
+            if (flag)
+            {
+                  Console.WriteLine("Debug to file off");
+            }
+            else
+            {
+                  Console.WriteLine("Debug to file on");
+            }
+      }
+
+      //////
+      // Method: Turn on debug to file
+      //////
+      public void TurnOnDebug()
+      {
+            bool flag = SCPDLL.scpDebugSet((int)enSCPDebugLevel.enSCPDebugToFile);
+            if (flag)
+            {
+                  Console.WriteLine("Debug to file on");
+            }
+            else
+            {
+                  Console.WriteLine("Debug to file off");
+            }
+
+      }
+
       public void GetTransactionUntilShutDown()
       {
             while (_shutdownFlag == false)
@@ -67,8 +97,6 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
                         break;
                   case (int)enSCPReplyType.enSCPReplyIDReport:
                         logger.LogInformation(ScpReplyMessageBuilder.IdReportMessage(message));
-                        logger.LogInformation(MessageHelper.ToJsonString(message));
-                        logger.LogInformation(MessageHelper.ToString(message));
                         queue.Writer.TryWrite(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplyTranStatus:

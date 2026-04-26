@@ -3,6 +3,7 @@ using System;
 using AeroAdapter.Infrastructure.Persistences;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AeroAdapter.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260426135402_ChangeDriverConfigTableAgain")]
+    partial class ChangeDriverConfigTableAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,62 +248,6 @@ namespace AeroAdapter.Infrastructure.Migrations
                             port_number = (short)3,
                             reply_time = (short)0,
                             scp_id = (short)0,
-                            updated_at = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
-                });
-
-            modelBuilder.Entity("AeroAdapter.Infrastructure.Persistences.Entities.InputPointSpecification", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
-
-                    b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<short>("debounce")
-                        .HasColumnType("smallint");
-
-                    b.Property<short>("hold_time")
-                        .HasColumnType("smallint");
-
-                    b.Property<short>("icvt_num")
-                        .HasColumnType("smallint");
-
-                    b.Property<short>("input_number")
-                        .HasColumnType("smallint");
-
-                    b.Property<string>("mac")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<short>("scp_id")
-                        .HasColumnType("smallint");
-
-                    b.Property<short>("sio_number")
-                        .HasColumnType("smallint");
-
-                    b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("id");
-
-                    b.ToTable("InputPointSpecifications");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            created_at = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            debounce = (short)2,
-                            hold_time = (short)5,
-                            icvt_num = (short)0,
-                            input_number = (short)0,
-                            mac = "",
-                            scp_id = (short)0,
-                            sio_number = (short)0,
                             updated_at = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });

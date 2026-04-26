@@ -727,19 +727,10 @@ public class SCPReplyMessageDto
     public class SCPReplyStrStatusDto
     {
         public short nListLength { get; set; }
-        public StrSpe[] sStrSpec { get; set; } = default!;
+        public StrSpecDto[] sStrSpec { get; set; } = default!;
     }
 
-    public class StrSpe
-    {
-         public short nStrType {get; set;}
 
-        public int nRecords {get;set;}
-
-      public int nRecSize {get; set;}
-
-      public int nActive {get; set;}
-    }
 
     public class sior_idrDto
     {

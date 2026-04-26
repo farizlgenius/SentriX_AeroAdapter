@@ -1,4 +1,5 @@
 using System;
+using AeroAdapter.Application.DTOs;
 using AeroAdapter.Domain.Entities;
 using AeroAdapter.Domain.Enums;
 
@@ -16,7 +17,9 @@ public interface IScpWriter
       Task<bool> TimeSet(short ScpId);
       
       bool CreateChannel();
+      bool SendASCIICommandAsync(ASCIICommandDto Command);
       
       Task<bool> WebConfigRead(short ScpId,WebConfigReadType Type);  
+      Task<bool> DriverConfiguration(short ScpId,DriverConfiguration config);
 
 }

@@ -1,4 +1,5 @@
 using System;
+using AeroAdapter.Application.DTOs;
 using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Domain.Entities;
 using AeroAdapter.Domain.Enums;
@@ -15,7 +16,7 @@ public sealed class ScpWriter(ILogger<ScpWriter> logger,IWriterRepository writer
       {
             CC_SCP_ADBS c = new CC_SCP_ADBS();
             c.lastModified = 0;
-            c.nScpID = spec.ScpId;
+            c.nScpID = ScpId;
             c.nCards = spec.nCards;
             c.nAlvl = spec.nAlvl;
             c.nPinDigits = spec.nPinDigit;
@@ -41,13 +42,14 @@ public sealed class ScpWriter(ILogger<ScpWriter> logger,IWriterRepository writer
             if (result)
             {
                   logger.LogInformation(MessageHelper.CommandSuccess(WriterType.AccessDatabaseSpecification,ScpId));
-                  await writer.AddWriterAuditAsync(ScpId,WriterType.AccessDatabaseSpecification,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToJsonString(c));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.AccessDatabaseSpecification,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToString(c));
                   return true;
                   
             }
             else
             {
                   logger.LogError(MessageHelper.CommandUnsuccess(WriterType.AccessDatabaseSpecification,ScpId));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.AccessDatabaseSpecification,0,MessageHelper.ToString(c),WriterStatus.FAILED.ToString());
                   return false;
                  
             }
@@ -75,6 +77,34 @@ public sealed class ScpWriter(ILogger<ScpWriter> logger,IWriterRepository writer
             logger.LogInformation("Create channel command sent successfully.");
         return result;
     }
+
+      public async Task<bool> DriverConfiguration(short ScpId, DriverConfiguration config)
+      {
+            
+        CC_MSP1 c = new CC_MSP1();
+        c.lastModified = 0;
+        c.scp_number = ScpId;
+        c.msp1_number = config.Msp1Number;
+        c.port_number = config.PortNumber;
+        c.baud_rate = config.Baudrate;
+        c.reply_time = config.ReplyTime;
+        c.nProtocol = config.nProtocol;
+        c.nDialect = config.nDialect;
+        var result = Send((short)enCfgCmnd.enCcMsp1,c);
+        if (result)
+            {
+                  logger.LogInformation(MessageHelper.CommandSuccess(WriterType.DriverConfiguration,ScpId));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.DriverConfiguration,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToString(c));
+                  return true;
+                  
+            }
+            else
+            {
+                  logger.LogError(MessageHelper.CommandUnsuccess(WriterType.DriverConfiguration,ScpId));
+                  return false;
+                 
+            }
+      }
 
       public async Task<bool> ScpDeviceSpecification(short ScpId,ScpDeviceSpecification spec)
       {
@@ -110,17 +140,23 @@ public sealed class ScpWriter(ILogger<ScpWriter> logger,IWriterRepository writer
             if (result)
             {
                   logger.LogInformation(MessageHelper.CommandSuccess(WriterType.ScpDeviceSpecification,ScpId));
-                  await writer.AddWriterAuditAsync(ScpId,WriterType.ScpDeviceSpecification,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToJsonString(c));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.ScpDeviceSpecification,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToString(c));
                   return true;
                   
             }
             else
             {
                   logger.LogError(MessageHelper.CommandUnsuccess(WriterType.ScpDeviceSpecification,ScpId));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.ScpDeviceSpecification,0,MessageHelper.ToString(c),WriterStatus.FAILED.ToString());
                   return false;
                  
             }
                   
+      }
+
+      public bool SendASCIICommandAsync(ASCIICommandDto Command)
+      {
+            return SCPDLL.scpConfigCommand(Command.Command);
       }
 
       public async Task<bool> TimeSet(short ScpId)
@@ -132,13 +168,14 @@ public sealed class ScpWriter(ILogger<ScpWriter> logger,IWriterRepository writer
             if (result)
             {
                   logger.LogInformation(MessageHelper.CommandSuccess(WriterType.TimeSet,ScpId));
-                  await writer.AddWriterAuditAsync(ScpId,WriterType.TimeSet,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToJsonString(c));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.TimeSet,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToString(c));
                   return true;
                   
             }
             else
             {
                   logger.LogError(MessageHelper.CommandUnsuccess(WriterType.TimeSet,ScpId));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.TimeSet,0,MessageHelper.ToString(c),WriterStatus.FAILED.ToString());
                   return false;
                  
             }
@@ -153,13 +190,14 @@ public sealed class ScpWriter(ILogger<ScpWriter> logger,IWriterRepository writer
             if (result)
             {
                   logger.LogInformation(MessageHelper.CommandSuccess(WriterType.ReadWebConfig,ScpId));
-                  await writer.AddWriterAuditAsync(ScpId,WriterType.ReadWebConfig,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToJsonString(c));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.ReadWebConfig,SCPDLL.scpGetTagLastPosted(ScpId),MessageHelper.ToString(c));
                   return true;
                   
             }
             else
             {
                   logger.LogError(MessageHelper.CommandUnsuccess(WriterType.ReadWebConfig,ScpId));
+                  await writer.AddWriterAuditAsync(ScpId,WriterType.ReadWebConfig,0,MessageHelper.ToString(c),WriterStatus.FAILED.ToString());
                   return false;
                  
             }

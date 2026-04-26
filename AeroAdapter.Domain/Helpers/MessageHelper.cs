@@ -7,7 +7,7 @@ using AeroAdapter.Domain.Enums;
 
 namespace AeroAdapter.Domain.Helpers;
 
-public static class MessageHelper
+public sealed class MessageHelper
 {
   public static byte[] Serialize<T>(T obj)
         => Encoding.UTF8.GetBytes(JsonSerializer.Serialize(obj));

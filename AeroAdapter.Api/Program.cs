@@ -64,11 +64,14 @@ public class Program
 
         var readDriver = app.Services.GetRequiredService<AeroMessageListener>();
         // var writer = app.Services.GetRequiredService<ICommandWriter>();
+        readDriver.TurnOnDebug();
+
 
         using (var scope = app.Services.CreateScope())
             {
                 var w = scope.ServiceProvider.GetRequiredService<IDriverWriter>();
                 var w2 = scope.ServiceProvider.GetRequiredService<IScpWriter>();
+                
                 // Now you can safely use sys here
                 if(!w.SystemLevelSpecification())
                 {
@@ -90,9 +93,10 @@ public class Program
 
             app.Lifetime.ApplicationStopping.Register(async () =>
             {
-          
+                
                 readDriver.SetShutDownFlag();
                 Thread.Sleep(1000);
+                readDriver.TurnOffDebug();
                 
             });
 
@@ -103,6 +107,7 @@ public class Program
         {
             app.MapOpenApi();
         }
+
 
         app.UseHttpsRedirection();
 

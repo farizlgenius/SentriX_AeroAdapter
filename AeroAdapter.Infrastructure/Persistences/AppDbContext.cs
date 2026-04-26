@@ -1,4 +1,6 @@
 using System;
+using AeroAdapter.Domain.Enums;
+using AeroAdapter.Domain.Helpers;
 using AeroAdapter.Infrastructure.Persistences.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +15,9 @@ public sealed class AppDbContext : DbContext
     public DbSet<ScpDeviceSpecification> ScpDeviceSpecifications {get; set;}
     public DbSet<AccessDatabaseSpecification> AccessDatabaseSpecifications {get; set;}
     public DbSet<WriterAudit> WriterAudits {get; set;}
-
+    public DbSet<DriverConfiguration> DriverConfigurations {get; set;}
+    public DbSet<SioPanelConfiguration> SioPanelConfigurations {get; set;}
+    public DbSet<InputPointSpecification> InputPointSpecifications {get; set;}
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -105,6 +109,59 @@ public sealed class AppDbContext : DbContext
 
             }
 
+        );
+
+        modelBuilder.Entity<DriverConfiguration>()
+        .HasData(
+            new DriverConfiguration
+            {
+                id=1,
+                scp_id=0,
+                mac=string.Empty,
+                msp1_number=0,
+                port_number=3,
+                baudrate=-1,
+                reply_time=0,
+                n_protocol=0,
+                n_dialect=0
+            }
+        );
+
+        modelBuilder.Entity<SioPanelConfiguration>()
+        .HasData(
+            new SioPanelConfiguration
+            {
+                id=1,
+                scp_id=0,
+                mac=string.Empty,
+                n_inputs = SioModelHelper.nInputByModel(SioModel.x1100),
+                n_outputs = SioModelHelper.nOutputByModel(SioModel.x1100),
+                n_readers = SioModelHelper.nReaderByModel(SioModel.x1100),
+                model = (short)SioModel.x1100,
+                enable = 1,
+                port=0,
+                address=0,
+                emax=3,
+                flags=0,
+                n_sio_next_in=-1,
+                n_sio_next_out=-1,
+                n_sio_next_rdr=-1
+            }
+        );
+
+        modelBuilder.Entity<InputPointSpecification>()
+        .HasData(
+            new InputPointSpecification
+            {
+                id=1,
+                scp_id=0,
+                mac = string.Empty,
+                sio_number = 0,
+                input_number = 0,
+                icvt_num = 0,
+                debounce=2,
+                hold_time=5
+            }
         );
     }
 }

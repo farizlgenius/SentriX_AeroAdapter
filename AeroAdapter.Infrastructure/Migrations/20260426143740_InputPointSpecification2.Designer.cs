@@ -3,6 +3,7 @@ using System;
 using AeroAdapter.Infrastructure.Persistences;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AeroAdapter.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260426143740_InputPointSpecification2")]
+    partial class InputPointSpecification2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -297,7 +300,7 @@ namespace AeroAdapter.Infrastructure.Migrations
                             debounce = (short)2,
                             hold_time = (short)5,
                             icvt_num = (short)0,
-                            input_number = (short)0,
+                            input_number = (short)-1,
                             mac = "",
                             scp_id = (short)0,
                             sio_number = (short)0,

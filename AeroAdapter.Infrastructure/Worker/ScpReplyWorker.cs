@@ -1,7 +1,9 @@
 using System;
 using System.Threading.Channels;
 using AeroAdapter.Application.Interfaces;
-
+using AeroAdapter.Domain.Enums;
+using AeroAdapter.Domain.Helpers;
+using AeroAdapter.Infrastructure.Persistences;
 using Application.Contracts.GeneratedDtos;
 using HID.Aero.ScpdNet.Wrapper;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +19,7 @@ public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<Scp
 {
     protected async override Task ExecuteAsync(CancellationToken stoppingToken)
     {
+
         Console.WriteLine("Background worker started.");
         while (!stoppingToken.IsCancellationRequested)
         {
@@ -212,7 +215,8 @@ public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<Scp
                             break;
                         case (int)enSCPReplyType.enSCPReplyIDReport:
                             var scp = scope.ServiceProvider.GetRequiredService<IScpService>();
-                            scp.HandleIdReport(message.id);
+                            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                            await scp.HandleIdReport(message.id);
                             break;
                         case (int)enSCPReplyType.enSCPReplyCommStatus:
                             // hw = scope.ServiceProvider.GetRequiredService<IDeviceService>();
@@ -267,6 +271,20 @@ public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<Scp
                             // await hw.VerifyAllocateHardwareMemoryAsync(message);
                             break;
                         case (int)enSCPReplyType.enSCPReplyCmndStatus:
+                            var writer = scope.ServiceProvider.GetRequiredService<IWriterRepository>();
+                            await writer.UpdateWriterAuditAsync(message.SCPId,message.cmnd_sts.sequence_number,message.cmnd_sts);
+                            // if(await writer.IsAnyByScpIdAndTagIdAsync(message.SCPId, message.cmnd_sts.sequence_number))
+                            // {
+                            //     // Update
+                            // }
+                            // else
+                            // {
+                            //     // Add new
+                            //     await writer.AddWriterAuditAsync(message.SCPId,,message.cmnd_sts.sequence_number,string.Empty);
+                            // }
+                            Console.WriteLine("################################# Cmnd Status #############################");
+                            Console.WriteLine(MessageHelper.ToString(message.cmnd_sts));
+
                             // var comm = new CommandAudit
                             // {
                             //     TagNo = message.cmnd_sts.sequence_number,

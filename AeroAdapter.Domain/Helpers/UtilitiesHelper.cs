@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AeroAdapter.Domain.Helpers;
 
-public class UtilitiesHelper
+public sealed class UtilitiesHelper
 {
       public static long DateTimeToElapeSecond(string date)
       {
