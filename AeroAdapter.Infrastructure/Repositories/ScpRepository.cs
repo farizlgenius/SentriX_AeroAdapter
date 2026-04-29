@@ -1,6 +1,7 @@
 using System;
 using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Domain.Entities;
+using AeroAdapter.Domain.Enums;
 using AeroAdapter.Infrastructure.Persistences;
 using AeroAdapter.Infrastructure.Persistences.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -9,24 +10,17 @@ namespace AeroAdapter.Infrastructure.Repositories;
 
 public sealed class ScpRepository(AppDbContext context) : IScpRepository
 {
-      public async Task<bool> AddAsync(short ScpId, string Mac)
+      public async Task<bool> AddAsync(Domain.Entities.Scp domain)
       {
             var data = await context.Scps.AddAsync(
-                  new Scp
-                  {
-                        mac = Mac,
-                        scp_number = ScpId,
-                        created_at = DateTime.UtcNow,
-                        updated_at = DateTime.UtcNow
-                        
-                  }
+                  new Persistences.Entities.Scp(domain)
             );
 
             var save = await context.SaveChangesAsync();
-            if(data.Entity != null || save > 0)
-                  return true;
+            if(data.Entity == null || save <= 0)
+                  return false;
 
-            return false;
+            return true;
       }
 
       public async Task<Domain.Entities.AccessDatabaseSpecification> GetAccessDatabaseSpecificationByIdAndMacAsync(short ScpId,string Mac)
@@ -73,6 +67,47 @@ public sealed class ScpRepository(AppDbContext context) : IScpRepository
                   x.n_protocol,
                   x.n_dialect
                   )).FirstOrDefaultAsync() ?? new Domain.Entities.DriverConfiguration() ;
+      }
+
+      public async Task<Domain.Entities.ElevatorAccessLevelSpecification> GetElevatorAccessLevelSpecificationByIdAndMacAsync(short ScpId, string Mac)
+      {
+            return await context.ElevatorAccessLevelSpecifications
+            .AsNoTracking()
+            .Where(x => x.mac.Equals(Mac) && x.scp_id == ScpId)
+            .Select(x => new Domain.Entities.ElevatorAccessLevelSpecification(
+                  x.scp_id,
+                  x.mac,
+                  x.max_ealvl,
+                  x.max_floors
+                  )).FirstOrDefaultAsync() ?? new Domain.Entities.ElevatorAccessLevelSpecification();
+      }
+
+      public async Task<string> GetMacFromScpIdAsync(short ScpId)
+      {
+            return await context.Scps.AsNoTracking()
+            .OrderByDescending(x => x.id)
+            .Where(x => x.scp_id == ScpId)
+            .Select(x => x.mac)
+            .FirstOrDefaultAsync() ?? "";
+      }
+
+      public async Task<Domain.Entities.Scp> GetScpByMacAsync(string Mac)
+      {
+            return await context.Scps.AsNoTracking()
+            .OrderByDescending(x => x.id)
+            .Where(x => x.mac.Equals(Mac))
+            .Select(x => new Domain.Entities.Scp(
+                  x.id,
+                  x.scp_id,
+                  x.mac,
+                  x.ip,
+                  x.serial_number,
+                  x.port,
+                  x.fw,
+                  x.synced_at,
+                  x.sync_status
+                  ))
+            .FirstOrDefaultAsync() ?? new Domain.Entities.Scp();
       }
 
       public async Task<Domain.Entities.ScpDeviceSpecification> GetScpDeviceSpecificationByIdAndMacAsync(short ScpId,string Mac)
@@ -136,13 +171,73 @@ public sealed class ScpRepository(AppDbContext context) : IScpRepository
             return await context.Scps.AsNoTracking().AnyAsync(x => x.mac.Equals(mac));
       }
 
-      public async Task<bool> UpdateAsync(short ScpId, string Mac)
+      public async Task<bool> UpdateAsync(Domain.Entities.Scp domain)
+      {
+            var entity = await context.Scps.Where(x => x.mac.Equals(domain.Mac)).FirstOrDefaultAsync();
+            if(entity == null)
+                  return false;
+
+            entity.Update(domain);
+            var data = context.Scps.Update(entity);
+            var save = await context.SaveChangesAsync();
+            if(save <= 0 || data.Entity == null)
+                  return false;
+
+            return true;
+      }
+
+      public async Task<bool> UpdateIpAddressAsync(string Mac, string Ip)
       {
             var entity = await context.Scps.Where(x => x.mac.Equals(Mac)).FirstOrDefaultAsync();
             if(entity == null)
                   return false;
 
-            entity.Update(ScpId);
+            entity.UpdateIp(Ip);
+            var data = context.Scps.Update(entity);
+            var save = await context.SaveChangesAsync();
+            if(save <= 0 || data.Entity == null)
+                  return false;
+
+            return true;
+
+      }
+
+      public async Task<bool> UpdatePortAsync(string Mac, int Port)
+      {
+            var entity = await context.Scps.Where(x => x.mac.Equals(Mac)).FirstOrDefaultAsync();
+            if(entity == null)
+                  return false;
+
+            entity.UpdatePort(Port);
+            var data = context.Scps.Update(entity);
+            var save = await context.SaveChangesAsync();
+            if(save <= 0 || data.Entity == null)
+                  return false;
+
+            return true;
+      }
+
+      public async Task<bool> UpdateScpAsyncStatusAsync(string Mac, ScpSyncStatus status,bool IsUploaded)
+      {
+            var entity = await context.Scps.Where(x => x.mac.Equals(Mac)).FirstOrDefaultAsync();
+            if(entity == null)
+                  return false;
+
+            entity.UpdateSyncStatus(status,IsUploaded);
+            var save = await context.SaveChangesAsync();
+            if(save <= 0)
+                  return false;
+
+            return true;
+      }
+
+      public async Task<bool> UpdateScpIdAsync(short ScpId, string Mac)
+      {
+            var entity = await context.Scps.Where(x => x.mac.Equals(Mac)).FirstOrDefaultAsync();
+            if(entity == null)
+                  return false;
+
+            entity.UpdateScpId(ScpId);
             var save = await context.SaveChangesAsync();
             if(save <= 0)
                   return false;

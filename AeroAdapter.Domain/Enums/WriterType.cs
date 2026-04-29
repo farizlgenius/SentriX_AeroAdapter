@@ -8,5 +8,8 @@ public enum WriterType
       TimeSet=302,
       DriverConfiguration=108,
       SioPanelConfiguration=109,
-      InputPointSpecification=110
+      InputPointSpecification=110,
+      ReadsConfiguration=900,
+      SCPStructureStatusRead=1853,
+      ElevatorAccessLevelSpecification=501
 }

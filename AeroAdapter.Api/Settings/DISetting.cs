@@ -1,4 +1,5 @@
 using System;
+using AeroAdapter.Api.Middlewares;
 using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Application.Services;
 using AeroAdapter.Infrastructure.Listener;
@@ -31,6 +32,9 @@ public class DISetting
             // Worker
             builder.Services.AddHostedService<AeroAdapter.Infrastructure.Worker.ScpReplyWorker>();
             builder.Services.AddHostedService<RabbitMqWorker>();
+
+            // Middleware
+            builder.Services.AddTransient<GlobalExceptionMiddleware>();
       }
 
 }

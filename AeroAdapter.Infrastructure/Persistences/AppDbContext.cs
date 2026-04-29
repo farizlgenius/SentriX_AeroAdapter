@@ -18,9 +18,62 @@ public sealed class AppDbContext : DbContext
     public DbSet<DriverConfiguration> DriverConfigurations {get; set;}
     public DbSet<SioPanelConfiguration> SioPanelConfigurations {get; set;}
     public DbSet<InputPointSpecification> InputPointSpecifications {get; set;}
+    
+    public DbSet<ElevatorAccessLevelSpecification> ElevatorAccessLevelSpecifications {get; set;}
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        // Global Enum to string
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+        {
+            var properties = entityType.ClrType.GetProperties()
+                .Where(p => p.PropertyType.IsEnum);
+
+            foreach (var property in properties)
+            {
+                modelBuilder.Entity(entityType.Name)
+                    .Property(property.Name)
+                    .HasConversion<string>();
+            }
+        }
+
+        
+
+        // Make default datetime now
+        var isSqlServer = Database.ProviderName == "Microsoft.EntityFrameworkCore.SqlServer";
+        var isPostgres = Database.ProviderName == "Npgsql.EntityFrameworkCore.PostgreSQL";
+
+        string utcNowSql;
+
+        if (isSqlServer)
+            utcNowSql = "GETUTCDATE()";
+        else if (isPostgres)
+            utcNowSql = "NOW() AT TIME ZONE 'UTC'";
+        else
+            throw new Exception("Unsupported database provider");
+
+
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+        {
+            if (typeof(BaseEntity).IsAssignableFrom(entityType.ClrType))
+            {
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property(nameof(BaseEntity.created_at))
+                    .HasDefaultValueSql(utcNowSql)
+                    .ValueGeneratedOnAdd();
+
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property(nameof(BaseEntity.updated_at))
+                    .HasDefaultValueSql(utcNowSql)
+                    .ValueGeneratedOnAdd();
+            }
+        }
+
+        modelBuilder.Entity<Scp>()
+            .Property(x => x.synced_at)
+            .HasDefaultValueSql(utcNowSql)
+            .ValueGeneratedOnAdd();
 
         modelBuilder.Entity<SystemLevelSpecification>()
         .HasData(
@@ -163,5 +216,16 @@ public sealed class AppDbContext : DbContext
                 hold_time=5
             }
         );
+
+        modelBuilder.Entity<ElevatorAccessLevelSpecification>()
+            .HasData(
+                new ElevatorAccessLevelSpecification
+                {
+                    id=1,
+                    scp_id=0,
+                    max_ealvl=256,
+                    max_floors=128
+                }
+            );
     }
 }

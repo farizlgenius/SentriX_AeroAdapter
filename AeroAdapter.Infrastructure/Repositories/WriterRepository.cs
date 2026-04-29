@@ -19,7 +19,7 @@ public class WriterRepository(AppDbContext context) : IWriterRepository
             await context.WriterAudits.AddAsync(
                         new WriterAudit
                         {
-                              mac= await context.Scps.AsNoTracking().Where(x => x.scp_number == ScpId).Select(x => x.mac).FirstOrDefaultAsync() ?? "",
+                              mac= await context.Scps.AsNoTracking().Where(x => x.scp_id == ScpId).Select(x => x.mac).FirstOrDefaultAsync() ?? "",
                               scp_id = ScpId,
                               command_code = (short)Command,
                               command = Command.ToString(),
@@ -40,7 +40,7 @@ public class WriterRepository(AppDbContext context) : IWriterRepository
 
       public async Task<bool> IsAnyByScpIdAndTagIdAsync(int ScpId, int Tag)
       {
-            var mac = await context.Scps.Where(x => x.scp_number == ScpId).Select(x => x.mac).FirstOrDefaultAsync();
+            var mac = await context.Scps.Where(x => x.scp_id == ScpId).Select(x => x.mac).FirstOrDefaultAsync();
             if(mac == null)
                   return false;
 
@@ -50,13 +50,17 @@ public class WriterRepository(AppDbContext context) : IWriterRepository
 
       public async Task UpdateWriterAuditAsync(int ScpId, int Tag,SCPReplyMessageDto.SCPReplyCmndStatusDto message)
       {
-            var mac = await context.Scps.Where(x => x.scp_number == ScpId).Select(x => x.mac).FirstOrDefaultAsync();
-            var entity = await context.WriterAudits.Where(x => x.scp_id == ScpId && x.mac == mac && x.tag == Tag && x.status.Equals(WriterStatus.PENDING.ToString())).FirstOrDefaultAsync();
-            if(entity == null)
+            var mac = await context.Scps.Where(x => x.scp_id == ScpId).Select(x => x.mac).FirstOrDefaultAsync();
+            var entities = await context.WriterAudits.Where(x => x.scp_id == ScpId && x.mac == mac && x.tag == Tag && x.status.Equals(WriterStatus.PENDING.ToString())).ToListAsync();
+            if(entities.Count == 0)
                   return;
 
-            entity.Update(message.status == (short)ScpCommandStatus.OK ? WriterStatus.SUCESS.ToString() : WriterStatus.FAILED.ToString(),message.status != (short)ScpCommandStatus.NAK ? false : true,message.status == (short)ScpCommandStatus.NAK ? DescriptionHelper.GetNakReasonDescription(message.nak.reason) :string.Empty );
-            context.WriterAudits.Update(entity);
+            foreach(var entity in entities)
+            {
+                  entity.Update(message.status == (short)ScpCommandStatus.OK ? WriterStatus.SUCESS.ToString() : WriterStatus.FAILED.ToString(),message.status != (short)ScpCommandStatus.NAK ? false : true,message.status == (short)ScpCommandStatus.NAK ? DescriptionHelper.GetNakReasonDescription(message.nak.reason) :string.Empty );
+            }
+
+            context.WriterAudits.UpdateRange(entities);
             await context.SaveChangesAsync();
       }
 }

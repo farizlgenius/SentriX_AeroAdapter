@@ -1,6 +1,9 @@
-@AeroAdapter.Api_HostAddress = http://localhost:5229
 
-GET {{AeroAdapter.Api_HostAddress}}/weatherforecast/
+POST http://localhost:8005/api/scp
 Accept: application/json
 
 ###
+
+POST http://localhost:8005/api/scp
+Accept: application/json
+

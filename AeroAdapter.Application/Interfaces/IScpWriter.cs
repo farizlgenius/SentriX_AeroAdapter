@@ -18,8 +18,10 @@ public interface IScpWriter
       
       bool CreateChannel();
       bool SendASCIICommandAsync(ASCIICommandDto Command);
-      
       Task<bool> WebConfigRead(short ScpId,WebConfigReadType Type);  
       Task<bool> DriverConfiguration(short ScpId,DriverConfiguration config);
+      Task<bool> ReadsConfiguration(short ScpId,WebConfigReadType Type);
+      Task<bool> SCPStructureStatusRead(short ScpId,List<short> StructureList);
+      Task<bool> ElevatorAccessLevelSpecification(short ScpId,ElevatorAccessLevelSpecification spec);
 
 }

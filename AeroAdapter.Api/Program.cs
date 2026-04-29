@@ -1,5 +1,6 @@
 
 using System.Threading.Channels;
+using AeroAdapter.Api.Middlewares;
 using AeroAdapter.Api.Settings;
 using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Infrastructure.Listener;
@@ -62,6 +63,7 @@ public class Program
 
         var app = builder.Build();
 
+        app.UseMiddleware<GlobalExceptionMiddleware>();
         var readDriver = app.Services.GetRequiredService<AeroMessageListener>();
         // var writer = app.Services.GetRequiredService<ICommandWriter>();
         readDriver.TurnOnDebug();
@@ -87,15 +89,16 @@ public class Program
                 }
             }
 
-            var threadListener = new Thread(readDriver.GetTransactionUntilShutDown);
-            threadListener.Start();
+            app.Lifetime.ApplicationStarted.Register(() =>
+{
+             _ = Task.Run(() => readDriver.GetTransactionUntilShutDownAsync());
+            });
 
 
             app.Lifetime.ApplicationStopping.Register(async () =>
             {
                 
                 readDriver.SetShutDownFlag();
-                Thread.Sleep(1000);
                 readDriver.TurnOffDebug();
                 
             });

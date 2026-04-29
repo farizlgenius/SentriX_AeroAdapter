@@ -12,7 +12,7 @@ namespace AeroAdapter.Infrastructure.Listener;
 
 public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Channel<SCPReplyMessageDto> queue,IServiceScopeFactory factory)
 {
-      private bool _shutdownFlag;
+      private volatile bool _shutdownFlag;
 
       public void SetShutDownFlag()
       {
@@ -51,33 +51,46 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
 
       }
 
-      public void GetTransactionUntilShutDown()
+      public async Task GetTransactionUntilShutDownAsync()
       {
-            while (_shutdownFlag == false)
+            while (!_shutdownFlag)
             {
-                  GetTransaction();
+                  try
+                  {
+                        var gotMessage = await GetTransaction();
+
+                        if (!gotMessage)
+                        Thread.Sleep(50); // prevents CPU burn
+                  }
+                  catch (Exception ex)
+                  {
+                        logger.LogCritical(ex, "Fatal error in Aero DLL listener loop");
+                        Thread.Sleep(1000);
+                  }
             }
       }
 
-      private void GetTransaction()
+      private async Task<bool> GetTransaction()
       {
-            var mapper = factory.CreateScope().ServiceProvider.GetRequiredService<IObjectMapper>();
+            using var scope = factory.CreateScope();
+            var mapper = scope.ServiceProvider.GetRequiredService<IObjectMapper>();
+
             SCPReplyMessage message = new SCPReplyMessage();
-            if (message.GetMessage())
-            {
-                  ProcessMessage(mapper.Map<SCPReplyMessageDto>(message));
-            }
+            if (!message.GetMessage())
+                  return false;
 
+            await ProcessMessageAsync(mapper.Map<SCPReplyMessageDto>(message));
+            return true;
       }
 
-      private void ProcessMessage(SCPReplyMessageDto message)
+      private async Task ProcessMessageAsync(SCPReplyMessageDto message)
       {
             // using var scope = scopeFactory.CreateScope();
             switch (message.ReplyType)
             {
                   // Occur when command to SCP not success
                   case (int)enSCPReplyType.enSCPReplyNAK:
-                        //queue.Writer.TryWrite(message);
+                        //await queue.Writer.WriteAsync(message);
                         logger.LogError(ScpReplyMessageBuilder.BuildNakMessage(message));
                         break;
                   case (int)enSCPReplyType.enSCPReplyTransaction:
@@ -93,14 +106,14 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
                                     logger.LogError(ScpReplyMessageBuilder.CommStatusMessage(message));
                                     break;
                         }
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplyIDReport:
                         logger.LogInformation(ScpReplyMessageBuilder.IdReportMessage(message));
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplyTranStatus:
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         switch (message.tran_sts.disabled)
                         {
                               case 0:
@@ -123,19 +136,19 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
                         }
                         break;
                   case (int)enSCPReplyType.enSCPReplySrSio:
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         // MessageHandlerHelper.SCPReplySrSio(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplySrMp:
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         // MessageHandlerHelper.SCPReplySrMp(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplySrCp:
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         // MessageHandlerHelper.SCPReplySrCp(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplySrAcr:
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         // MessageHandlerHelper.SCPReplySrAcr(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplySrTz:
@@ -154,19 +167,17 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
                         // MessageHandlerHelper.SCPReplySioRelayCounts(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplyStrStatus:
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         // MessageHandlerHelper.SCPReplyStrStatus(message);
+                        Console.WriteLine(MessageHelper.ToString(message.str_sts));
                         break;
                   case (int)enSCPReplyType.enSCPReplyCmndStatus:
-                        // Save to DB if fail
-                        // commandService.HandleSaveFailCommand(command, message);
-                        // MessageHandlerHelper.SCPReplyCmndStatus(message);
-                        //command.CompleteCommand($"{message.SCPId}/{message.cmnd_sts.sequence_number}",message.cmnd_sts.status == 1);
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
                         break;
                   case (int)enSCPReplyType.enSCPReplyWebConfigNetwork:
                         // MessageHandlerHelper.SCPReplyWebConfigNetwork(message);
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
+                        Console.WriteLine(MessageHelper.ToString(message.web_network));
                         break;
                   case (int)enSCPReplyType.enSCPReplyWebConfigNotes:
                         break;
@@ -183,7 +194,8 @@ public sealed class AeroMessageListener(ILogger<AeroMessageListener> logger,Chan
                   case (int)enSCPReplyType.enSCPReplyWebConfigDiagnostics:
                         break;
                   case (int)enSCPReplyType.enSCPReplyWebConfigHostCommPrim:
-                        queue.Writer.TryWrite(message);
+                        await queue.Writer.WriteAsync(message);
+                        Console.WriteLine(MessageHelper.ToString(message.web_host_comm_prim));
                         break;
 
                   default:

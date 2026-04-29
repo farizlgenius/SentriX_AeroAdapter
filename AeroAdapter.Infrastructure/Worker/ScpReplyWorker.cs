@@ -268,7 +268,12 @@ public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<Scp
                         case (int)enSCPReplyType.enSCPReplySioRelayCounts:
                             break;
                         case (int)enSCPReplyType.enSCPReplyStrStatus:
-                            // await hw.VerifyAllocateHardwareMemoryAsync(message);
+                            scp = scope.ServiceProvider.GetRequiredService<IScpService>();
+                            if(await scp.VerifySCPStructureMemoryAllocate(message.SCPId, message.str_sts))
+                            {
+                                await scp.InitialScpConfiguration((short)message.SCPId);
+                                await scp.VerifyScpComponentAsync(message.SCPId);
+                            }
                             break;
                         case (int)enSCPReplyType.enSCPReplyCmndStatus:
                             var writer = scope.ServiceProvider.GetRequiredService<IWriterRepository>();
@@ -301,7 +306,8 @@ public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<Scp
                             // await publisher.CmndNotifyStatus(cstatus);
                             break;
                         case (int)enSCPReplyType.enSCPReplyWebConfigNetwork:
-                            // await hw.AssignIpAddressAsync(message);
+                            scp = scope.ServiceProvider.GetRequiredService<IScpService>();
+                            await scp.AssignIpAddressAsync(message.SCPId,message.web_network);
                             break;
                         case (int)enSCPReplyType.enSCPReplyWebConfigNotes:
                             break;
@@ -318,8 +324,8 @@ public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<Scp
                         case (int)enSCPReplyType.enSCPReplyWebConfigDiagnostics:
                             break;
                         case (int)enSCPReplyType.enSCPReplyWebConfigHostCommPrim:
-                            // await hw.AssignPortAsync(message);
-
+                            scp = scope.ServiceProvider.GetRequiredService<IScpService>();
+                            await scp.AssignPortAsync(message.SCPId,message.web_host_comm_prim);
                             break;
                         default:
                             break;

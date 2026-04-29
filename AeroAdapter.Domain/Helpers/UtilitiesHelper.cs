@@ -81,7 +81,7 @@ public sealed class UtilitiesHelper
       public static string ByteToHexStr(byte[] data)
       {
             var reversed = data.Reverse().ToArray(); // Reverse the byte array
-            return BitConverter.ToString(reversed);
+            return BitConverter.ToString(reversed).Replace("-","_");
       }
 
       public static string ByteToHex(byte[] data)
@@ -223,7 +223,9 @@ public sealed class UtilitiesHelper
 
             // Convert to string (IPv4 format)
             string ipString = ipAddress.ToString();
+            Console.WriteLine(ipString);
             return ipString;  // Strike: 192.168.1.1
+      
       }
 
       public static int IpToInteger(string ipAdress)

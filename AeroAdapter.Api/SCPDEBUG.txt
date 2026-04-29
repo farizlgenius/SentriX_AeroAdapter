@@ -1,488 +1,2142 @@
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 20:59:59 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 22:46:46 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-12000.014 WSAStartup ok
-12000.016 RNG_X931A24 Initialized
-12000.016 1, enCcSystem: 011 1 1024 0 0 1
-12000.016 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
-12000.022 listen(lsock) created socket=2136 on port 3333
-12000.022 Listen Successful, port: 3333
-12004.946  tcpIpAccept() lsock = 2136, sSock = 2584
-12004.946 Connection accepted from [::ffff:192.168.0.51]:47959
-12004.946 Found available channel object, Chnl-1
-12004.946 Incoming socket connection assigned to Chnl-1 (highest available)
-12004.946 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-12004.946 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-12004.952 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 63 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-12004.952 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-12004.952 Attached incoming Scp-1 as Primary
-12004.952 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-12004.952 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-12004.952 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 63 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-12004.952 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-12004.952 . D9 01 12 00 00 00
-12004.952 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-12004.952 > B0 0B 22 05 20 03 98 3A 00
-12004.952 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-12004.961 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-12005.020 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-12005.020 > FF FF FF FF
-12020.022 SCP detach: found it, detaching it, SCP-1, Chnl-1
-12020.022 scpCloseChannelSock(): Closing Socket-2584, Chnl-1
-12020.022 Setting SCP-1 for delete on IP Client detach
-12020.022 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
-12020.022 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-12020.022 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-12020.022 Found SCP-1 to be deleted on detach, calling scpDeleteScp
-12020.022 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
-12020.022 Did not find any SCPs to delete on detach, clear pending delete flag
-12025.106  tcpIpAccept() lsock = 2136, sSock = 2608
-12025.106 Connection accepted from [::ffff:192.168.0.51]:47960
-12025.106 Found available channel object, Chnl-1
-12025.106 Incoming socket connection assigned to Chnl-1 (highest available)
-12025.106 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-12025.106 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-12025.118 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 77 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-12025.118 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-12025.118 Attached incoming Scp-1 as Primary
-12025.118 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-12025.118 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-12025.118 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 77 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-12025.118 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-12025.118 . D9 01 12 00 00 00
-12025.118 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-12025.118 > B0 0B 22 05 20 03 98 3A 00
-12025.118 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-12025.118 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-12025.174 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-12025.174 > FF FF FF FF
-12040.179 SCP detach: found it, detaching it, SCP-1, Chnl-1
-12040.179 scpCloseChannelSock(): Closing Socket-2608, Chnl-1
-12040.179 Setting SCP-1 for delete on IP Client detach
-12040.179 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
-12040.179 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-12040.179 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-12040.183 Found SCP-1 to be deleted on detach, calling scpDeleteScp
-12040.183 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
-12040.183 Did not find any SCPs to delete on detach, clear pending delete flag
-12045.258  tcpIpAccept() lsock = 2136, sSock = 2220
-12045.258 Connection accepted from [::ffff:192.168.0.51]:47961
-12045.258 Found available channel object, Chnl-1
-12045.258 Incoming socket connection assigned to Chnl-1 (highest available)
-12045.258 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-12045.258 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-12045.269 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 8C 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-12045.269 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-12045.269 Attached incoming Scp-1 as Primary
-12045.269 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-12045.269 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-12045.269 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 8C 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-12045.269 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-12045.269 . D9 01 12 00 00 00
-12045.269 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-12045.269 > B0 0B 22 05 20 03 98 3A 00
-12045.269 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-12045.269 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-12045.327 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-12045.327 > FF FF FF FF
-12060.320 SCP detach: found it, detaching it, SCP-1, Chnl-1
-12060.320 scpCloseChannelSock(): Closing Socket-2220, Chnl-1
-12060.320 Setting SCP-1 for delete on IP Client detach
-12060.320 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
-12060.320 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-12060.320 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-12060.321 Found SCP-1 to be deleted on detach, calling scpDeleteScp
-12060.321 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
-12060.321 Did not find any SCPs to delete on detach, clear pending delete flag
-12065.393  tcpIpAccept() lsock = 2136, sSock = 2224
-12065.393 Connection accepted from [::ffff:192.168.0.51]:47962
-12065.393 Found available channel object, Chnl-1
-12065.393 Incoming socket connection assigned to Chnl-1 (highest available)
-12065.393 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-12065.393 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-12065.408 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 A0 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-12065.408 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-12065.408 Attached incoming Scp-1 as Primary
-12065.408 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-12065.408 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-12065.408 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 A0 1A EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-12065.408 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-12065.408 . D9 01 12 00 00 00
-12065.408 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-12065.408 > B0 0B 22 05 20 03 98 3A 00
-12065.408 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-12065.408 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-12065.473 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-12065.473 > FF FF FF FF
-12068.920 Shutting down debug Thread...
-File closed Sun Apr 26 21:01:08 2026
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:08:33 2026
+91207.311 WSAStartup ok
+91207.313 RNG_X931A24 Initialized
+91207.313 1, enCcSystem: 011 1024 1024 0 0 1
+91207.315 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+91207.420 listen(lsock) created socket=2448 on port 3333
+91207.421 Listen Successful, port: 3333
+91222.050  tcpIpAccept() lsock = 2448, sSock = 2492
+91222.050 Connection accepted from [::ffff:192.168.0.51]:49814
+91222.050 Found available channel object, Chnl-1
+91222.050 Incoming socket connection assigned to Chnl-1 (highest available)
+91222.050 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+91222.050 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+91222.113 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 74 D6 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+91222.113 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+91222.113 Attached incoming Scp-1 as Primary
+91222.113 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+91222.113 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+91222.113 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 74 D6 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+91222.113 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+91222.113 . D9 01 12 00 00 00
+91222.113 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+91222.113 > B0 0B 22 05 20 03 98 3A 00
+91222.113 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+91222.113 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+91222.182 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+91222.182 > FF FF FF FF
+91222.232 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+91222.284 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
+91222.285 > 01 18 00 00 00
+91222.285 > 02 60 EA 00 00
+91222.285 > 03 FC 03 00 00
+91222.285 > 04 FF 00 00 00
+91222.285 > 05 FF 00 00 00
+91222.285 > 06 03 00 00 00
+91222.285 > 07 21 00 00 00
+91222.285 > 08 80 00 00 00
+91222.285 > 09 84 01 00 00
+91222.285 > 0A 40 00 00 00
+91222.285 > 0C 00 7D 00 00
+91222.285 > 0D 00 04 00 00
+91222.285 > 0E 00 04 00 00
+91222.285 > 10 01 00 00 00
+91222.349 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 22 81 02 00 09 00
+91222.349 > 04 06 00 00 00 02 02 00 00
+91222.349 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+91222.349 > 00 00 80 00
+91222.349 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+91222.356 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 23 81 02 00 05 00
+91222.356 > 04 00 00 00 00
+91222.356 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+91222.356 > 60 EA 00 00
+91222.356 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+91222.417 Command Status: Scp-1.0, (tag-3-ok)
+91222.417 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+91222.426 1(5), enCcWebConfigRead: 0900 1 2
+91222.428 1(6), enCcWebConfigRead: 0900 1 3
+91222.454 1(8), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+91222.470 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 03 09 23 00 21 00
+91222.470 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.477 1(9), enCcTime: 0302 1 0
+91222.504 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+91222.520 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 23 91 23 00 21 01
+91222.521 > 0F 01 5E E3 00 C0 01 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+91222.521 . 98 42 05 0F 00 00 0F 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+91222.521 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 40 00 00 40
+91222.521 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+91222.521 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.521 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.521 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.521 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.521 . 00 00 00 00 00 00 00 00 00
+91222.521 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 01 09 27 00 00 00
+91222.522 Command Status: Scp-1.0, (tag-4-ok)
+91222.522 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+91222.522    StructId-01, nRecords=58206, nRecSize=012, nActive=00448
+91222.522    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+91222.522    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+91222.522    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+91222.522    StructId-05, nRecords=00015, nRecSize=2732, nActive=00015
+91222.522    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+91222.522    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+91222.522    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+91222.522    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+91222.522    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+91222.522    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+91222.522    StructId-12, nRecords=00064, nRecSize=260, nActive=00064
+91222.522    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+91222.522    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+91222.522    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+91222.526 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+91222.554 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+91222.558 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+91222.565 1(13), enCcInput: 0110 0 1 0 6 0 2 5
+91222.648 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 21 81 0C 00 6D 01
+91222.648 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.648 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 02 09 28 00 00 00
+91222.648 Command Status: Scp-1.0, (tag-5-ok)
+91222.648 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+91222.717 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 22 81 0D 00 10 01
+91222.717 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.718 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.718 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.718 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.718 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.718 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.718 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 03 07 01 00 2A 00
+91222.718 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91222.718 . 0F 0F 00 00 00 00 00
+91222.718 Command Status: Scp-1.0, (tag-6-ok)
+91222.718 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+91222.721 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 01 02 02 00 05 00
+91222.721 > 0B E8 03 00 00
+91222.721 Command Status: Scp-1.0, (tag-7-ok)
+91222.784 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 02 01 04 00 09 00
+91222.785 > 76 D6 F0 69 90 9D FF FF 00
+91222.785 Command Status: Scp-1.0, (tag-8-ok)
+91222.848 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 03 03 01 00 09 00
+91222.848 > 03 00 FF FF 5A 00 02 00 00
+91222.848 Command Status: Scp-1.0, (tag-9-ok)
+91222.866 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 01 03 02 00 16 00
+91222.866 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+91222.866 Command Status: Scp-1.0, (tag-10-ok)
+91222.932 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 02 03 03 00 07 00
+91222.932 > 00 01 00 00 00 03 00
+91222.932 Command Status: Scp-1.0, (tag-11-ok)
+91222.985 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 1B 00 03 04 01 00 05 00
+91222.985 > 00 04 00 02 05
+91222.985 > 00 05 00 02 05
+91222.985 > 00 06 00 02 05
+91222.985 Command Status: Scp-1.0, (tag-12-ok)
+91222.989 Command Status: Scp-1.0, (tag-13-ok)
+91300.575 Shutting down debug Thread...
+File closed Tue Apr 28 22:48:20 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 22:50:20 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-12514.066 WSAStartup ok
-12514.067 RNG_X931A24 Initialized
-12514.067 1, enCcSystem: 011 1 1024 0 0 1
-12514.068 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
-12514.073 listen(lsock) created socket=2136 on port 3333
-12514.073 Listen Successful, port: 3333
-12517.521  tcpIpAccept() lsock = 2136, sSock = 2536
-12517.521 Connection accepted from [::ffff:192.168.0.51]:47977
-12517.521 Found available channel object, Chnl-1
-12517.521 Incoming socket connection assigned to Chnl-1 (highest available)
-12517.521 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-12517.521 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-12517.530 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 64 1C EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-12517.530 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-12517.530 Attached incoming Scp-1 as Primary
-12517.530 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-12517.530 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-12517.530 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 64 1C EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-12517.530 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-12517.530 . D9 01 12 00 00 00
-12517.530 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-12517.530 > B0 0B 22 05 20 03 98 3A 00
-12517.530 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-12517.537 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-12517.591 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-12517.591 > FF FF FF FF
-12517.841 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
-12517.841 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
-12517.841 > 01 18 00 00 00
-12517.841 > 02 60 EA 00 00
-12517.841 > 03 FC 03 00 00
-12517.841 > 04 FF 00 00 00
-12517.842 > 05 FF 00 00 00
-12517.842 > 06 03 00 00 00
-12517.842 > 07 21 00 00 00
-12517.842 > 08 80 00 00 00
-12517.842 > 09 84 01 00 00
-12517.842 > 0A 40 00 00 00
-12517.842 > 0C 00 7D 00 00
-12517.842 > 0D 00 04 00 00
-12517.842 > 0E 00 04 00 00
-12517.842 > 10 01 00 00 00
-12517.847 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 22 81 02 00 09 00
-12517.847 > 04 06 00 00 00 02 02 00 00
-12517.847 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
-12517.847 > 00 00 80 00
-12517.847 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
-12517.852 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 23 81 02 00 05 00
-12517.852 > 04 00 00 00 00
-12517.852 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
-12517.852 > 60 EA 00 00
-12517.852 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
-12517.858 Command Status: Scp-1.0, (tag-3-ok)
-12517.939 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
-12517.939 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 03 07 01 00 2A 00
-12517.939 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-12517.939 . 0F 0F 00 00 00 00 00
-12517.942 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 01 02 02 00 05 00
-12517.942 > 0B E8 03 00 00
-12517.942 Command Status: Scp-1.0, (tag-4-ok)
-12517.947 Command Status: Scp-1.0, (tag-5-ok)
-12517.947 1(6), enCcTime: 0302 1 0
-12517.952 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 03 01 04 00 09 00
-12517.952 > 65 1C EE 69 90 9D FF FF 00
-12517.952 1(7), enCcMsp1: 0108 0 1 0 3 -1 90 0 0
-12517.957 1(9), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
-12517.958 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 15 00 01 03 01 00 09 00
-12517.958 > 03 00 FF FF 5A 00 02 00 00
-12517.958 Command Status: Scp-1.0, (tag-6-ok)
-12517.964 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 22 00 02 03 02 00 16 00
-12517.964 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
-12517.964 Command Status: Scp-1.0, (tag-7-ok)
-12517.969 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 13 00 03 03 03 00 07 00
-12517.969 > 00 01 00 00 00 03 00
-12517.969 Command Status: Scp-1.0, (tag-8-ok)
-12517.974 Command Status: Scp-1.0, (tag-9-ok)
-12733.730 Shutting down debug Thread...
-File closed Sun Apr 26 21:12:13 2026
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:34:44 2026
+91421.762 WSAStartup ok
+91421.763 RNG_X931A24 Initialized
+91421.763 1, enCcSystem: 011 1024 1024 0 0 1
+91421.765 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+91421.844 listen(lsock) created socket=2464 on port 3333
+91421.844 Listen Successful, port: 3333
+91425.709  tcpIpAccept() lsock = 2464, sSock = 2484
+91425.709 Connection accepted from [::ffff:192.168.0.51]:49819
+91425.709 Found available channel object, Chnl-1
+91425.709 Incoming socket connection assigned to Chnl-1 (highest available)
+91425.709 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+91425.709 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+91425.775 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 40 D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+91425.775 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+91425.778 Attached incoming Scp-1 as Primary
+91425.778 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+91425.778 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+91425.778 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 40 D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+91425.778 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+91425.778 . D9 01 12 00 00 00
+91425.778 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+91425.778 > B0 0B 22 05 20 03 98 3A 00
+91425.778 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+91425.788 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+91425.859 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+91425.859 > FF FF FF FF
+91425.893 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+91425.915 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+91425.915 > 01 18 00 00 00
+91425.915 > 02 60 EA 00 00
+91425.915 > 03 FC 03 00 00
+91425.915 > 04 FF 00 00 00
+91425.915 > 05 FF 00 00 00
+91425.915 > 06 03 00 00 00
+91425.915 > 07 21 00 00 00
+91425.915 > 08 80 00 00 00
+91425.915 > 09 84 01 00 00
+91425.915 > 0A 40 00 00 00
+91425.915 > 0C 00 7D 00 00
+91425.915 > 0D 00 04 00 00
+91425.915 > 0E 00 04 00 00
+91425.915 > 10 01 00 00 00
+91425.977 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 21 81 02 00 09 00
+91425.977 > 04 06 00 00 00 02 02 00 00
+91425.977 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 02 02 09 00 04 00
+91425.977 > 00 00 80 00
+91425.978 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+91425.984 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 22 81 02 00 05 00
+91425.984 > 04 00 00 00 00
+91425.984 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 03 02 0A 00 04 00
+91425.984 > 60 EA 00 00
+91425.984 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+91426.045 Command Status: Scp-1.0, (tag-3-ok)
+91426.083 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+91426.083 1(5), enCcWebConfigRead: 0900 1 2
+91426.096 1(6), enCcWebConfigRead: 0900 1 3
+91426.099 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+91426.099 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.124 1(8), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+91426.144 1(9), enCcTime: 0302 1 0
+91426.163 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+91426.164 > 0F 01 5E E3 00 C4 01 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+91426.164 . 98 42 05 0F 00 00 0F 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+91426.164 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 40 00 00 40
+91426.165 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+91426.165 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.165 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.165 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.165 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.165 . 00 00 00 00 00 00 00 00 00
+91426.165 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+91426.165 Command Status: Scp-1.0, (tag-4-ok)
+91426.165 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+91426.165    StructId-01, nRecords=58206, nRecSize=012, nActive=00452
+91426.166    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+91426.166    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+91426.166    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+91426.166    StructId-05, nRecords=00015, nRecSize=2732, nActive=00015
+91426.166    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+91426.166    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+91426.166    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+91426.166    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+91426.166    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+91426.166    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+91426.166    StructId-12, nRecords=00064, nRecSize=260, nActive=00064
+91426.166    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+91426.166    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+91426.166    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+91426.169 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+91426.189 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+91426.219 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+91426.292 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+91426.293 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.293 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+91426.293 Command Status: Scp-1.0, (tag-5-ok)
+91426.293 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+91426.296 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+91426.296 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 02 07 01 00 2A 00
+91426.297 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91426.297 . 0F 0F 00 00 00 00 00
+91426.297 Command Status: Scp-1.0, (tag-6-ok)
+91426.297 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+91426.360 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 03 02 02 00 05 00
+91426.360 > 0B E8 03 00 00
+91426.360 Command Status: Scp-1.0, (tag-7-ok)
+91426.414 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 01 01 04 00 09 00
+91426.416 > 42 D7 F0 69 90 9D FF FF 00
+91426.416 Command Status: Scp-1.0, (tag-8-ok)
+91426.476 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+91426.476 > 03 00 FF FF 5A 00 02 00 00
+91426.476 Command Status: Scp-1.0, (tag-9-ok)
+91426.540 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+91426.542 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+91426.542 Command Status: Scp-1.0, (tag-10-ok)
+91426.604 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+91426.604 > 00 01 00 00 00 03 00
+91426.604 Command Status: Scp-1.0, (tag-11-ok)
+91426.667 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 11 00 02 04 01 00 05 00
+91426.667 > 00 04 00 02 05
+91426.667 Command Status: Scp-1.0, (tag-12-ok)
+91426.730 Command Status: Scp-1.0, (tag-13-ok)
+91428.225 1(14), enCcInput: 0110 0 1 0 5 0 2 5
+91428.246 Chnl-1, SCP-1.0 (32/0), (14) tx: 6B 00 11 00 01 04 01 00 05 00
+91428.246 > 00 05 00 02 05
+91428.308 Command Status: Scp-1.0, (tag-14-ok)
+91430.233 1(15), enCcInput: 0110 0 1 0 6 0 2 5
+91430.260 Chnl-1, SCP-1.0 (32/0), (15) tx: 6B 00 11 00 03 04 01 00 05 00
+91430.260 > 00 06 00 02 05
+91430.310 Command Status: Scp-1.0, (tag-15-ok)
+91461.924 Shutting down debug Thread...
+File closed Tue Apr 28 22:51:01 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 22:51:10 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-14085.058 WSAStartup ok
-14085.059 RNG_X931A24 Initialized
-14085.059 1, enCcSystem: 011 1 1024 0 0 1
-14085.061 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
-14085.065 listen(lsock) created socket=2140 on port 3333
-14085.065 Listen Successful, port: 3333
-14088.802  tcpIpAccept() lsock = 2140, sSock = 2544
-14088.802 Connection accepted from [::ffff:192.168.0.51]:48023
-14088.802 Found available channel object, Chnl-1
-14088.802 Incoming socket connection assigned to Chnl-1 (highest available)
-14088.802 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-14088.802 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-14088.822 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 87 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-14088.822 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-14088.822 Attached incoming Scp-1 as Primary
-14088.822 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-14088.822 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-14088.822 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 87 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-14088.822 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-14088.822 . D9 01 12 00 00 00
-14088.822 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-14088.822 > B0 0B 22 05 20 03 98 3A 00
-14088.822 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-14088.824 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-14088.881 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-14088.881 > FF FF FF FF
-14092.441 Shutting down debug Thread...
-File closed Sun Apr 26 21:34:52 2026
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:35:31 2026
+91471.156 WSAStartup ok
+91471.156 RNG_X931A24 Initialized
+91471.156 1, enCcSystem: 011 1024 1024 0 0 1
+91471.156 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+91471.272 listen(lsock) created socket=2444 on port 3333
+91471.272 Listen Successful, port: 3333
+91474.055  tcpIpAccept() lsock = 2444, sSock = 2464
+91474.055 Connection accepted from [::ffff:192.168.0.51]:49820
+91474.055 Found available channel object, Chnl-1
+91474.055 Incoming socket connection assigned to Chnl-1 (highest available)
+91474.055 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+91474.055 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+91474.109 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 70 D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+91474.109 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+91474.109 Attached incoming Scp-1 as Primary
+91474.109 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+91474.109 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+91474.109 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 70 D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+91474.109 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+91474.109 . D9 01 12 00 00 00
+91474.109 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+91474.109 > B0 0B 22 05 20 03 98 3A 00
+91474.109 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+91474.118 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+91474.173 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+91474.173 > FF FF FF FF
+91474.223 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+91474.231 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+91474.231 > 01 18 00 00 00
+91474.231 > 02 60 EA 00 00
+91474.231 > 03 FC 03 00 00
+91474.232 > 04 FF 00 00 00
+91474.232 > 05 FF 00 00 00
+91474.232 > 06 03 00 00 00
+91474.232 > 07 21 00 00 00
+91474.232 > 08 80 00 00 00
+91474.233 > 09 84 01 00 00
+91474.233 > 0A 40 00 00 00
+91474.233 > 0C 00 7D 00 00
+91474.233 > 0D 00 04 00 00
+91474.233 > 0E 00 04 00 00
+91474.233 > 10 01 00 00 00
+91474.290 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 21 81 02 00 09 00
+91474.290 > 04 06 00 00 00 02 02 00 00
+91474.290 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 02 02 09 00 04 00
+91474.290 > 00 00 80 00
+91474.290 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+91474.296 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 22 81 02 00 05 00
+91474.296 > 04 00 00 00 00
+91474.296 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 03 02 0A 00 04 00
+91474.296 > 60 EA 00 00
+91474.296 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+91474.355 Command Status: Scp-1.0, (tag-3-ok)
+91474.412 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+91474.420 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+91474.420 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.421 1(5), enCcWebConfigRead: 0900 1 2
+91474.427 1(6), enCcWebConfigRead: 0900 1 3
+91474.473 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+91474.473 > 0F 01 5E E3 00 C7 01 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+91474.473 . 98 42 05 0F 00 00 0F 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+91474.473 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 40 00 00 40
+91474.473 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+91474.473 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.473 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.473 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.473 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.473 . 00 00 00 00 00 00 00 00 00
+91474.473 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+91474.473 Command Status: Scp-1.0, (tag-4-ok)
+91474.475 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+91474.475    StructId-01, nRecords=58206, nRecSize=012, nActive=00455
+91474.475    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+91474.475    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+91474.475    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+91474.475    StructId-05, nRecords=00015, nRecSize=2732, nActive=00015
+91474.475    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+91474.475    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+91474.475    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+91474.475    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+91474.475    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+91474.475    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+91474.475    StructId-12, nRecords=00064, nRecSize=260, nActive=00064
+91474.475    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+91474.475    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+91474.475    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+91474.475 1(8), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+91474.503 1(9), enCcTime: 0302 1 0
+91474.528 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+91474.548 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+91474.573 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+91474.606 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+91474.606 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.606 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+91474.606 Command Status: Scp-1.0, (tag-5-ok)
+91474.607 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+91474.607 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+91474.611 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+91474.611 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 02 07 01 00 2A 00
+91474.611 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91474.611 . 0F 0F 00 00 00 00 00
+91474.611 Command Status: Scp-1.0, (tag-6-ok)
+91474.611 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+91474.615 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 03 02 02 00 05 00
+91474.615 > 0B E8 03 00 00
+91474.615 Command Status: Scp-1.0, (tag-7-ok)
+91474.643 1(13), enCcInput: 0110 0 1 0 6 0 2 5
+91474.676 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 01 01 04 00 09 00
+91474.676 > 72 D7 F0 69 90 9D FF FF 00
+91474.676 Command Status: Scp-1.0, (tag-8-ok)
+91474.677 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+91474.677 > 03 00 FF FF 5A 00 02 00 00
+91474.677 Command Status: Scp-1.0, (tag-9-ok)
+91474.738 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+91474.738 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+91474.738 Command Status: Scp-1.0, (tag-10-ok)
+91474.805 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+91474.805 > 00 01 00 00 00 03 00
+91474.805 Command Status: Scp-1.0, (tag-11-ok)
+91474.862 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 1B 00 02 04 01 00 05 00
+91474.862 > 00 04 00 02 05
+91474.862 > 00 05 00 02 05
+91474.862 > 00 06 00 02 05
+91474.862 Command Status: Scp-1.0, (tag-12-ok)
+91474.921 Command Status: Scp-1.0, (tag-13-ok)
+91495.053 Shutting down debug Thread...
+File closed Tue Apr 28 22:51:35 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 22:51:42 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-14132.649 WSAStartup ok
-14132.649 RNG_X931A24 Initialized
-14132.649 1, enCcSystem: 011 1 1024 0 0 1
-14132.653 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
-14132.658 listen(lsock) created socket=2136 on port 3333
-14132.658 Listen Successful, port: 3333
-14134.548  tcpIpAccept() lsock = 2136, sSock = 2564
-14134.548 Connection accepted from [::ffff:192.168.0.51]:48025
-14134.548 Found available channel object, Chnl-1
-14134.548 Incoming socket connection assigned to Chnl-1 (highest available)
-14134.548 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-14134.548 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-14134.564 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 B5 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-14134.564 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-14134.564 Attached incoming Scp-1 as Primary
-14134.564 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-14134.564 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-14134.564 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 B5 22 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-14134.564 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-14134.564 . D9 01 12 00 00 00
-14134.564 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-14134.564 > B0 0B 22 05 20 03 98 3A 00
-14134.564 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-14134.575 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-14134.627 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-14134.627 > FF FF FF FF
-14135.020 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
-14135.020 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
-14135.020 > 01 18 00 00 00
-14135.020 > 02 60 EA 00 00
-14135.020 > 03 FC 03 00 00
-14135.020 > 04 FF 00 00 00
-14135.020 > 05 FF 00 00 00
-14135.020 > 06 03 00 00 00
-14135.020 > 07 21 00 00 00
-14135.020 > 08 80 00 00 00
-14135.020 > 09 84 01 00 00
-14135.020 > 0A 40 00 00 00
-14135.020 > 0C 00 7D 00 00
-14135.020 > 0D 00 04 00 00
-14135.020 > 0E 00 04 00 00
-14135.020 > 10 01 00 00 00
-14135.037 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 22 81 02 00 09 00
-14135.037 > 04 06 00 00 00 02 02 00 00
-14135.037 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
-14135.037 > 00 00 80 00
-14135.037 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
-14135.045 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 23 81 02 00 05 00
-14135.045 > 04 00 00 00 00
-14135.045 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
-14135.045 > 60 EA 00 00
-14135.045 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
-14135.045 Command Status: Scp-1.0, (tag-3-ok)
-14135.121 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
-14135.121 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 03 07 01 00 2A 00
-14135.121 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-14135.121 . 0F 0F 00 00 00 00 00
-14135.137 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 01 02 02 00 05 00
-14135.137 > 0B E8 03 00 00
-14135.137 Command Status: Scp-1.0, (tag-4-ok)
-14135.140 1(6), enCcTime: 0302 1 0
-14135.142 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 02 01 04 00 09 00
-14135.142 > B7 22 EE 69 90 9D FF FF 00
-14135.142 Command Status: Scp-1.0, (tag-5-ok)
-14135.146 1(7), enCcMsp1: 0108 0 1 0 3 -1 90 0 0
-14135.148 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 15 00 03 03 01 00 09 00
-14135.148 > 03 00 FF FF 5A 00 02 00 00
-14135.148 Command Status: Scp-1.0, (tag-6-ok)
-14135.149 1(9), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
-14135.154 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 22 00 01 03 02 00 16 00
-14135.154 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
-14135.154 Command Status: Scp-1.0, (tag-7-ok)
-14135.157 1(10), enCcInput: 0110 0 1 -1 -1 0 2 5
-14135.160 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 13 00 02 03 03 00 07 00
-14135.160 > 00 01 00 00 00 03 00
-14135.160 Command Status: Scp-1.0, (tag-8-ok)
-14135.162 1(10), enCcInput: 0110 0 1 -1 -1 0 2 5
-14135.165 1(10), enCcInput: 0110 0 1 -1 -1 0 2 5
-14135.165 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 1B 00 03 04 01 00 05 00
-14135.165 > FF FF 00 02 05
-14135.165 > FF FF 00 02 05
-14135.165 > FF FF 00 02 05
-14135.165 Command Status: Scp-1.0, (tag-9-ok)
-14135.165 1(11), enCcInput: 0110 0 1 -1 -1 0 2 5
-14135.172 Chnl-1, SCP-1.0 (32/0), (10) rx: 6B 80 11 00 23 81 02 00 05 00
-14135.172 > 04 00 00 00 00
-14135.172 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 11 00 01 04 01 00 05 00
-14135.172 > FF FF 00 02 05
-14135.172 Command Status: Scp-1.0, (tag-10-nak), NAK: reason:4, rec=0
-14135.178 Chnl-1, SCP-1.0 (32/0), (11) rx: 6B 80 11 00 21 81 02 00 05 00
-14135.178 > 04 00 00 00 00
-14135.178 Command Status: Scp-1.0, (tag-11-nak), NAK: reason:4, rec=0
-14147.124 Shutting down debug Thread...
-File closed Sun Apr 26 21:35:47 2026
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:38:13 2026
+91503.381 WSAStartup ok
+91503.382 RNG_X931A24 Initialized
+91503.382 1, enCcSystem: 011 1024 1024 0 0 1
+91503.386 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+91503.480 listen(lsock) created socket=2456 on port 3333
+91503.480 Listen Successful, port: 3333
+91507.226  tcpIpAccept() lsock = 2456, sSock = 2468
+91507.226 Connection accepted from [::ffff:192.168.0.51]:49821
+91507.226 Found available channel object, Chnl-1
+91507.226 Incoming socket connection assigned to Chnl-1 (highest available)
+91507.226 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+91507.226 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+91507.290 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 92 D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+91507.290 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+91507.290 Attached incoming Scp-1 as Primary
+91507.290 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+91507.290 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+91507.290 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 92 D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+91507.290 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+91507.290 . D9 01 12 00 00 00
+91507.290 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+91507.290 > B0 0B 22 05 20 03 98 3A 00
+91507.290 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+91507.303 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+91507.369 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+91507.369 > FF FF FF FF
+91507.402 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+91507.428 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+91507.428 > 01 18 00 00 00
+91507.428 > 02 60 EA 00 00
+91507.428 > 03 FC 03 00 00
+91507.428 > 04 FF 00 00 00
+91507.428 > 05 FF 00 00 00
+91507.428 > 06 03 00 00 00
+91507.428 > 07 21 00 00 00
+91507.428 > 08 80 00 00 00
+91507.428 > 09 84 01 00 00
+91507.428 > 0A 40 00 00 00
+91507.428 > 0C 00 7D 00 00
+91507.428 > 0D 00 04 00 00
+91507.428 > 0E 00 04 00 00
+91507.428 > 10 01 00 00 00
+91507.485 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 21 81 02 00 09 00
+91507.485 > 04 06 00 00 00 02 02 00 00
+91507.485 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 02 02 09 00 04 00
+91507.485 > 00 00 80 00
+91507.485 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+91507.491 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 22 81 02 00 05 00
+91507.491 > 04 00 00 00 00
+91507.491 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 03 02 0A 00 04 00
+91507.491 > 60 EA 00 00
+91507.491 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+91507.554 Command Status: Scp-1.0, (tag-3-ok)
+91507.589 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+91507.597 1(5), enCcWebConfigRead: 0900 1 2
+91507.599 1(6), enCcWebConfigRead: 0900 1 3
+91507.607 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+91507.607 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.628 1(8), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+91507.648 1(9), enCcTime: 0302 1 0
+91507.669 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+91507.672 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+91507.672 > 0F 01 5E E3 00 C9 01 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+91507.672 . 98 42 05 0F 00 00 0F 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+91507.672 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 40 00 00 40
+91507.672 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+91507.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.672 . 00 00 00 00 00 00 00 00 00
+91507.672 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+91507.673 Command Status: Scp-1.0, (tag-4-ok)
+91507.673 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+91507.673    StructId-01, nRecords=58206, nRecSize=012, nActive=00457
+91507.673    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+91507.673    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+91507.673    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+91507.673    StructId-05, nRecords=00015, nRecSize=2732, nActive=00015
+91507.673    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+91507.673    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+91507.673    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+91507.673    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+91507.673    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+91507.673    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+91507.673    StructId-12, nRecords=00064, nRecSize=260, nActive=00064
+91507.673    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+91507.673    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+91507.673    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+91507.694 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+91507.714 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+91507.800 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+91507.800 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.801 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+91507.801 Command Status: Scp-1.0, (tag-5-ok)
+91507.801 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+91507.867 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+91507.868 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 02 07 01 00 2A 00
+91507.868 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91507.868 . 0F 0F 00 00 00 00 00
+91507.868 Command Status: Scp-1.0, (tag-6-ok)
+91507.868 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+91507.919 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+91507.935 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 03 02 02 00 05 00
+91507.935 > 0B E8 03 00 00
+91507.935 Command Status: Scp-1.0, (tag-7-ok)
+91507.986 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 01 01 04 00 09 00
+91507.986 > 93 D7 F0 69 90 9D FF FF 00
+91507.986 Command Status: Scp-1.0, (tag-8-ok)
+91508.053 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+91508.053 > 03 00 FF FF 5A 00 02 00 00
+91508.053 Command Status: Scp-1.0, (tag-9-ok)
+91508.118 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+91508.118 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+91508.118 Command Status: Scp-1.0, (tag-10-ok)
+91508.134 1(13), enCcInput: 0110 0 1 0 6 0 2 5
+91508.169 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+91508.169 > 00 01 00 00 00 03 00
+91508.169 Command Status: Scp-1.0, (tag-11-ok)
+91508.236 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 1B 00 02 04 01 00 05 00
+91508.236 > 00 04 00 02 05
+91508.236 > 00 05 00 02 05
+91508.236 > 00 06 00 02 05
+91508.236 Command Status: Scp-1.0, (tag-12-ok)
+91508.239 Command Status: Scp-1.0, (tag-13-ok)
+91529.983 Shutting down debug Thread...
+File closed Tue Apr 28 22:52:09 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 22:52:28 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-14294.705 WSAStartup ok
-14294.706 RNG_X931A24 Initialized
-14294.706 1, enCcSystem: 011 1 1024 0 0 1
-14294.708 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
-14294.714 listen(lsock) created socket=2156 on port 3333
-14294.714 Listen Successful, port: 3333
-14302.249  tcpIpAccept() lsock = 2156, sSock = 2580
-14302.249 Connection accepted from [::ffff:192.168.0.51]:48031
-14302.249 Found available channel object, Chnl-1
-14302.249 Incoming socket connection assigned to Chnl-1 (highest available)
-14302.249 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-14302.249 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-14302.261 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 5D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-14302.261 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-14302.261 Attached incoming Scp-1 as Primary
-14302.261 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-14302.261 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-14302.261 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 5D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-14302.261 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-14302.261 . D9 01 12 00 00 00
-14302.262 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-14302.262 > B0 0B 22 05 20 03 98 3A 00
-14302.262 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-14302.270 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-14302.323 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-14302.323 > FF FF FF FF
-14317.319 SCP detach: found it, detaching it, SCP-1, Chnl-1
-14317.319 scpCloseChannelSock(): Closing Socket-2580, Chnl-1
-14317.319 Setting SCP-1 for delete on IP Client detach
-14317.319 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
-14317.319 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-14317.322 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
-14317.323 Found SCP-1 to be deleted on detach, calling scpDeleteScp
-14317.323 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
-14317.323 Did not find any SCPs to delete on detach, clear pending delete flag
-14322.401  tcpIpAccept() lsock = 2156, sSock = 2528
-14322.401 Connection accepted from [::ffff:192.168.0.51]:48032
-14322.401 Found available channel object, Chnl-1
-14322.401 Incoming socket connection assigned to Chnl-1 (highest available)
-14322.401 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-14322.401 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-14322.412 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 71 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-14322.412 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-14322.412 Attached incoming Scp-1 as Primary
-14322.412 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-14322.412 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-14322.412 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 71 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-14322.412 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-14322.412 . D9 01 12 00 00 00
-14322.412 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-14322.412 > B0 0B 22 05 20 03 98 3A 00
-14322.412 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-14322.413 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-14322.468 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-14322.468 > FF FF FF FF
-14325.681 Shutting down debug Thread...
-File closed Sun Apr 26 21:38:45 2026
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:38:52 2026
+91549.210 WSAStartup ok
+91549.212 RNG_X931A24 Initialized
+91549.212 1, enCcSystem: 011 1024 1024 0 0 1
+91549.213 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+91549.335 listen(lsock) created socket=2452 on port 3333
+91549.335 Listen Successful, port: 3333
+91550.165  tcpIpAccept() lsock = 2452, sSock = 2464
+91550.165 Connection accepted from [::ffff:192.168.0.51]:49822
+91550.165 Found available channel object, Chnl-1
+91550.165 Incoming socket connection assigned to Chnl-1 (highest available)
+91550.165 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+91550.165 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+91550.231 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 BC D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+91550.231 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+91550.231 Attached incoming Scp-1 as Primary
+91550.231 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+91550.231 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+91550.231 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 BC D7 F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+91550.231 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+91550.231 . D9 01 12 00 00 00
+91550.231 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+91550.231 > B0 0B 22 05 20 03 98 3A 00
+91550.231 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+91550.247 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+91550.313 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+91550.313 > FF FF FF FF
+91550.348 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+91550.366 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+91550.366 > 01 18 00 00 00
+91550.366 > 02 60 EA 00 00
+91550.366 > 03 FC 03 00 00
+91550.366 > 04 FF 00 00 00
+91550.366 > 05 FF 00 00 00
+91550.366 > 06 03 00 00 00
+91550.366 > 07 21 00 00 00
+91550.366 > 08 80 00 00 00
+91550.366 > 09 84 01 00 00
+91550.366 > 0A 40 00 00 00
+91550.366 > 0C 00 7D 00 00
+91550.366 > 0D 00 04 00 00
+91550.366 > 0E 00 04 00 00
+91550.366 > 10 01 00 00 00
+91550.418 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 21 81 02 00 09 00
+91550.418 > 04 06 00 00 00 02 02 00 00
+91550.418 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 02 02 09 00 04 00
+91550.418 > 00 00 80 00
+91550.418 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+91550.418 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 22 81 02 00 05 00
+91550.418 > 04 00 00 00 00
+91550.418 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 03 02 0A 00 04 00
+91550.418 > 60 EA 00 00
+91550.418 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
+91550.487 Command Status: Scp-1.0, (tag-3-ok)
+91550.539 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+91550.539 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+91550.539 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.545 1(5), enCcWebConfigRead: 0900 1 2
+91550.549 1(6), enCcWebConfigRead: 0900 1 3
+91550.577 1(8), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+91550.590 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+91550.590 > 0F 01 5E E3 00 CB 01 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+91550.590 . 98 42 05 0F 00 00 0F 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+91550.590 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 40 00 00 40
+91550.590 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+91550.590 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.590 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.590 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.590 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.590 . 00 00 00 00 00 00 00 00 00
+91550.590 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+91550.592 Command Status: Scp-1.0, (tag-4-ok)
+91550.592 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+91550.592    StructId-01, nRecords=58206, nRecSize=012, nActive=00459
+91550.592    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+91550.593    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+91550.593    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+91550.593    StructId-05, nRecords=00015, nRecSize=2732, nActive=00015
+91550.593    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+91550.593    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+91550.593    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+91550.593    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+91550.593    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+91550.593    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+91550.593    StructId-12, nRecords=00064, nRecSize=260, nActive=00064
+91550.593    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+91550.593    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+91550.593    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+91550.599 1(9), enCcTime: 0302 1 0
+91550.625 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+91550.644 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+91550.673 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+91550.717 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+91550.717 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.717 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+91550.717 Command Status: Scp-1.0, (tag-5-ok)
+91550.717 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+91550.782 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+91550.782 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 02 07 01 00 2A 00
+91550.782 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+91550.782 . 0F 0F 00 00 00 00 00
+91550.782 Command Status: Scp-1.0, (tag-6-ok)
+91550.783 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+91550.847 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 03 02 02 00 05 00
+91550.847 > 0B E8 03 00 00
+91550.847 Command Status: Scp-1.0, (tag-7-ok)
+91550.899 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 01 01 04 00 09 00
+91550.899 > BE D7 F0 69 90 9D FF FF 00
+91550.899 Command Status: Scp-1.0, (tag-8-ok)
+91550.965 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+91550.965 > 03 00 FF FF 5A 00 02 00 00
+91550.965 Command Status: Scp-1.0, (tag-9-ok)
+91551.028 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+91551.028 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+91551.028 Command Status: Scp-1.0, (tag-10-ok)
+91551.093 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+91551.093 > 00 01 00 00 00 03 00
+91551.093 Command Status: Scp-1.0, (tag-11-ok)
+91551.157 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 11 00 02 04 01 00 05 00
+91551.157 > 00 04 00 02 05
+91551.157 Command Status: Scp-1.0, (tag-12-ok)
+91551.189 1(14), enCcInput: 0110 0 1 0 5 0 2 5
+91551.208 Chnl-1, SCP-1.0 (32/0), (14) tx: 6B 00 11 00 03 04 01 00 05 00
+91551.208 > 00 05 00 02 05
+91551.208 Command Status: Scp-1.0, (tag-13-ok)
+91551.209 Command Status: Scp-1.0, (tag-14-ok)
+91551.697 1(15), enCcInput: 0110 0 1 0 6 0 2 5
+91551.748 Chnl-1, SCP-1.0 (32/0), (15) tx: 6B 00 11 00 02 04 01 00 05 00
+91551.748 > 00 06 00 02 05
+91551.815 Command Status: Scp-1.0, (tag-15-ok)
+92033.475 1(15), enCcReset: 0301 1 
+92033.538 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 0C 00 03 01 07 00 00 00
+92033.655 socket closed and trying to read, Chnl-1
+92033.721 Socket recv on Socket-2464: failed, Chnl-1, Error: 10053 (An established connection was aborted by the software in your host machine. )
+92033.721 Chnl-1, RxByte socket error
+92033.721 RxErr-1, Chnl-1, Scp-1.0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92033.721 scpCloseChannelSock(): Closing Socket-2464, Chnl-1
+92033.721 Receive Error: 1 (broken), Chnl=1, Scp=1.0 (ctag=0),
+92033.721 SCP detach: found it, detaching it, SCP-1, Chnl-1
+92033.721 Setting SCP-1 for delete on IP Client detach
+92033.721 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+92033.721 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+92033.723 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+92033.723 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+92033.789 Did not find any SCPs to delete on detach, clear pending delete flag
+92056.141  tcpIpAccept() lsock = 2452, sSock = 2612
+92056.141 Connection accepted from [::ffff:192.168.0.51]:59719
+92056.141 Found available channel object, Chnl-1
+92056.141 Incoming socket connection assigned to Chnl-1 (highest available)
+92056.141 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+92056.141 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+92056.206 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 B6 D9 F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+92056.206 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+92056.206 Attached incoming Scp-1 as Primary
+92056.206 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+92056.206 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+92056.206 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 B6 D9 F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
+92056.206 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+92056.206 . D9 01 12 00 00 00
+92056.206 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+92056.206 > B0 0B 22 05 20 03 98 3A 00
+92056.206 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+92056.206 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16777216(16777216), cards=0(0), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+92056.270 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+92056.270 > FF FF FF FF
+92056.270 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+92056.291 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+92056.301 1(5), enCcWebConfigRead: 0900 1 2
+92056.301 1(6), enCcWebConfigRead: 0900 1 3
+92056.314 1(8), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+92056.318 1(9), enCcTime: 0302 1 0
+92056.318 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+92056.333 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+92056.333 > 01 18 00 00 00
+92056.333 > 02 60 EA 00 00
+92056.333 > 03 FC 03 00 00
+92056.333 > 04 FF 00 00 00
+92056.333 > 05 FF 00 00 00
+92056.333 > 06 03 00 00 00
+92056.333 > 07 21 00 00 00
+92056.333 > 08 80 00 00 00
+92056.333 > 09 84 01 00 00
+92056.333 > 0A 40 00 00 00
+92056.333 > 0C 00 7D 00 00
+92056.333 > 0D 00 04 00 00
+92056.333 > 0E 00 04 00 00
+92056.333 > 10 01 00 00 00
+92056.333 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+92056.333 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+92056.398 Command Status: Scp-1.0, (tag-1-ok)
+92056.462 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 3C 00 22 81 06 04 2C 00 01 00 00 00
+92056.462 > B6 D9 F0 69 00 00 00 7E 1C 2C 73 74 61 72 74 20 68 6F 73 74 20 63 6F 6E 66 69 67 20 61 75 74 6F 73 61 76
+92056.462 . 65 21 20 30 78 30 32 30 32
+92056.462 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+92056.462 > 00 00 80 00
+92056.462 Apr 28 23:00:54 SCP-1:1 SCP DIAGNOSTICS-0, 126:28 start host config autosave! 0x0202
+92056.482 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+92056.482 > 60 EA 00 00
+92056.482 Command Status: Scp-1.0, (tag-2-ok)
+92056.559 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+92056.559 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.559 Command Status: Scp-1.0, (tag-3-ok)
+92056.624 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+92056.624 > 0F 01 5E E3 00 00 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+92056.624 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+92056.624 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+92056.624 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 00 00
+92056.624 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.624 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.624 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.624 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.624 . 00 00 00 00 00 00 00 00 00
+92056.624 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+92056.624 Command Status: Scp-1.0, (tag-4-ok)
+92056.628 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+92056.628    StructId-01, nRecords=58206, nRecSize=012, nActive=00000
+92056.628    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+92056.628    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+92056.628    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+92056.628    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+92056.628    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+92056.628    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+92056.628    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+92056.628    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+92056.628    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+92056.628    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+92056.628    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+92056.628    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+92056.628    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+92056.628    StructId-15, nRecords=00000, nRecSize=000, nActive=00000
+92056.766 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+92056.766 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.766 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+92056.766 Command Status: Scp-1.0, (tag-5-ok)
+92056.766 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+92056.831 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+92056.831 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 02 07 01 00 2A 00
+92056.831 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92056.831 . 0F 0F 00 00 00 00 00
+92056.831 Command Status: Scp-1.0, (tag-6-ok)
+92056.831 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+92056.863 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+92056.895 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 03 02 02 00 05 00
+92056.895 > 0B E8 03 00 00
+92056.895 Command Status: Scp-1.0, (tag-7-ok)
+92056.959 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 01 01 04 00 09 00
+92056.959 > B8 D9 F0 69 90 9D FF FF 00
+92056.959 Command Status: Scp-1.0, (tag-8-ok)
+92057.023 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+92057.023 > 03 00 FF FF 5A 00 02 00 00
+92057.023 Command Status: Scp-1.0, (tag-9-ok)
+92057.087 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+92057.087 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+92057.087 Command Status: Scp-1.0, (tag-10-ok)
+92057.151 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+92057.151 > 00 01 00 00 00 03 00
+92057.151 Command Status: Scp-1.0, (tag-11-ok)
+92057.218 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 16 00 02 04 01 00 05 00
+92057.218 > 00 04 00 02 05
+92057.218 > 00 05 00 02 05
+92057.218 Command Status: Scp-1.0, (tag-12-ok)
+92057.280 Command Status: Scp-1.0, (tag-13-ok)
+92057.343 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 39 00 23 81 06 04 29 00 02 00 00 00
+92057.343 > B7 D9 F0 69 04 00 00 02 05 29 03 C4 05 FF FF FF FF D9 00 C4 01 00 00 00 00 52 00 FF FF 00 00 00 00 00 00
+92057.343 . 00 00 00 00 00 00
+92057.343 Apr 28 23:00:55 SCP-1:2 SIO COMM-0, 2:5 Sts=03, Mdl=196.5, sn=-1, h/w=217.0, ProdId=196.1, OEM=-1, Boot=0.0.0, Ldr=0.0.0, App=0.5.2 Encryption = None, Key Status = Not Loaded to EP, HW Comp: 0
+92057.375 1(14), enCcInput: 0110 0 1 0 6 0 2 5
+92057.393 Chnl-1, SCP-1.0 (32/0), (14) tx: 6B 00 11 00 02 04 01 00 05 00
+92057.393 > 00 06 00 02 05
+92057.451 Command Status: Scp-1.0, (tag-14-ok)
+92117.249 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1B 00 23 81 06 04 0B 00 03 00 00 00
+92117.249 > F3 D9 F0 69 00 00 00 01 06 0B 00
+92117.249 Apr 28 23:01:55 SCP-1:3 SCP DIAGNOSTICS-0, 1:6 error code = 0, Autosave complete (Cards)
+92127.079 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1B 00 23 81 06 04 0B 00 04 00 00 00
+92127.079 > FD D9 F0 69 00 00 00 01 05 0B 00
+92127.079 Apr 28 23:02:05 SCP-1:4 SCP DIAGNOSTICS-0, 1:5 error code = 0, Autosave complete (config)
+92173.825 Shutting down debug Thread...
+File closed Tue Apr 28 23:02:53 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 23:11:21 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-14333.406 WSAStartup ok
-14333.408 RNG_X931A24 Initialized
-14333.408 1, enCcSystem: 011 1 1024 0 0 1
-14333.410 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
-14333.416 listen(lsock) created socket=2148 on port 3333
-14333.416 Listen Successful, port: 3333
-14333.783  tcpIpAccept() lsock = 2148, sSock = 2484
-14333.783 Connection accepted from [::ffff:192.168.0.51]:48033
-14333.783 Found available channel object, Chnl-1
-14333.783 Incoming socket connection assigned to Chnl-1 (highest available)
-14333.783 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
-14333.783 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
-14333.793 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 7D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
-14333.793 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
-14333.793 Attached incoming Scp-1 as Primary
-14333.793 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
-14333.793 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
-14333.793 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 7D 23 EE 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
-14333.793 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
-14333.793 . D9 01 12 00 00 00
-14333.793 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
-14333.793 > B0 0B 22 05 20 03 98 3A 00
-14333.793 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
-14333.802 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
-14333.851 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
-14333.851 > FF FF FF FF
-14334.211 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
-14334.211 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
-14334.212 > 01 18 00 00 00
-14334.212 > 02 60 EA 00 00
-14334.212 > 03 FC 03 00 00
-14334.212 > 04 FF 00 00 00
-14334.213 > 05 FF 00 00 00
-14334.213 > 06 03 00 00 00
-14334.213 > 07 21 00 00 00
-14334.213 > 08 80 00 00 00
-14334.213 > 09 84 01 00 00
-14334.213 > 0A 40 00 00 00
-14334.213 > 0C 00 7D 00 00
-14334.213 > 0D 00 04 00 00
-14334.213 > 0E 00 04 00 00
-14334.213 > 10 01 00 00 00
-14334.218 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 22 81 02 00 09 00
-14334.218 > 04 06 00 00 00 02 02 00 00
-14334.218 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
-14334.218 > 00 00 80 00
-14334.219 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
-14334.225 Chnl-1, SCP-1.0 (32/0), (2) rx: 6B 80 11 00 23 81 02 00 05 00
-14334.225 > 04 00 00 00 00
-14334.225 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
-14334.225 > 60 EA 00 00
-14334.225 Command Status: Scp-1.0, (tag-2-nak), NAK: reason:4, rec=0
-14334.230 Command Status: Scp-1.0, (tag-3-ok)
-14334.310 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
-14334.310 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 03 07 01 00 2A 00
-14334.310 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-14334.310 . 0F 0F 00 00 00 00 00
-14334.313 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 01 02 02 00 05 00
-14334.313 > 0B E8 03 00 00
-14334.313 Command Status: Scp-1.0, (tag-4-ok)
-14334.318 1(6), enCcTime: 0302 1 0
-14334.321 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 02 01 04 00 09 00
-14334.321 > 7E 23 EE 69 90 9D FF FF 00
-14334.321 Command Status: Scp-1.0, (tag-5-ok)
-14334.324 1(7), enCcMsp1: 0108 0 1 0 3 -1 90 0 0
-14334.327 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 15 00 03 03 01 00 09 00
-14334.328 > 03 00 FF FF 5A 00 02 00 00
-14334.328 Command Status: Scp-1.0, (tag-6-ok)
-14334.330 1(9), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
-14334.333 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 22 00 01 03 02 00 16 00
-14334.333 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
-14334.333 Command Status: Scp-1.0, (tag-7-ok)
-14334.338 1(10), enCcInput: 0110 0 1 0 -1 0 2 5
-14334.339 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 13 00 02 03 03 00 07 00
-14334.340 > 00 01 00 00 00 03 00
-14334.340 Command Status: Scp-1.0, (tag-8-ok)
-14334.342 1(10), enCcInput: 0110 0 1 0 -1 0 2 5
-14334.345 1(10), enCcInput: 0110 0 1 0 -1 0 2 5
-14334.346 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 1B 00 03 04 01 00 05 00
-14334.346 > 00 FF 00 02 05
-14334.346 > 00 FF 00 02 05
-14334.346 > 00 FF 00 02 05
-14334.346 Command Status: Scp-1.0, (tag-9-ok)
-14334.349 1(11), enCcInput: 0110 0 1 0 -1 0 2 5
-14334.352 Chnl-1, SCP-1.0 (32/0), (10) rx: 6B 80 11 00 23 81 02 00 05 00
-14334.352 > 04 00 00 00 00
-14334.353 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 11 00 01 04 01 00 05 00
-14334.353 > 00 FF 00 02 05
-14334.353 Command Status: Scp-1.0, (tag-10-nak), NAK: reason:4, rec=0
-14334.357 Chnl-1, SCP-1.0 (32/0), (11) rx: 6B 80 11 00 21 81 02 00 05 00
-14334.357 > 04 00 00 00 00
-14334.357 Command Status: Scp-1.0, (tag-11-nak), NAK: reason:4, rec=0
-14343.643 Shutting down debug Thread...
-File closed Sun Apr 26 21:39:03 2026
-Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sun Apr 26 21:41:01 2026
+92683.886 WSAStartup ok
+92683.888 RNG_X931A24 Initialized
+92683.888 1, enCcSystem: 011 1024 1024 0 0 1
+92683.889 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+92684.188 listen(lsock) created socket=2428 on port 3333
+92684.188 Listen Successful, port: 3333
+92688.932  tcpIpAccept() lsock = 2428, sSock = 2460
+92688.932 Connection accepted from [::ffff:192.168.0.51]:59737
+92688.932 Found available channel object, Chnl-1
+92688.932 Incoming socket connection assigned to Chnl-1 (highest available)
+92688.932 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+92688.932 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+92688.996 TempScp Rxd:  6B 80 58 00 30 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 2F DC F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+92688.996 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+92688.996 Attached incoming Scp-1 as Primary
+92688.996 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+92688.996 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 30 81 03 00 4C 00
+92688.996 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 2F DC F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+92688.996 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+92688.996 . D9 01 12 00 00 00
+92688.996 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+92688.996 > B0 0B 22 05 20 03 98 3A 00
+92688.996 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+92689.996 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+92689.066 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1D 00 22 81 06 04 0D 00 05 00 00 00
+92689.066 > 2C DA F0 69 00 00 00 01 02 0D 01 00 01
+92689.066 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+92689.066 > FF FF FF FF
+92689.066 Apr 28 16:02:52 SCP-1:5 SCP DIAGNOSTICS-0, 1:2 error code = 1, primary: 0(1), alternate: 0(0)
+92689.152 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+92689.200 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 03 02 02 00 05 00
+92689.200 > 01 18 00 00 00
+92689.200 > 02 60 EA 00 00
+92689.200 > 03 FC 03 00 00
+92689.200 > 04 FF 00 00 00
+92689.200 > 05 FF 00 00 00
+92689.200 > 06 03 00 00 00
+92689.200 > 07 21 00 00 00
+92689.200 > 08 80 00 00 00
+92689.200 > 09 84 01 00 00
+92689.200 > 0A 40 00 00 00
+92689.200 > 0C 00 7D 00 00
+92689.200 > 0D 00 04 00 00
+92689.200 > 0E 00 04 00 00
+92689.200 > 10 01 00 00 00
+92689.266 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 01 02 09 00 04 00
+92689.266 > 00 00 80 00
+92689.266 Command Status: Scp-1.0, (tag-1-ok)
+92689.320 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 02 02 0A 00 04 00
+92689.320 > 60 EA 00 00
+92689.320 Command Status: Scp-1.0, (tag-2-ok)
+92689.321 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+92689.336 1(5), enCcWebConfigRead: 0900 1 2
+92689.340 1(6), enCcWebConfigRead: 0900 1 3
+92689.371 1(8), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+92689.373 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 03 09 23 00 21 00
+92689.373 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.373 Command Status: Scp-1.0, (tag-3-ok)
+92689.373 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 23 91 23 00 21 01
+92689.373 > 0F 01 5E E3 00 05 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+92689.373 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+92689.373 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+92689.373 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+92689.373 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.373 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.373 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.373 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.373 . 00 00 00 00 00 00 00 00 00
+92689.373 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 01 09 27 00 00 00
+92689.373 Command Status: Scp-1.0, (tag-4-ok)
+92689.373 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+92689.373    StructId-01, nRecords=58206, nRecSize=012, nActive=00005
+92689.373    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+92689.373    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+92689.373    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+92689.373    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+92689.373    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+92689.373    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+92689.373    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+92689.373    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+92689.373    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+92689.373    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+92689.373    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+92689.373    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+92689.373    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+92689.373    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+92689.392 1(9), enCcTime: 0302 1 0
+92689.416 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+92689.450 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+92689.476 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+92689.486 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+92689.491 1(13), enCcInput: 0110 0 1 0 6 0 2 5
+92689.492 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 21 81 0C 00 6D 01
+92689.492 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.492 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 02 09 28 00 00 00
+92689.492 Command Status: Scp-1.0, (tag-5-ok)
+92689.492 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+92689.495 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 22 81 0D 00 10 01
+92689.495 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 03 07 01 00 2A 00
+92689.495 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92689.495 . 0F 0F 00 00 00 00 00
+92689.495 Command Status: Scp-1.0, (tag-6-ok)
+92689.495 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+92689.566 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 01 02 02 00 05 00
+92689.566 > 0B E8 03 00 00
+92689.566 Command Status: Scp-1.0, (tag-7-ok)
+92689.620 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 02 01 04 00 09 00
+92689.620 > 31 DC F0 69 90 9D FF FF 00
+92689.620 Command Status: Scp-1.0, (tag-8-ok)
+92689.686 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 03 03 01 00 09 00
+92689.686 > 03 00 FF FF 5A 00 02 00 00
+92689.686 Command Status: Scp-1.0, (tag-9-ok)
+92689.748 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 01 03 02 00 16 00
+92689.748 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+92689.748 Command Status: Scp-1.0, (tag-10-ok)
+92689.814 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 02 03 03 00 07 00
+92689.814 > 00 01 00 00 00 03 00
+92689.814 Command Status: Scp-1.0, (tag-11-ok)
+92689.866 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 1B 00 03 04 01 00 05 00
+92689.866 > 00 04 00 02 05
+92689.866 > 00 05 00 02 05
+92689.866 > 00 06 00 02 05
+92689.866 Command Status: Scp-1.0, (tag-12-ok)
+92689.868 Command Status: Scp-1.0, (tag-13-ok)
+92891.950 Shutting down debug Thread...
+File closed Tue Apr 28 23:14:51 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 23:15:01 2026
 Begin - SCP Driver DLL (64-bit) version 4.7.1.43
-14462.385 WSAStartup ok
-14462.386 RNG_X931A24 Initialized
-14462.386 1, enCcSystem: 011 1 1024 0 0 1
-14462.391 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
-14462.398 listen(lsock) created socket=2148 on port 3333
-14462.398 Listen Successful, port: 3333
-14464.796 Shutting down debug Thread...
-File closed Sun Apr 26 21:41:04 2026
+92902.488 WSAStartup ok
+92902.489 RNG_X931A24 Initialized
+92902.489 1, enCcSystem: 011 1024 1024 0 0 1
+92902.491 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+92902.591 listen(lsock) created socket=2496 on port 3333
+92902.591 Listen Successful, port: 3333
+92904.096  tcpIpAccept() lsock = 2496, sSock = 2508
+92904.096 Connection accepted from [::ffff:192.168.0.51]:59738
+92904.096 Found available channel object, Chnl-1
+92904.096 Incoming socket connection assigned to Chnl-1 (highest available)
+92904.096 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+92904.096 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+92904.160 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 07 DD F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+92904.160 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+92904.160 Attached incoming Scp-1 as Primary
+92904.160 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+92904.160 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+92904.160 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 07 DD F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+92904.160 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+92904.160 . D9 01 12 00 00 00
+92904.160 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+92904.160 > B0 0B 22 05 20 03 98 3A 00
+92904.160 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+92904.171 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+92904.231 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+92904.231 > FF FF FF FF
+92904.271 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+92904.299 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+92904.299 > 01 18 00 00 00
+92904.299 > 02 60 EA 00 00
+92904.299 > 03 FC 03 00 00
+92904.299 > 04 FF 00 00 00
+92904.299 > 05 FF 00 00 00
+92904.299 > 06 03 00 00 00
+92904.299 > 07 21 00 00 00
+92904.299 > 08 80 00 00 00
+92904.299 > 09 84 01 00 00
+92904.299 > 0A 40 00 00 00
+92904.299 > 0C 00 7D 00 00
+92904.299 > 0D 00 04 00 00
+92904.299 > 0E 00 04 00 00
+92904.299 > 10 01 00 00 00
+92904.366 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 02 02 09 00 04 00
+92904.366 > 00 00 80 00
+92904.366 Command Status: Scp-1.0, (tag-1-ok)
+92904.369 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 03 02 0A 00 04 00
+92904.369 > 60 EA 00 00
+92904.369 Command Status: Scp-1.0, (tag-2-ok)
+92904.433 Command Status: Scp-1.0, (tag-3-ok)
+92904.471 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+92904.486 1(5), enCcWebConfigRead: 0900 1 2
+92904.489 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+92904.489 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.491 1(6), enCcWebConfigRead: 0900 1 3
+92904.521 1(8), enCcScpAdbSpec: 1105 0 1 500 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+92904.552 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+92904.552 > 0F 01 5E E3 00 14 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+92904.552 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+92904.552 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+92904.552 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+92904.552 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.552 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.552 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.552 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.552 . 00 00 00 00 00 00 00 00 00
+92904.552 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+92904.552 Command Status: Scp-1.0, (tag-4-ok)
+92904.553 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+92904.553    StructId-01, nRecords=58206, nRecSize=012, nActive=00020
+92904.553    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+92904.553    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+92904.553    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+92904.553    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+92904.553    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+92904.553    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+92904.553    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+92904.553    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+92904.553    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+92904.553    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+92904.553    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+92904.553    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+92904.553    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+92904.553    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+92904.553 1(9), enCcTime: 0302 1 0
+92904.585 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+92904.607 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+92904.627 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+92904.634 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+92904.637 1(13), enCcInput: 0110 0 1 0 6 0 2 5
+92904.672 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+92904.672 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+92904.672 Command Status: Scp-1.0, (tag-5-ok)
+92904.672 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+92904.672 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+92904.672 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 36 00 02 07 01 00 2A 00
+92904.672 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+92904.672 . 0F 0F 00 00 00 00 00
+92904.672 Command Status: Scp-1.0, (tag-6-ok)
+92904.672 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+92904.733 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 11 00 03 02 02 00 05 00
+92904.733 > 0B F4 01 00 00
+92904.733 Command Status: Scp-1.0, (tag-7-ok)
+92904.786 Chnl-1, SCP-1.0 (32/0), (8) rx: 6B 80 15 00 23 81 02 00 09 00
+92904.786 > 04 00 00 00 00 01 11 00 00
+92904.786 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 15 00 01 01 04 00 09 00
+92904.786 > 08 DD F0 69 90 9D FF FF 00
+92904.786 Command Status: Scp-1.0, (tag-8-nak), NAK: reason:4, rec=0, descr_code=0x1101, description=Num Card count differs from previous allocation
+92904.793 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+92904.793 > 03 00 FF FF 5A 00 02 00 00
+92904.793 Command Status: Scp-1.0, (tag-9-ok)
+92904.853 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+92904.853 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+92904.853 Command Status: Scp-1.0, (tag-10-ok)
+92904.915 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+92904.915 > 00 01 00 00 00 03 00
+92904.915 Command Status: Scp-1.0, (tag-11-ok)
+92904.982 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 1B 00 02 04 01 00 05 00
+92904.982 > 00 04 00 02 05
+92904.982 > 00 05 00 02 05
+92904.982 > 00 06 00 02 05
+92904.982 Command Status: Scp-1.0, (tag-12-ok)
+92905.033 Command Status: Scp-1.0, (tag-13-ok)
+93176.598 Shutting down debug Thread...
+File closed Tue Apr 28 23:19:36 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 23:19:46 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+93187.272 WSAStartup ok
+93187.273 RNG_X931A24 Initialized
+93187.273 1, enCcSystem: 011 1024 1024 0 0 1
+93187.275 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+93187.362 listen(lsock) created socket=2452 on port 3333
+93187.362 Listen Successful, port: 3333
+93188.741  tcpIpAccept() lsock = 2452, sSock = 2464
+93188.741 Connection accepted from [::ffff:192.168.0.51]:59739
+93188.741 Found available channel object, Chnl-1
+93188.741 Incoming socket connection assigned to Chnl-1 (highest available)
+93188.741 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+93188.741 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+93188.805 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 23 DE F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+93188.805 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+93188.805 Attached incoming Scp-1 as Primary
+93188.805 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+93188.805 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+93188.805 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 60 FC FD 00 23 DE F0 69 E8 03 00 00 00 00 00 00 00 00 00 00 00 00 01
+93188.805 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+93188.805 . D9 01 12 00 00 00
+93188.805 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+93188.805 > B0 0B 22 05 20 03 98 3A 00
+93188.805 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+93188.814 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16645216(16777216), cards=0(1000), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+93188.875 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+93188.875 > FF FF FF FF
+93188.920 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+93188.926 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+93188.926 > 01 18 00 00 00
+93188.926 > 02 60 EA 00 00
+93188.926 > 03 FC 03 00 00
+93188.926 > 04 FF 00 00 00
+93188.926 > 05 FF 00 00 00
+93188.926 > 06 03 00 00 00
+93188.926 > 07 21 00 00 00
+93188.926 > 08 80 00 00 00
+93188.926 > 09 84 01 00 00
+93188.926 > 0A 40 00 00 00
+93188.926 > 0C 00 7D 00 00
+93188.926 > 0D 00 04 00 00
+93188.926 > 0E 00 04 00 00
+93188.926 > 10 01 00 00 00
+93188.978 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 02 02 09 00 04 00
+93188.978 > 00 00 80 00
+93188.978 Command Status: Scp-1.0, (tag-1-ok)
+93189.044 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 03 02 0A 00 04 00
+93189.044 > 60 EA 00 00
+93189.044 Command Status: Scp-1.0, (tag-2-ok)
+93189.098 Command Status: Scp-1.0, (tag-3-ok)
+93189.099 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+93189.108 1(5), enCcWebConfigRead: 0900 1 2
+93189.111 1(6), enCcWebConfigRead: 0900 1 3
+93189.178 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+93189.178 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.245 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+93189.247 > 0F 01 5E E3 00 18 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+93189.247 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+93189.247 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+93189.247 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+93189.247 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.247 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.247 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.247 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.247 . 00 00 00 00 00 00 00 00 00
+93189.247 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+93189.247 Command Status: Scp-1.0, (tag-4-ok)
+93189.247 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+93189.247    StructId-01, nRecords=58206, nRecSize=012, nActive=00024
+93189.249    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+93189.249    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+93189.249    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+93189.249    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+93189.249    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+93189.249    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+93189.249    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+93189.249    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+93189.249    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+93189.249    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+93189.249    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+93189.249    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+93189.249    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+93189.249    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+93189.361 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+93189.361 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.361 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+93189.361 Command Status: Scp-1.0, (tag-5-ok)
+93189.361 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+93189.429 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+93189.430 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.430 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.431 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.431 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.431 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.431 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.431 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.432 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93189.432 Command Status: Scp-1.0, (tag-6-ok)
+93189.432 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+93211.627 1(6), enCcReset: 0301 1 
+93211.628 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 0C 00 01 01 07 00 00 00
+93211.743 socket closed and trying to read, Chnl-1
+93211.810 Socket recv on Socket-2464: failed, Chnl-1, Error: 10053 (An established connection was aborted by the software in your host machine. )
+93211.812 Chnl-1, RxByte socket error
+93211.812 RxErr-1, Chnl-1, Scp-1.0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93211.812 scpCloseChannelSock(): Closing Socket-2464, Chnl-1
+93211.812 Receive Error: 1 (broken), Chnl=1, Scp=1.0 (ctag=0),
+93211.812 SCP detach: found it, detaching it, SCP-1, Chnl-1
+93211.812 Setting SCP-1 for delete on IP Client detach
+93211.812 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+93211.812 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+93211.825 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+93211.825 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+93211.877 Did not find any SCPs to delete on detach, clear pending delete flag
+93232.874  tcpIpAccept() lsock = 2452, sSock = 2464
+93232.874 Connection accepted from [::ffff:192.168.0.51]:50213
+93232.874 Found available channel object, Chnl-1
+93232.874 Incoming socket connection assigned to Chnl-1 (highest available)
+93232.874 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+93232.874 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+93232.937 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 4F DE F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+93232.937 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+93232.937 Attached incoming Scp-1 as Primary
+93232.937 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+93232.937 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+93232.937 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 4F DE F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
+93232.937 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+93232.937 . D9 01 12 00 00 00
+93232.937 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+93232.937 > B0 0B 22 05 20 03 98 3A 00
+93232.937 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+93232.937 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16777216(16777216), cards=0(0), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+93232.937 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+93232.957 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+93232.961 1(5), enCcWebConfigRead: 0900 1 2
+93232.963 1(6), enCcWebConfigRead: 0900 1 3
+93232.999 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+93232.999 > FF FF FF FF
+93233.058 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+93233.058 > 01 18 00 00 00
+93233.058 > 02 60 EA 00 00
+93233.058 > 03 FC 03 00 00
+93233.058 > 04 FF 00 00 00
+93233.058 > 05 FF 00 00 00
+93233.058 > 06 03 00 00 00
+93233.058 > 07 21 00 00 00
+93233.058 > 08 80 00 00 00
+93233.058 > 09 84 01 00 00
+93233.058 > 0A 40 00 00 00
+93233.058 > 0C 00 7D 00 00
+93233.058 > 0D 00 04 00 00
+93233.058 > 0E 00 04 00 00
+93233.058 > 10 01 00 00 00
+93233.124 Command Status: Scp-1.0, (tag-1-ok)
+93233.190 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 3C 00 22 81 06 04 2C 00 01 00 00 00
+93233.190 > 4F DE F0 69 00 00 00 7E 1C 2C 73 74 61 72 74 20 68 6F 73 74 20 63 6F 6E 66 69 67 20 61 75 74 6F 73 61 76
+93233.190 . 65 21 20 30 78 30 32 30 32
+93233.190 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+93233.190 > 00 00 80 00
+93233.190 Apr 28 23:20:31 SCP-1:1 SCP DIAGNOSTICS-0, 126:28 start host config autosave! 0x0202
+93233.205 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+93233.205 > 60 EA 00 00
+93233.205 Command Status: Scp-1.0, (tag-2-ok)
+93233.259 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+93233.259 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.259 Command Status: Scp-1.0, (tag-3-ok)
+93233.326 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+93233.326 > 0F 01 5E E3 00 00 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+93233.326 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+93233.326 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+93233.326 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 00 00
+93233.326 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.326 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.326 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.326 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.326 . 00 00 00 00 00 00 00 00 00
+93233.326 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+93233.326 Command Status: Scp-1.0, (tag-4-ok)
+93233.326 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+93233.326    StructId-01, nRecords=58206, nRecSize=012, nActive=00000
+93233.326    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+93233.326    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+93233.326    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+93233.326    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+93233.326    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+93233.326    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+93233.326    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+93233.326    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+93233.326    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+93233.326    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+93233.326    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+93233.326    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+93233.326    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+93233.326    StructId-15, nRecords=00000, nRecSize=000, nActive=00000
+93233.459 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+93233.459 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.459 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+93233.459 Command Status: Scp-1.0, (tag-5-ok)
+93233.459 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+93233.524 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+93233.524 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.524 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.524 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.524 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.524 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.525 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.525 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.525 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93233.525 Command Status: Scp-1.0, (tag-6-ok)
+93233.525 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+93302.209 1(6), enCcReset: 0301 1 
+93302.239 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 0C 00 01 01 07 00 00 00
+93302.836 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1B 00 23 81 06 04 0B 00 02 00 00 00
+93302.836 > 95 DE F0 69 00 00 00 01 05 0B 00
+93302.836 Apr 28 23:21:41 SCP-1:2 SCP DIAGNOSTICS-0, 1:5 error code = 0, Autosave complete (config)
+93303.368 socket closed and trying to read, Chnl-1
+93303.368 socket closed and trying to read, Chnl-1
+93303.433 socket closed and trying to read, Chnl-1
+93303.433 socket closed and trying to read, Chnl-1
+93303.497 socket closed and trying to read, Chnl-1
+93303.497 socket closed and trying to read, Chnl-1
+93303.565 socket closed and trying to read, Chnl-1
+93303.565 socket closed and trying to read, Chnl-1
+93303.626 socket closed and trying to read, Chnl-1
+93303.626 socket closed and trying to read, Chnl-1
+93303.690 socket closed and trying to read, Chnl-1
+93303.690 socket closed and trying to read, Chnl-1
+93303.754 socket closed and trying to read, Chnl-1
+93303.754 socket closed and trying to read, Chnl-1
+93303.816 socket closed and trying to read, Chnl-1
+93303.816 socket closed and trying to read, Chnl-1
+93303.880 socket closed and trying to read, Chnl-1
+93303.880 socket closed and trying to read, Chnl-1
+93303.945 socket closed and trying to read, Chnl-1
+93303.945 socket closed and trying to read, Chnl-1
+93304.009 socket closed and trying to read, Chnl-1
+93304.009 socket closed and trying to read, Chnl-1
+93304.073 socket closed and trying to read, Chnl-1
+93304.073 socket closed and trying to read, Chnl-1
+93304.137 socket closed and trying to read, Chnl-1
+93304.137 socket closed and trying to read, Chnl-1
+93304.201 socket closed and trying to read, Chnl-1
+93304.201 socket closed and trying to read, Chnl-1
+93304.265 socket closed and trying to read, Chnl-1
+93304.265 socket closed and trying to read, Chnl-1
+93304.329 socket closed and trying to read, Chnl-1
+93304.329 socket closed and trying to read, Chnl-1
+93304.393 socket closed and trying to read, Chnl-1
+93304.393 socket closed and trying to read, Chnl-1
+93304.457 socket closed and trying to read, Chnl-1
+93304.457 socket closed and trying to read, Chnl-1
+93304.521 socket closed and trying to read, Chnl-1
+93304.521 socket closed and trying to read, Chnl-1
+93304.585 socket closed and trying to read, Chnl-1
+93304.585 socket closed and trying to read, Chnl-1
+93304.649 socket closed and trying to read, Chnl-1
+93304.649 socket closed and trying to read, Chnl-1
+93304.713 socket closed and trying to read, Chnl-1
+93304.713 socket closed and trying to read, Chnl-1
+93304.778 socket closed and trying to read, Chnl-1
+93304.778 socket closed and trying to read, Chnl-1
+93304.842 socket closed and trying to read, Chnl-1
+93304.842 socket closed and trying to read, Chnl-1
+93304.906 socket closed and trying to read, Chnl-1
+93304.906 socket closed and trying to read, Chnl-1
+93304.970 socket closed and trying to read, Chnl-1
+93304.970 socket closed and trying to read, Chnl-1
+93305.036 socket closed and trying to read, Chnl-1
+93305.036 socket closed and trying to read, Chnl-1
+93305.099 socket closed and trying to read, Chnl-1
+93305.099 socket closed and trying to read, Chnl-1
+93305.162 socket closed and trying to read, Chnl-1
+93305.162 socket closed and trying to read, Chnl-1
+93305.226 socket closed and trying to read, Chnl-1
+93305.226 socket closed and trying to read, Chnl-1
+93305.291 socket closed and trying to read, Chnl-1
+93305.291 socket closed and trying to read, Chnl-1
+93305.355 socket closed and trying to read, Chnl-1
+93305.355 socket closed and trying to read, Chnl-1
+93305.421 socket closed and trying to read, Chnl-1
+93305.421 socket closed and trying to read, Chnl-1
+93305.483 socket closed and trying to read, Chnl-1
+93305.483 socket closed and trying to read, Chnl-1
+93305.547 socket closed and trying to read, Chnl-1
+93305.547 socket closed and trying to read, Chnl-1
+93305.612 socket closed and trying to read, Chnl-1
+93305.612 socket closed and trying to read, Chnl-1
+93305.676 socket closed and trying to read, Chnl-1
+93305.676 socket closed and trying to read, Chnl-1
+93305.739 socket closed and trying to read, Chnl-1
+93305.739 socket closed and trying to read, Chnl-1
+93305.803 socket closed and trying to read, Chnl-1
+93305.803 socket closed and trying to read, Chnl-1
+93305.867 socket closed and trying to read, Chnl-1
+93305.867 socket closed and trying to read, Chnl-1
+93305.930 socket closed and trying to read, Chnl-1
+93305.930 socket closed and trying to read, Chnl-1
+93305.994 socket closed and trying to read, Chnl-1
+93305.994 socket closed and trying to read, Chnl-1
+93306.059 socket closed and trying to read, Chnl-1
+93306.059 socket closed and trying to read, Chnl-1
+93306.123 socket closed and trying to read, Chnl-1
+93306.123 socket closed and trying to read, Chnl-1
+93306.188 socket closed and trying to read, Chnl-1
+93306.188 socket closed and trying to read, Chnl-1
+93306.251 socket closed and trying to read, Chnl-1
+93306.251 socket closed and trying to read, Chnl-1
+93306.315 socket closed and trying to read, Chnl-1
+93306.315 socket closed and trying to read, Chnl-1
+93306.379 socket closed and trying to read, Chnl-1
+93306.379 socket closed and trying to read, Chnl-1
+93306.443 socket closed and trying to read, Chnl-1
+93306.443 socket closed and trying to read, Chnl-1
+93306.508 socket closed and trying to read, Chnl-1
+93306.508 socket closed and trying to read, Chnl-1
+93306.571 socket closed and trying to read, Chnl-1
+93306.571 socket closed and trying to read, Chnl-1
+93306.635 socket closed and trying to read, Chnl-1
+93306.635 socket closed and trying to read, Chnl-1
+93306.699 socket closed and trying to read, Chnl-1
+93306.699 socket closed and trying to read, Chnl-1
+93306.763 socket closed and trying to read, Chnl-1
+93306.763 socket closed and trying to read, Chnl-1
+93306.827 socket closed and trying to read, Chnl-1
+93306.827 socket closed and trying to read, Chnl-1
+93306.892 socket closed and trying to read, Chnl-1
+93306.892 socket closed and trying to read, Chnl-1
+93306.956 socket closed and trying to read, Chnl-1
+93306.956 socket closed and trying to read, Chnl-1
+93307.020 socket closed and trying to read, Chnl-1
+93307.020 socket closed and trying to read, Chnl-1
+93307.083 socket closed and trying to read, Chnl-1
+93307.083 socket closed and trying to read, Chnl-1
+93307.147 socket closed and trying to read, Chnl-1
+93307.147 socket closed and trying to read, Chnl-1
+93307.212 socket closed and trying to read, Chnl-1
+93307.212 socket closed and trying to read, Chnl-1
+93307.276 socket closed and trying to read, Chnl-1
+93307.276 socket closed and trying to read, Chnl-1
+93307.340 socket closed and trying to read, Chnl-1
+93307.340 socket closed and trying to read, Chnl-1
+93307.404 socket closed and trying to read, Chnl-1
+93307.404 socket closed and trying to read, Chnl-1
+93307.468 socket closed and trying to read, Chnl-1
+93307.468 socket closed and trying to read, Chnl-1
+93307.532 socket closed and trying to read, Chnl-1
+93307.532 socket closed and trying to read, Chnl-1
+93307.597 socket closed and trying to read, Chnl-1
+93307.597 socket closed and trying to read, Chnl-1
+93307.661 socket closed and trying to read, Chnl-1
+93307.661 socket closed and trying to read, Chnl-1
+93307.726 socket closed and trying to read, Chnl-1
+93307.726 socket closed and trying to read, Chnl-1
+93307.789 socket closed and trying to read, Chnl-1
+93307.789 socket closed and trying to read, Chnl-1
+93307.919 Socket recv on Socket-2464: failed, Chnl-1, Error: 10053 (An established connection was aborted by the software in your host machine. )
+93307.919 Chnl-1, RxByte socket error
+93307.919 RxErr-1, Chnl-1, Scp-1.0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93307.919 scpCloseChannelSock(): Closing Socket-2464, Chnl-1
+93307.919 Receive Error: 1 (broken), Chnl=1, Scp=1.0 (ctag=0),
+93307.919 SCP detach: found it, detaching it, SCP-1, Chnl-1
+93307.919 Setting SCP-1 for delete on IP Client detach
+93307.919 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+93307.919 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+93307.923 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+93307.923 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+93307.984 Did not find any SCPs to delete on detach, clear pending delete flag
+93324.726  tcpIpAccept() lsock = 2452, sSock = 2536
+93324.726 Connection accepted from [::ffff:192.168.0.51]:39097
+93324.726 Found available channel object, Chnl-1
+93324.726 Incoming socket connection assigned to Chnl-1 (highest available)
+93324.726 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+93324.726 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+93324.788 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 AB DE F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+93324.788 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+93324.788 Attached incoming Scp-1 as Primary
+93324.788 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+93324.788 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+93324.788 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 AB DE F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
+93324.788 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+93324.788 . D9 01 12 00 00 00
+93324.788 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+93324.788 > B0 0B 22 05 20 03 98 3A 00
+93324.788 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+93324.788 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16777216(16777216), cards=0(0), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+93324.800 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+93324.812 1(4), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+93324.812 1(5), enCcWebConfigRead: 0900 1 2
+93324.820 1(6), enCcWebConfigRead: 0900 1 3
+93324.851 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+93324.851 > FF FF FF FF
+93324.904 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+93324.904 > 01 18 00 00 00
+93324.904 > 02 60 EA 00 00
+93324.904 > 03 FC 03 00 00
+93324.904 > 04 FF 00 00 00
+93324.904 > 05 FF 00 00 00
+93324.904 > 06 03 00 00 00
+93324.904 > 07 21 00 00 00
+93324.904 > 08 80 00 00 00
+93324.904 > 09 84 01 00 00
+93324.904 > 0A 40 00 00 00
+93324.904 > 0C 00 7D 00 00
+93324.904 > 0D 00 04 00 00
+93324.904 > 0E 00 04 00 00
+93324.904 > 10 01 00 00 00
+93324.968 Command Status: Scp-1.0, (tag-1-ok)
+93325.034 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 3C 00 22 81 06 04 2C 00 01 00 00 00
+93325.034 > AB DE F0 69 00 00 00 7E 1C 2C 73 74 61 72 74 20 68 6F 73 74 20 63 6F 6E 66 69 67 20 61 75 74 6F 73 61 76
+93325.034 . 65 21 20 30 78 30 32 30 32
+93325.034 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+93325.034 > 00 00 80 00
+93325.034 Apr 28 23:22:03 SCP-1:1 SCP DIAGNOSTICS-0, 126:28 start host config autosave! 0x0202
+93325.061 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+93325.061 > 60 EA 00 00
+93325.061 Command Status: Scp-1.0, (tag-2-ok)
+93325.118 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 2D 00 02 09 23 00 21 00
+93325.118 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.118 Command Status: Scp-1.0, (tag-3-ok)
+93325.183 Chnl-1, SCP-1.0 (32/0), (4) rx: 6B 80 2D 01 22 91 23 00 21 01
+93325.183 > 0F 01 5E E3 00 00 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+93325.184 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+93325.184 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+93325.184 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 00 00 00 00 00 00
+93325.184 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.184 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.184 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.184 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.184 . 00 00 00 00 00 00 00 00 00
+93325.184 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 0C 00 03 09 27 00 00 00
+93325.184 Command Status: Scp-1.0, (tag-4-ok)
+93325.184 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+93325.184    StructId-01, nRecords=58206, nRecSize=012, nActive=00000
+93325.184    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+93325.184    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+93325.184    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+93325.184    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+93325.184    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+93325.184    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+93325.184    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+93325.184    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+93325.184    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+93325.184    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+93325.184    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+93325.184    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+93325.184    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+93325.184    StructId-15, nRecords=00000, nRecSize=000, nActive=00000
+93325.317 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 79 01 23 81 0C 00 6D 01
+93325.317 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.317 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 0C 00 01 09 28 00 00 00
+93325.317 Command Status: Scp-1.0, (tag-5-ok)
+93325.317 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+93325.323 Chnl-1, SCP-1.0 (32/0), (6) rx: 6B 80 1C 01 21 81 0D 00 10 01
+93325.323 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93325.323 Command Status: Scp-1.0, (tag-6-ok)
+93325.323 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+93394.834 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1B 00 21 81 06 04 0B 00 02 00 00 00
+93394.834 > F1 DE F0 69 00 00 00 01 05 0B 00
+93394.834 Apr 28 23:23:13 SCP-1:2 SCP DIAGNOSTICS-0, 1:5 error code = 0, Autosave complete (config)
+93458.207 Shutting down debug Thread...
+File closed Tue Apr 28 23:24:18 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 23:24:25 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+93466.241 WSAStartup ok
+93466.241 RNG_X931A24 Initialized
+93466.241 1, enCcSystem: 011 1024 1024 0 0 1
+93466.245 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+93466.340 listen(lsock) created socket=2428 on port 3333
+93466.340 Listen Successful, port: 3333
+93470.365  tcpIpAccept() lsock = 2428, sSock = 2468
+93470.365 Connection accepted from [::ffff:192.168.0.51]:39098
+93470.365 Found available channel object, Chnl-1
+93470.365 Incoming socket connection assigned to Chnl-1 (highest available)
+93470.365 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+93470.365 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+93470.429 TempScp Rxd:  6B 80 58 00 30 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 3D DF F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+93470.429 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+93470.429 Attached incoming Scp-1 as Primary
+93470.429 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+93470.429 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 30 81 03 00 4C 00
+93470.429 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 3D DF F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
+93470.429 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+93470.429 . D9 01 12 00 00 00
+93470.429 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+93470.429 > B0 0B 22 05 20 03 98 3A 00
+93470.429 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+93470.442 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16777216(16777216), cards=0(0), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+93470.505 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1D 00 22 81 06 04 0D 00 03 00 00 00
+93470.505 > 31 DF F0 69 00 00 00 01 02 0D 01 00 01
+93470.505 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+93470.505 > FF FF FF FF
+93470.505 Apr 28 16:24:17 SCP-1:3 SCP DIAGNOSTICS-0, 1:2 error code = 1, primary: 0(1), alternate: 0(0)
+93470.552 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 33 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+93470.589 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 02 02 02 00 05 00
+93470.589 > 01 18 00 00 00
+93470.589 > 02 60 EA 00 00
+93470.589 > 03 FC 03 00 00
+93470.589 > 04 FF 00 00 00
+93470.589 > 05 FF 00 00 00
+93470.589 > 06 03 00 00 00
+93470.589 > 07 21 00 00 00
+93470.589 > 08 80 00 00 00
+93470.589 > 09 84 01 00 00
+93470.589 > 0A 40 00 00 00
+93470.589 > 0C 00 7D 00 00
+93470.589 > 0D 00 04 00 00
+93470.589 > 0E 00 04 00 00
+93470.589 > 10 01 00 00 00
+93470.640 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+93470.640 > 00 00 80 00
+93470.640 Command Status: Scp-1.0, (tag-1-ok)
+93470.694 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+93470.694 > 60 EA 00 00
+93470.694 Command Status: Scp-1.0, (tag-2-ok)
+93470.753 1(5), enCcScpAdbSpec: 1105 0 1 500 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+93470.756 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 02 07 01 00 2A 00
+93470.756 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93470.756 . 0F 0F 00 00 00 00 00
+93470.756 Command Status: Scp-1.0, (tag-3-ok)
+93470.779 1(6), enCcTime: 0302 1 0
+93470.785 1(7), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+93470.788 1(8), enCcWebConfigRead: 0900 1 2
+93470.791 1(9), enCcWebConfigRead: 0900 1 3
+93470.812 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 03 02 02 00 05 00
+93470.812 > 0B F4 01 00 00
+93470.812 Command Status: Scp-1.0, (tag-4-ok)
+93470.871 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 01 01 04 00 09 00
+93470.871 > 3E DF F0 69 90 9D FF FF 00
+93470.871 Command Status: Scp-1.0, (tag-5-ok)
+93470.923 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 2D 00 02 09 23 00 21 00
+93470.923 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93470.923 Command Status: Scp-1.0, (tag-6-ok)
+93470.988 Chnl-1, SCP-1.0 (32/0), (7) rx: 6B 80 2D 01 22 91 23 00 21 01
+93470.989 > 0F 01 5E E3 00 04 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+93470.989 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+93470.989 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+93470.989 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F F4 01 00 00 00 00 84 00 00 00 00 00
+93470.989 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93470.989 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93470.989 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93470.989 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93470.989 . 00 00 00 00 00 00 00 00 00
+93470.989 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 0C 00 03 09 27 00 00 00
+93470.989 Command Status: Scp-1.0, (tag-7-ok)
+93470.989 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+93470.989    StructId-01, nRecords=58206, nRecSize=012, nActive=00004
+93470.989    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+93470.989    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+93470.989    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+93470.989    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+93470.989    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+93470.990    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+93470.990    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+93470.990    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+93470.990    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+93470.990    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+93470.990    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+93470.990    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+93470.990    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+93470.990    StructId-15, nRecords=00500, nRecSize=132, nActive=00000
+93471.058 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+93471.081 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+93471.101 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+93471.106 Chnl-1, SCP-1.0 (32/0), (8) rx: 6B 80 79 01 23 81 0C 00 6D 01
+93471.106 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+93471.106 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.107 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 0C 00 01 09 28 00 00 00
+93471.107 Command Status: Scp-1.0, (tag-8-ok)
+93471.107 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+93471.108 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+93471.112 1(13), enCcInput: 0110 0 1 0 6 0 2 5
+93471.113 Chnl-1, SCP-1.0 (32/0), (9) rx: 6B 80 1C 01 21 81 0D 00 10 01
+93471.114 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93471.114 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+93471.114 > 03 00 FF FF 5A 00 02 00 00
+93471.114 Command Status: Scp-1.0, (tag-9-ok)
+93471.115 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+93471.115 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+93471.115 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+93471.115 Command Status: Scp-1.0, (tag-10-ok)
+93471.177 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+93471.177 > 00 01 00 00 00 03 00
+93471.177 Command Status: Scp-1.0, (tag-11-ok)
+93471.240 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 1B 00 02 04 01 00 05 00
+93471.240 > 00 04 00 02 05
+93471.242 > 00 05 00 02 05
+93471.242 > 00 06 00 02 05
+93471.242 Command Status: Scp-1.0, (tag-12-ok)
+93471.306 Command Status: Scp-1.0, (tag-13-ok)
+93517.186 Shutting down debug Thread...
+File closed Tue Apr 28 23:25:17 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Tue Apr 28 23:25:24 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+93525.936 WSAStartup ok
+93525.936 RNG_X931A24 Initialized
+93525.936 1, enCcSystem: 011 1024 1024 0 0 1
+93525.936 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+93526.060 listen(lsock) created socket=2448 on port 3333
+93526.060 Listen Successful, port: 3333
+93529.331  tcpIpAccept() lsock = 2448, sSock = 2468
+93529.331 Connection accepted from [::ffff:192.168.0.51]:39099
+93529.331 Found available channel object, Chnl-1
+93529.331 Incoming socket connection assigned to Chnl-1 (highest available)
+93529.331 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+93529.331 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+93529.395 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 30 FE FE 00 78 DF F0 69 F4 01 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+93529.395 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+93529.395 Attached incoming Scp-1 as Primary
+93529.395 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+93529.395 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+93529.395 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 30 FE FE 00 78 DF F0 69 F4 01 00 00 00 00 00 00 00 00 00 00 00 00 01
+93529.395 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+93529.395 . D9 01 12 00 00 00
+93529.395 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+93529.395 > B0 0B 22 05 20 03 98 3A 00
+93529.395 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+93529.410 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16711216(16777216), cards=0(500), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+93529.467 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+93529.467 > FF FF FF FF
+93529.514 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 32 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+93529.519 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+93529.519 > 01 18 00 00 00
+93529.519 > 02 60 EA 00 00
+93529.520 > 03 FC 03 00 00
+93529.520 > 04 FF 00 00 00
+93529.521 > 05 FF 00 00 00
+93529.521 > 06 03 00 00 00
+93529.521 > 07 20 00 00 00
+93529.521 > 08 80 00 00 00
+93529.521 > 09 84 01 00 00
+93529.521 > 0A 40 00 00 00
+93529.521 > 0C 00 7D 00 00
+93529.521 > 0D 00 04 00 00
+93529.521 > 0E 00 04 00 00
+93529.521 > 10 01 00 00 00
+93529.585 Chnl-1, SCP-1.0 (32/0), (1) rx: 6B 80 15 00 21 81 02 00 09 00
+93529.585 > 04 06 00 00 00 02 02 00 00
+93529.585 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 02 02 09 00 04 00
+93529.585 > 00 00 80 00
+93529.585 Command Status: Scp-1.0, (tag-1-nak), NAK: reason:4, rec=6, descr_code=0x0202, description=SIO count differs from previous allocation
+93529.593 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 03 02 0A 00 04 00
+93529.593 > 60 EA 00 00
+93529.593 Command Status: Scp-1.0, (tag-2-ok)
+93529.652 Command Status: Scp-1.0, (tag-3-ok)
+93529.730 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+93529.755 1(6), enCcTime: 0302 1 0
+93529.758 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 02 07 01 00 2A 00
+93529.758 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93529.758 . 0F 0F 00 00 00 00 00
+93529.760 1(7), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+93529.763 1(8), enCcWebConfigRead: 0900 1 2
+93529.765 1(9), enCcWebConfigRead: 0900 1 3
+93529.818 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 03 02 02 00 05 00
+93529.818 > 0B E8 03 00 00
+93529.818 Command Status: Scp-1.0, (tag-4-ok)
+93529.818 Chnl-1, SCP-1.0 (32/0), (5) rx: 6B 80 15 00 23 81 02 00 09 00
+93529.818 > 04 00 00 00 00 01 11 00 00
+93529.818 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 01 01 04 00 09 00
+93529.818 > 79 DF F0 69 90 9D FF FF 00
+93529.818 Command Status: Scp-1.0, (tag-5-nak), NAK: reason:4, rec=0, descr_code=0x1101, description=Num Card count differs from previous allocation
+93529.874 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 2D 00 02 09 23 00 21 00
+93529.874 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93529.874 Command Status: Scp-1.0, (tag-6-ok)
+93529.936 Chnl-1, SCP-1.0 (32/0), (7) rx: 6B 80 2D 01 22 91 23 00 21 01
+93529.936 > 0F 01 5E E3 00 07 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+93529.936 . 98 42 05 21 00 00 21 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+93529.936 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+93529.936 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F F4 01 00 00 00 00 84 00 00 00 00 00
+93529.936 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93529.936 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93529.936 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93529.936 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93529.936 . 00 00 00 00 00 00 00 00 00
+93529.936 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 0C 00 03 09 27 00 00 00
+93529.936 Command Status: Scp-1.0, (tag-7-ok)
+93529.937 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+93529.937    StructId-01, nRecords=58206, nRecSize=012, nActive=00007
+93529.937    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+93529.937    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+93529.937    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+93529.937    StructId-05, nRecords=00033, nRecSize=2732, nActive=00033
+93529.938    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+93529.938    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+93529.938    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+93529.938    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+93529.938    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+93529.938    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+93529.938    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+93529.938    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+93529.938    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+93529.938    StructId-15, nRecords=00500, nRecSize=132, nActive=00000
+93530.068 Chnl-1, SCP-1.0 (32/0), (8) rx: 6B 80 79 01 23 81 0C 00 6D 01
+93530.069 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+93530.069 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.069 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.069 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.069 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.069 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.070 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.070 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.070 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.070 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.070 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.070 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 0C 00 01 09 28 00 00 00
+93530.070 Command Status: Scp-1.0, (tag-8-ok)
+93530.070 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+93530.080 Chnl-1, SCP-1.0 (32/0), (9) rx: 6B 80 1C 01 21 81 0D 00 10 01
+93530.080 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.080 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.081 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.081 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.081 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.081 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.081 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.081 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93530.081 Command Status: Scp-1.0, (tag-9-ok)
+93530.081 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+93576.089 1(9), enCcReset: 0301 1 
+93576.150 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 0C 00 03 01 07 00 00 00
+93576.266 socket closed and trying to read, Chnl-1
+93576.334 Socket recv on Socket-2468: failed, Chnl-1, Error: 10053 (An established connection was aborted by the software in your host machine. )
+93576.334 Chnl-1, RxByte socket error
+93576.334 RxErr-1, Chnl-1, Scp-1.0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93576.334 scpCloseChannelSock(): Closing Socket-2468, Chnl-1
+93576.335 Receive Error: 1 (broken), Chnl=1, Scp=1.0 (ctag=0),
+93576.335 SCP detach: found it, detaching it, SCP-1, Chnl-1
+93576.335 Setting SCP-1 for delete on IP Client detach
+93576.335 Reporting CommCoS:  Channel--1, SCP-1.0, Status = 1(2), Error = 6(6.0/6.6), Prim=0(3), Alt=0(0)
+93576.335 Found SCP-1 to be deleted on detach, but related to valid message, skip for now
+93576.337 Found SCP-1 to be deleted on detach, calling scpDeleteScp
+93576.337 SCP detach: this SCP is already detached - nothing to do, SCP-1, Chnl-0
+93576.399 Did not find any SCPs to delete on detach, clear pending delete flag
+93598.705  tcpIpAccept() lsock = 2448, sSock = 2584
+93598.705 Connection accepted from [::ffff:192.168.0.51]:41792
+93598.705 Found available channel object, Chnl-1
+93598.705 Incoming socket connection assigned to Chnl-1 (highest available)
+93598.705 Incoming socket connection attached to Channel 1, attaching temp SCP (state: 1, TLS State: 0)
+93598.705 Chnl-1, SCP--1.0 (1/0), (0) tx: 6B 00 0C 00 00 01 02 00 00 00
+93598.769 TempScp Rxd:  6B 80 58 00 20 81 03 00 4C 00 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 BD DF F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01 00 00
+93598.769 Caller's response: Reply 81-03, spc_ln 0x00, rec_ln: 0x4C, struct: 0x4C
+93598.769 Attached incoming Scp-1 as Primary
+93598.769 Buf Sizing: Baud Sw = 00, CommMode = 7, ScpRev = 101F0 (27.1.31.0.0681), MinVer = 30031, max_txdb = 2952
+93598.769 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 58 00 20 81 03 00 4C 00
+93598.769 > 03 1B 01 1F 7B 21 20 00 00 00 00 01 00 00 00 01 BD DF F0 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
+93598.769 . 00 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 F8 57 61 9E 18 00 00 00 00 A9 02 00 00
+93598.769 . D9 01 12 00 00 00
+93598.769 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 15 00 01 01 01 00 09 00
+93598.769 > B0 0B 22 05 20 03 98 3A 00
+93598.769 Reporting CommCoS:  Channel-1, SCP-1.0, Status = 2(1), Error = 0(0.6/6.6), Prim=3(1), Alt=0(0)
+93598.774 8103 id report, SCP-1, Device=3.27, FW=1.310.681, SN=2105723, OEM=1, MAC=00:18:9E:61:57:F8, ram=16777216(16777216), cards=0(0), DipCur=0, DipPwr=0, ID=1, Inputs=1,1,0, Hardware Components = 18
+93598.777 1(3), enCcScpScp: 1107 0 1 0 0 0 0 3 60000 32 128 388 64 32000 1024 1024 -25200 0 255 255 0 60000 0 0 1 0 0
+93598.789 1(5), enCcScpAdbSpec: 1105 0 1 1000 8 324 1 1 2 2 1 1 7 1 1 64 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 15 0 0 0
+93598.798 1(6), enCcTime: 0302 1 0
+93598.802 1(7), enCcStrSRq: 1853 1 15 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+93598.806 1(8), enCcWebConfigRead: 0900 1 2
+93598.810 1(9), enCcWebConfigRead: 0900 1 3
+93598.837 Chnl-1, SCP-1.0 (32/0), (0) tx: 6B 00 10 00 03 02 01 00 04 00
+93598.837 > FF FF FF FF
+93598.898 Chnl-1, SCP-1.0 (32/0), (1) tx: 6B 00 52 00 01 02 02 00 05 00
+93598.898 > 01 18 00 00 00
+93598.898 > 02 60 EA 00 00
+93598.898 > 03 FC 03 00 00
+93598.898 > 04 FF 00 00 00
+93598.898 > 05 FF 00 00 00
+93598.898 > 06 03 00 00 00
+93598.898 > 07 20 00 00 00
+93598.898 > 08 80 00 00 00
+93598.898 > 09 84 01 00 00
+93598.898 > 0A 40 00 00 00
+93598.898 > 0C 00 7D 00 00
+93598.898 > 0D 00 04 00 00
+93598.898 > 0E 00 04 00 00
+93598.898 > 10 01 00 00 00
+93598.964 Command Status: Scp-1.0, (tag-1-ok)
+93599.030 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 3C 00 22 81 06 04 2C 00 01 00 00 00
+93599.030 > BD DF F0 69 00 00 00 7E 1C 2C 73 74 61 72 74 20 68 6F 73 74 20 63 6F 6E 66 69 67 20 61 75 74 6F 73 61 76
+93599.031 . 65 21 20 30 78 30 32 30 32
+93599.031 Chnl-1, SCP-1.0 (32/0), (2) tx: 6B 00 10 00 03 02 09 00 04 00
+93599.031 > 00 00 80 00
+93599.031 Apr 28 23:26:37 SCP-1:1 SCP DIAGNOSTICS-0, 126:28 start host config autosave! 0x0202
+93599.045 Chnl-1, SCP-1.0 (32/0), (3) tx: 6B 00 10 00 01 02 0A 00 04 00
+93599.046 > 60 EA 00 00
+93599.046 Command Status: Scp-1.0, (tag-2-ok)
+93599.099 Chnl-1, SCP-1.0 (32/0), (4) tx: 6B 00 36 00 02 07 01 00 2A 00
+93599.099 > 08 44 07 05 FF 12 40 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.099 . 0F 0F 00 00 00 00 00
+93599.099 Command Status: Scp-1.0, (tag-3-ok)
+93599.165 Chnl-1, SCP-1.0 (32/0), (5) tx: 6B 00 11 00 03 02 02 00 05 00
+93599.165 > 0B E8 03 00 00
+93599.166 Command Status: Scp-1.0, (tag-4-ok)
+93599.229 Chnl-1, SCP-1.0 (32/0), (6) tx: 6B 00 15 00 01 01 04 00 09 00
+93599.229 > BF DF F0 69 90 9D FF FF 00
+93599.229 Command Status: Scp-1.0, (tag-5-ok)
+93599.281 Chnl-1, SCP-1.0 (32/0), (7) tx: 6B 00 2D 00 02 09 23 00 21 00
+93599.281 > 0F 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.281 Command Status: Scp-1.0, (tag-6-ok)
+93599.347 Chnl-1, SCP-1.0 (32/0), (7) rx: 6B 80 2D 01 22 91 23 00 21 01
+93599.347 > 0F 01 5E E3 00 00 00 00 0C 00 02 00 01 00 00 01 00 10 00 03 FF 00 00 FF 00 00 04 00 04 28 00 00 28 00 00
+93599.347 . 98 42 05 20 00 00 20 00 00 AC 0A 06 80 00 00 80 00 00 20 00 07 84 01 00 84 01 00 18 00 08 40 00 00 40 00
+93599.347 . 00 20 09 09 00 7D 00 00 7D 00 40 00 0A 00 04 00 00 04 00 28 00 0B 00 04 00 00 04 00 04 00 0C 00 00 00 00
+93599.347 . 00 00 04 01 0D 80 00 00 80 00 00 28 00 0E 00 00 00 00 00 00 00 00 0F E8 03 00 00 00 00 84 00 00 00 00 00
+93599.347 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.347 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.347 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.347 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.347 . 00 00 00 00 00 00 00 00 00
+93599.347 Chnl-1, SCP-1.0 (32/0), (8) tx: 6B 00 0C 00 03 09 27 00 00 00
+93599.347 Command Status: Scp-1.0, (tag-7-ok)
+93599.348 ConfigRead: 0020 SCP-1, Number of Items Sent: 15
+93599.348    StructId-01, nRecords=58206, nRecSize=012, nActive=00000
+93599.348    StructId-02, nRecords=00256, nRecSize=016, nActive=00256
+93599.348    StructId-03, nRecords=00255, nRecSize=004, nActive=00255
+93599.348    StructId-04, nRecords=00040, nRecSize=17048, nActive=00040
+93599.348    StructId-05, nRecords=00032, nRecSize=2732, nActive=00032
+93599.348    StructId-06, nRecords=00128, nRecSize=032, nActive=00128
+93599.348    StructId-07, nRecords=00388, nRecSize=024, nActive=00388
+93599.348    StructId-08, nRecords=00064, nRecSize=2336, nActive=00064
+93599.348    StructId-09, nRecords=32000, nRecSize=064, nActive=32000
+93599.348    StructId-10, nRecords=01024, nRecSize=040, nActive=01024
+93599.348    StructId-11, nRecords=01024, nRecSize=004, nActive=01024
+93599.348    StructId-12, nRecords=00000, nRecSize=260, nActive=00000
+93599.348    StructId-13, nRecords=00128, nRecSize=040, nActive=00128
+93599.348    StructId-14, nRecords=00000, nRecSize=000, nActive=00000
+93599.348    StructId-15, nRecords=01000, nRecSize=132, nActive=00000
+93599.415 1(10), enCcMsp1: 0108 0 1 0 3 -1 0 0 0
+93599.465 1(12), enCcSio: 0109 0 1 0 7 4 4 196 0 0 -1 1 0 0 0 0 3 0 -1 -1 -1 0 0 0
+93599.465 Chnl-1, SCP-1.0 (32/0), (8) rx: 6B 80 79 01 23 81 0C 00 6D 01
+93599.465 > 02 00 33 00 A8 C0 00 00 FF FF 01 00 A8 C0 4D 41 43 30 30 31 38 39 45 36 31 35 37 46 38 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 02 00 01 00 A8 C0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.465 Chnl-1, SCP-1.0 (32/0), (9) tx: 6B 00 0C 00 01 09 28 00 00 00
+93599.465 Command Status: Scp-1.0, (tag-8-ok)
+93599.465 WebConfigNetwork: SCP-1, Method = 2, IP Address: 192.168.0.51, Subnet Mask: 255.255.0.0, Default Gateway: 192.168.0.1, HostName: "MAC00189E6157F8", DNSType: 2, DNS: 192.168.0.1, DNS Suffix: ""
+WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.0, Default Gateway2: 0.0.0.0, Tunnel Enable: 0, Tunnel IP: 0.0.0.0, Tunnel Port: 0
+93599.511 1(13), enCcInput: 0110 0 1 0 4 0 2 5
+93599.517 1(13), enCcInput: 0110 0 1 0 5 0 2 5
+93599.533 1(13), enCcInput: 0110 0 1 0 6 0 2 5
+93599.534 Chnl-1, SCP-1.0 (32/0), (9) rx: 6B 80 1C 01 21 81 0D 00 10 01
+93599.535 > 00 00 00 00 02 00 C7 00 A8 C0 05 0D 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 . 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+93599.535 Chnl-1, SCP-1.0 (32/0), (10) tx: 6B 00 15 00 02 03 01 00 09 00
+93599.535 > 03 00 FF FF 5A 00 02 00 00
+93599.535 Command Status: Scp-1.0, (tag-9-ok)
+93599.535 WebConfigHostComm: SCP-1, PRIMARY, cType = 2, HostIP: 192.168.0.199, Port: 3333, rqIntvl: 5, connMode: 0, HostName: "", NIC1
+93599.596 Chnl-1, SCP-1.0 (32/0), (11) tx: 6B 00 22 00 03 03 02 00 16 00
+93599.596 > 00 C4 00 00 00 00 00 FF FF FF FF 07 04 04 FF FF FF 00 00 00 00 00
+93599.596 Command Status: Scp-1.0, (tag-10-ok)
+93599.661 Chnl-1, SCP-1.0 (32/0), (12) tx: 6B 00 13 00 01 03 03 00 07 00
+93599.661 > 00 01 00 00 00 03 00
+93599.661 Command Status: Scp-1.0, (tag-11-ok)
+93599.715 Chnl-1, SCP-1.0 (32/0), (13) tx: 6B 00 1B 00 02 04 01 00 05 00
+93599.715 > 00 04 00 02 05
+93599.715 > 00 05 00 02 05
+93599.715 > 00 06 00 02 05
+93599.715 Command Status: Scp-1.0, (tag-12-ok)
+93599.780 Command Status: Scp-1.0, (tag-13-ok)
+93599.831 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 39 00 23 81 06 04 29 00 02 00 00 00
+93599.831 > BE DF F0 69 04 00 00 02 05 29 03 C4 05 FF FF FF FF D9 00 C4 01 00 00 00 00 52 00 FF FF 00 00 00 00 00 00
+93599.831 . 00 00 00 00 00 00
+93599.831 Apr 28 23:26:38 SCP-1:2 SIO COMM-0, 2:5 Sts=03, Mdl=196.5, sn=-1, h/w=217.0, ProdId=196.1, OEM=-1, Boot=0.0.0, Ldr=0.0.0, App=0.5.2 Encryption = None, Key Status = Not Loaded to EP, HW Comp: 0
+93659.516 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1B 00 21 81 06 04 0B 00 03 00 00 00
+93659.516 > FA DF F0 69 00 00 00 01 06 0B 00
+93659.516 Apr 28 23:27:38 SCP-1:3 SCP DIAGNOSTICS-0, 1:6 error code = 0, Autosave complete (Cards)

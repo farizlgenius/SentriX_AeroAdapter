@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AeroAdapter.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260426135402_ChangeDriverConfigTableAgain")]
-    partial class ChangeDriverConfigTableAgain
+    [Migration("20260428153917_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,7 +64,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.Property<string>("mac")
                         .IsRequired()
@@ -98,7 +100,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 
@@ -157,7 +161,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.Property<short>("n_channel_id")
                         .HasColumnType("smallint");
@@ -169,7 +175,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 
@@ -204,7 +212,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.Property<string>("mac")
                         .IsRequired()
@@ -229,7 +239,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 
@@ -252,6 +264,114 @@ namespace AeroAdapter.Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("AeroAdapter.Infrastructure.Persistences.Entities.ElevatorAccessLevelSpecification", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<DateTime>("created_at")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+                    b.Property<string>("mac")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<short>("max_ealvl")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("max_floors")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("scp_id")
+                        .HasColumnType("smallint");
+
+                    b.Property<DateTime>("updated_at")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+                    b.HasKey("id");
+
+                    b.ToTable("ElevatorAccessLevelSpecifications");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            created_at = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            mac = "",
+                            max_ealvl = (short)256,
+                            max_floors = (short)128,
+                            scp_id = (short)0,
+                            updated_at = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("AeroAdapter.Infrastructure.Persistences.Entities.InputPointSpecification", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<DateTime>("created_at")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+                    b.Property<short>("debounce")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("hold_time")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("icvt_num")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("input_number")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("mac")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<short>("scp_id")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("sio_number")
+                        .HasColumnType("smallint");
+
+                    b.Property<DateTime>("updated_at")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+                    b.HasKey("id");
+
+                    b.ToTable("InputPointSpecifications");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            created_at = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            debounce = (short)2,
+                            hold_time = (short)5,
+                            icvt_num = (short)0,
+                            input_number = (short)0,
+                            mac = "",
+                            scp_id = (short)0,
+                            sio_number = (short)0,
+                            updated_at = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
             modelBuilder.Entity("AeroAdapter.Infrastructure.Persistences.Entities.Scp", b =>
                 {
                     b.Property<int>("id")
@@ -261,17 +381,41 @@ namespace AeroAdapter.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+                    b.Property<string>("fw")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ip")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("mac")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<short>("scp_number")
+                    b.Property<int>("port")
+                        .HasColumnType("integer");
+
+                    b.Property<short>("scp_id")
                         .HasColumnType("smallint");
 
+                    b.Property<string>("sync_status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("synced_at")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 
@@ -287,7 +431,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.Property<short>("gmt_offset")
                         .HasColumnType("smallint");
@@ -351,7 +497,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 
@@ -398,7 +546,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.Property<short>("emax")
                         .HasColumnType("smallint");
@@ -444,7 +594,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 
@@ -486,7 +638,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.Property<short>("debug_rq")
                         .HasColumnType("smallint");
@@ -507,7 +661,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 
@@ -549,7 +705,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("created_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.Property<bool>("is_nak")
                         .HasColumnType("boolean");
@@ -579,7 +737,9 @@ namespace AeroAdapter.Infrastructure.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("updated_at")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
                     b.HasKey("id");
 

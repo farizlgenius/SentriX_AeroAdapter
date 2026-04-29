@@ -31,8 +31,8 @@ public class SCPReplyMessageDto
     public SCPReplyCertInfoDto cert_info { get; set; } = new SCPReplyCertInfoDto();
     public SCPReplyElevRelayInfoDto elev_relay_info { get; set; } = new SCPReplyElevRelayInfoDto();
     // public CC_WEB_CONFIG_NOTESDto web_notes { get; set; }
-    // public CC_WEB_CONFIG_NETWORKDto web_network { get; set; }
-    // public CC_WEB_CONFIG_HOST_COMM_PRIMDto web_host_comm_prim { get; set; }
+    public CC_WEB_CONFIG_NETWORKDto web_network { get; set; } = new CC_WEB_CONFIG_NETWORKDto();
+    public CC_WEB_CONFIG_HOST_COMM_PRIMDto web_host_comm_prim { get; set; } = new CC_WEB_CONFIG_HOST_COMM_PRIMDto();
     // public CC_WEB_CONFIG_SESSION_TMRDto web_session_tmr { get; set; }
     // public CC_WEB_CONFIG_WEB_CONNDto web_conn { get; set; }
     // public CC_WEB_CONFIG_AUTO_SAVEDto web_auto_save { get; set; }
@@ -864,5 +864,84 @@ public class SCPReplyMessageDto
     {
         public short nSioReply { get; set; }
         public byte[] dummy { get; set; } = default!;
+    }
+
+    public class CC_WEB_CONFIG_NETWORKDto 
+    {
+    
+        public short scp_number  { get; set; }
+
+      public short method  {get; set;}
+      public int cIpAddr  {get; set;}
+
+      public int cSubnetMask  {get; set;}
+
+      public int cDfltGateway  {get; set;}
+
+      public char[] cHostName {get; set;} = default!;
+
+      public short dnsType  {get; set;}
+
+      public int cDns  {get; set;}
+
+      public char[] cDnsSuffix  {get; set;} = default!;
+
+      public short method2 {get; set;}
+      public int cIpAddr2  {get; set;}
+
+      public int cSubnetMask2 {get; set;}
+
+      public int cDfltGateway2  {get; set;}
+
+      public int cDns2  {get; set;}
+
+      public short TnlEnable  {get; set;}
+
+      public int cIpTnl  {get; set;}
+
+      public int cPortTnl  {get; set;}
+    }
+
+    public class CC_WEB_CONFIG_HOST_COMM_PRIMDto
+    {
+         public short scp_number { get; set; }
+
+      public short address { get; set; }
+
+      public short dataSecurity { get; set; }
+
+      public short cType { get; set; }
+
+      public HostCommIpServerDto ipserver { get; set; } = new HostCommIpServerDto();
+
+      public HostCommIpClientDto ipclient { get; set; } = new HostCommIpClientDto();
+    }
+
+    public class HostCommIpServerDto
+    {
+        public int cAuthIP1 {get; set;}
+
+      public int cAuthIP2 {get; set;}
+
+      public short nPort {get; set;}
+
+      public short enableAuthIP {get; set;}
+
+      public short nNicSel {get; set;}
+    }
+
+    public class HostCommIpClientDto
+    {
+          public int cHostIP { get; set;}
+
+      public short nPort  { get; set;}
+
+      public short rqIntvl  { get; set;}
+
+      public short connMode  { get; set;}
+
+      public char[] cHostName  { get; set;} = default!;
+
+      public short nNicSel  { get; set;}
     }
 }

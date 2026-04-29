@@ -26,4 +26,9 @@ public sealed class InputPointSpecification
             Debounce = debounce;
             HoldTime = holdTime;
       }
+
+      public void UpdateInputNumber(short input)
+      {
+            this.InputNumber = input;
+      }
 }
