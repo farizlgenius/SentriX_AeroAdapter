@@ -30,14 +30,7 @@ public sealed class ScpReplyWorker(Channel<SCPReplyMessageDto> queue,ILogger<Scp
                 Console.WriteLine("Message received");
 
                 using var scope = scopeFactory.CreateScope();
-                // var qhw = scope.ServiceProvider.GetRequiredService<IDeviceRepository>();
-                // var rhw = scope.ServiceProvider.GetRequiredService<IDeviceRepository>();
-                // var hw = scope.ServiceProvider.GetRequiredService<IDeviceService>();
-                // var tran = scope.ServiceProvider.GetRequiredService<ITransactionService>();
-                // var publisher = scope.ServiceProvider.GetRequiredService<INotificationPublisher>();
-                // var cmnd = scope.ServiceProvider.GetRequiredService<ICmndRepository>();
-
-
+                
                 try
                 {
                     switch (message.ReplyType)

@@ -2140,3 +2140,41 @@ WebConfigNetwork: SCP-1, Method2 = 0, IP Address2: 0.0.0.0, Subnet Mask2: 0.0.0.
 93659.516 Chnl-1, SCP-1.0 (32/0), (0) rx: 6B 80 1B 00 21 81 06 04 0B 00 03 00 00 00
 93659.516 > FA DF F0 69 00 00 00 01 06 0B 00
 93659.516 Apr 28 23:27:38 SCP-1:3 SCP DIAGNOSTICS-0, 1:6 error code = 0, Autosave complete (Cards)
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Fri May  1 22:36:18 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+49780.049 WSAStartup ok
+49780.051 RNG_X931A24 Initialized
+49780.051 1, enCcSystem: 011 1024 1024 0 0 1
+49780.053 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+49780.291 listen(lsock) created socket=2500 on port 3333
+49780.291 Listen Successful, port: 3333
+49835.240 Shutting down debug Thread...
+File closed Fri May  1 22:37:15 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Fri May  1 22:38:20 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+49901.825 WSAStartup ok
+49901.827 RNG_X931A24 Initialized
+49901.827 1, enCcSystem: 011 1024 1024 0 0 1
+49901.828 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+49901.952 listen(lsock) created socket=2496 on port 3333
+49901.952 Listen Successful, port: 3333
+50143.885 Shutting down debug Thread...
+File closed Fri May  1 22:42:23 2026
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Fri May  1 22:42:32 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+50152.978 WSAStartup ok
+50152.979 RNG_X931A24 Initialized
+50152.979 1, enCcSystem: 011 1024 1024 0 0 1
+50152.980 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+50153.065 listen(lsock) created socket=2488 on port 3333
+50153.065 Listen Successful, port: 3333
+Debug file SCPDEBUG.txt <SCPDEBUGc.txt> <SCPDEBUG.TXT> opened Sat May  2 14:03:50 2026
+Begin - SCP Driver DLL (64-bit) version 4.7.1.43
+05431.538 WSAStartup ok
+05431.538 RNG_X931A24 Initialized
+05431.538 1, enCcSystem: 011 1024 1024 0 0 1
+05431.538 1, enCcCreateChannel: 0012 1 7 3333 0 3000 0 "" 0
+05431.649 listen(lsock) created socket=2496 on port 3333
+05431.649 Listen Successful, port: 3333
+05442.972 Shutting down debug Thread...
+File closed Sat May  2 14:04:02 2026

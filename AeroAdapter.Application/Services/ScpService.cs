@@ -1,6 +1,7 @@
 using System;
 using AeroAdapter.Application.DTOs;
 using AeroAdapter.Application.Interfaces;
+using AeroAdapter.Domain.Constants;
 using AeroAdapter.Domain.Entities;
 using AeroAdapter.Domain.Enums;
 using AeroAdapter.Domain.Helpers;
@@ -9,23 +10,36 @@ using Application.Contracts.GeneratedDtos;
 
 namespace AeroAdapter.Application.Services;
 
-public sealed class ScpService(IScpRepository repo, IMpRepository mpRepo, IScpWriter writer, ISioWriter sioWriter, IMpWriter mpWriter) : IScpService
+public sealed class ScpService(IScpRepository repo, IMpRepository mpRepo, IScpWriter writer, ISioWriter sioWriter, IMpWriter mpWriter,IMessagePublisher publisher) : IScpService
 {
-      public async Task<bool> AssignIpAddressAsync(int ScpId, SCPReplyMessageDto.CC_WEB_CONFIG_NETWORKDto message)
+      public async Task AssignIpAddressAsync(int ScpId, SCPReplyMessageDto.CC_WEB_CONFIG_NETWORKDto message)
       {
             var mac = await repo.GetMacFromScpIdAsync((short)ScpId);
             if (string.IsNullOrWhiteSpace(mac))
-                  return false;
-            return await repo.UpdateIpAddressAsync(mac, UtilitiesHelper.IntegerToIp(message.cIpAddr));
+                  // Log here
+                  return;
+            // return await repo.UpdateIpAddressAsync(mac, UtilitiesHelper.IntegerToIp(message.cIpAddr));
+            // publish message for update ip 
+            await publisher.PublishAsync(
+                  MessageConstant.Device.DEVICE_EXCHANGE,
+                  MessageConstant.Device.DEVICE_UPDATED_IP_KEY,
+                  new DeviceIpDto(mac,UtilitiesHelper.IntegerToIp(message.cIpAddr))
+                  );
       }
 
-      public async Task<bool> AssignPortAsync(int ScpId, SCPReplyMessageDto.CC_WEB_CONFIG_HOST_COMM_PRIMDto message)
+      public async Task AssignPortAsync(int ScpId, SCPReplyMessageDto.CC_WEB_CONFIG_HOST_COMM_PRIMDto message)
       {
 
             var mac = await repo.GetMacFromScpIdAsync((short)ScpId);
-            if (string.IsNullOrWhiteSpace(mac))
-                  return false;
-            return await repo.UpdatePortAsync(mac, message.ipclient.nPort);
+             if (string.IsNullOrWhiteSpace(mac))
+                  // Log here
+                  return;
+
+            await publisher.PublishAsync(
+                  MessageConstant.Device.DEVICE_EXCHANGE,
+                  MessageConstant.Device.DEVICE_UPDATED_PORT_KEY,
+                  new DevicePortDto(mac,message.ipclient.nPort)
+                  );
       }
 
       public async Task HandleIdReport(SCPReplyMessageDto.SCPReplyIDReportDto id)
@@ -41,16 +55,19 @@ public sealed class ScpService(IScpRepository repo, IMpRepository mpRepo, IScpWr
 
             if (!await repo.IsAnyScpWithMacAsync(UtilitiesHelper.ByteToHexStr(id.mac_addr)))
             {
-
-                  var domain = new Scp(0, id.scp_id, UtilitiesHelper.ByteToHexStr(id.mac_addr), string.Empty,id.serial_number.ToString(), 0, $"{id.sft_rev_major}.{id.sft_rev_minor}",DateTime.UtcNow,ScpSyncStatus.UPLOAD);
-                  var status = await repo.AddAsync(domain);
+                  var status = await repo.AddAsync(id.scp_id,UtilitiesHelper.ByteToHexStr(id.mac_addr));
+                  var dto = new DeviceDto(id.scp_id,UtilitiesHelper.ByteToHexStr(id.mac_addr),id.serial_number.ToString(),$"{id.sft_rev_major}.{id.sft_rev_minor}",string.Empty,DateTime.UtcNow);
+                  await publisher.PublishAsync(MessageConstant.Device.DEVICE_EXCHANGE,MessageConstant.Device.DEVICE_CREATED_KEY,dto);
+                  // Publish broker to create
                   // Log success
             }
             else
             {
                   // Update ScpId if already Exists
-                  var domain = new Scp(0, id.scp_id, UtilitiesHelper.ByteToHexStr(id.mac_addr), string.Empty,id.serial_number.ToString(), 0, $"{id.sft_rev_major}.{id.sft_rev_minor}",DateTime.UtcNow,ScpSyncStatus.UPLOAD);
-                  var status = await repo.UpdateAsync(domain);
+                  var status = await repo.UpdateAsync(id.scp_id,UtilitiesHelper.ByteToHexStr(id.mac_addr));
+                  var dto = new DeviceDto(id.scp_id,UtilitiesHelper.ByteToHexStr(id.mac_addr),id.serial_number.ToString(),$"{id.sft_rev_major}.{id.sft_rev_minor}",string.Empty,DateTime.UtcNow);
+                  await publisher.PublishAsync(MessageConstant.Device.DEVICE_EXCHANGE,MessageConstant.Device.DEVICE_UPDATED_KEY,dto);
+                  // Publish Broker for update
             }
 
             var db = await repo.GetAccessDatabaseSpecificationByIdAndMacAsync(0, string.Empty);
@@ -101,6 +118,7 @@ public sealed class ScpService(IScpRepository repo, IMpRepository mpRepo, IScpWr
             // Send to get IP and Port 
             await writer.ReadsConfiguration(id.scp_id, WebConfigReadType.NetworkSettingss);
             await writer.ReadsConfiguration(id.scp_id, WebConfigReadType.HostCommunicationPrimarySettings);
+
 
       }
 
@@ -275,8 +293,28 @@ public sealed class ScpService(IScpRepository repo, IMpRepository mpRepo, IScpWr
                         break;
             }
 
-            var mac = await repo.GetMacFromScpIdAsync((short)ScpId);
-            await repo.UpdateScpAsyncStatusAsync(mac, isVerify ? ScpSyncStatus.SYNC : ScpSyncStatus.RESET, false);
+            string mac = await repo.GetMacFromScpIdAsync((short)ScpId);
+            if (isVerify)
+            {
+                  // Publish verify 
+                  await publisher.PublishAsync(
+                        MessageConstant.Device.DEVICE_EXCHANGE,
+                        MessageConstant.Device.DEVICE_MEMORY_ALLOCATED_KEY,
+                        new DeviceMemoryAllocateDto(mac,ScpSyncStatus.SYNC)
+                        );
+            }
+            else
+            {
+                  // Publish verify 
+                  await publisher.PublishAsync(
+                        MessageConstant.Device.DEVICE_EXCHANGE,
+                        MessageConstant.Device.DEVICE_MEMORY_ALLOCATED_KEY,
+                        new DeviceMemoryAllocateDto(mac,ScpSyncStatus.RESET)
+                        );
+            }
+
+            
+
             return isVerify;
 
       }

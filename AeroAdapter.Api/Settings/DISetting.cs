@@ -3,6 +3,7 @@ using AeroAdapter.Api.Middlewares;
 using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Application.Services;
 using AeroAdapter.Infrastructure.Listener;
+using AeroAdapter.Infrastructure.Messaging;
 using AeroAdapter.Infrastructure.Repositories;
 using AeroAdapter.Infrastructure.Worker;
 using AeroAdapter.Infrastructure.Writer;
@@ -35,6 +36,9 @@ public class DISetting
 
             // Middleware
             builder.Services.AddTransient<GlobalExceptionMiddleware>();
+
+            // Message
+            builder.Services.AddScoped<IMessagePublisher,RabbitMqMessagePublisher>();
       }
 
 }

@@ -7,22 +7,13 @@ public sealed class Scp : BaseEntity
 {
       public short scp_id {get; set;}
       public string mac {get; set;} = string.Empty;
-      public string ip {get; set;} = string.Empty;
-      public string serial_number {get; set;} = string.Empty;
-      public int port {get; set;}
-      public string fw {get; set;} = string.Empty;
-      public DateTime synced_at {get; set;}
-      public ScpSyncStatus sync_status {get; set;} = ScpSyncStatus.SYNC;
     
       public Scp(){}
 
-      public Scp(Domain.Entities.Scp domain)
+      public Scp(short ScpId,string Mac)
       {
-            this.scp_id = domain.ScpId;
-            this.mac = domain.Mac;
-            this.ip = domain.Ip;
-            this.port = domain.Port;
-            this.fw = domain.Fw;
+            this.scp_id = ScpId;
+            this.mac = Mac;
             this.created_at = DateTime.UtcNow;
             this.updated_at = DateTime.UtcNow;
       }
@@ -33,36 +24,11 @@ public sealed class Scp : BaseEntity
             this.updated_at = DateTime.UtcNow;
       }
 
-      public void UpdatePort(int Port)
-      {
-            this.port = Port;
-            this.updated_at = DateTime.UtcNow;
-      }
 
-      public void UpdateIp(string ip)
+      public void Update(short ScpId,string Mac)
       {
-            this.ip = ip;
-            this.updated_at = DateTime.UtcNow;
-      }
-
-      public void UpdateSyncStatus(ScpSyncStatus status,bool isUpload = false)
-      {
-            this.updated_at = DateTime.UtcNow;
-            this.sync_status = status;
-            if(isUpload)
-            {
-                  this.synced_at = DateTime.UtcNow;
-            }
-      }
-
-      public void Update(Domain.Entities.Scp domain)
-      {
-            this.scp_id = domain.ScpId;
-            this.mac = domain.Mac;
-            this.ip = domain.Ip;
-            this.serial_number = domain.SerialNumber;
-            this.port = domain.Port;
-            this.fw = domain.Fw;
+            this.scp_id = ScpId;
+            this.mac = Mac;
             this.updated_at = DateTime.UtcNow;
       }
 }

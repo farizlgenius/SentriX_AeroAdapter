@@ -5,60 +5,61 @@ using RabbitMQ.Client.Exceptions;
 
 namespace AeroAdapter.Infrastructure.Messaging;
 
-public interface IRabbitMqFactory : IDisposable
+
+public sealed class RabbitMqFactory : IRabbitMqFactory,IDisposable
 {
-  Task<IConnection> GetConnectionAsync(CancellationToken cancellationToken = default);
-}
-public sealed class RabbitMqFactory : IRabbitMqFactory
-{
-  private readonly ConnectionFactory _factory;
-  private IConnection? _connection;
-  private readonly object _lock = new();
+    private readonly ConnectionFactory _factory;
+    private IConnection? _connection;
+    private readonly SemaphoreSlim _semaphore = new(1, 1);
 
-  public RabbitMqFactory(IRabbitMqOption settings)
-  {
-
-    _factory = new ConnectionFactory
+    public RabbitMqFactory(IRabbitMqOption settings)
     {
-      HostName = settings.Host,
-      Port = settings.Port,
-      UserName = settings.Username,
-      Password = settings.Password,
-      VirtualHost = "/",
-      //DispatchConsumersAsync = true,
-      RequestedConnectionTimeout = TimeSpan.FromSeconds(10),
-      SocketReadTimeout = TimeSpan.FromSeconds(10),
-      SocketWriteTimeout = TimeSpan.FromSeconds(10)
-    };
-  }
-
-  public void Dispose()
-  {
-    if (_connection?.IsOpen == true)
-      _connection.Dispose();
-  }
-
-  public async Task<IConnection> GetConnectionAsync(CancellationToken cancellationToken = default)
-  {
-    if (_connection != null && _connection.IsOpen)
-      return _connection;
-
-    lock (_lock)
-    {
-      if (_connection != null && _connection.IsOpen)
-        return _connection;
+        _factory = new ConnectionFactory
+        {
+            HostName = settings.Host,
+            Port = settings.Port,
+            UserName = settings.Username,
+            Password = settings.Password,
+            VirtualHost = "/",
+            RequestedConnectionTimeout = TimeSpan.FromSeconds(10),
+            SocketReadTimeout = TimeSpan.FromSeconds(10),
+            SocketWriteTimeout = TimeSpan.FromSeconds(10),
+            AutomaticRecoveryEnabled = true,
+            NetworkRecoveryInterval = TimeSpan.FromSeconds(10),
+            TopologyRecoveryEnabled = true,
+            
+        };
     }
 
-    try
+    public async Task<IConnection> GetConnectionAsync(CancellationToken cancellationToken = default)
     {
-      _connection = await _factory.CreateConnectionAsync(cancellationToken);
-      Console.WriteLine("Connected");
-      return _connection;
-    }
-    catch (BrokerUnreachableException ex)
-    {
-      throw new Exception("RabbitMQ unreachable", ex);
-    }
-  }
+        if (_connection is { IsOpen: true })
+            return _connection;
 
+        await _semaphore.WaitAsync(cancellationToken);
+        try
+        {
+            if (_connection is { IsOpen: true })
+                return _connection;
+
+            _connection = await _factory.CreateConnectionAsync(cancellationToken);
+            return _connection;
+        }
+        catch (BrokerUnreachableException ex)
+        {
+            throw new Exception("RabbitMQ unreachable", ex);
+        }
+        finally
+        {
+            _semaphore.Release();
+        }
+    }
+
+    public void Dispose()
+    {
+        if (_connection?.IsOpen == true)
+            _connection.Dispose();
+
+        _semaphore.Dispose();
+    }
 }

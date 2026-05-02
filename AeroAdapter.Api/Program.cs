@@ -1,5 +1,6 @@
 
 using System.Threading.Channels;
+using AeroAdapter.Api.Logging;
 using AeroAdapter.Api.Middlewares;
 using AeroAdapter.Api.Settings;
 using AeroAdapter.Application.Interfaces;
@@ -11,6 +12,7 @@ using AeroAdapter.Infrastructure.Worker;
 using AeroAdapter.Infrastructure.Writer;
 using Application.Contracts.GeneratedDtos;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace AeroAdapter.Api;
 
@@ -43,6 +45,19 @@ public class Program
                     }
                 )
              );
+
+
+        //=============
+        // Serilog
+        //=============
+            // Read Serilog config from appsettings.json
+            Serilog.Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration)
+                .Enrich.With<CustomLog>()
+                .Enrich.FromLogContext()        // important
+                .CreateLogger();
+
+            // Replace default logging with Serilog
+            builder.Host.UseSerilog();
 
         //=============
         // Configuration Dependency Injection

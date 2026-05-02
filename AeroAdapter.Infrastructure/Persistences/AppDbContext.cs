@@ -70,10 +70,10 @@ public sealed class AppDbContext : DbContext
             }
         }
 
-        modelBuilder.Entity<Scp>()
-            .Property(x => x.synced_at)
-            .HasDefaultValueSql(utcNowSql)
-            .ValueGeneratedOnAdd();
+        // modelBuilder.Entity<Scp>()
+        //     .Property(x => x.synced_at)
+        //     .HasDefaultValueSql(utcNowSql)
+        //     .ValueGeneratedOnAdd();
 
         modelBuilder.Entity<SystemLevelSpecification>()
         .HasData(
