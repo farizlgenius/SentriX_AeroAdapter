@@ -4,6 +4,7 @@ using AeroAdapter.Application.Interfaces;
 using AeroAdapter.Domain.Constants;
 using AeroAdapter.Domain.Entities;
 using AeroAdapter.Domain.Enums;
+using AeroAdapter.Domain.Events;
 using AeroAdapter.Domain.Helpers;
 using Application.Contracts.GeneratedDtos;
 
@@ -113,6 +114,21 @@ public sealed class ScpService(IScpRepository repo, IMpRepository mpRepo, IScpWr
                   ]
             ))
                   return;
+
+            var @event = new CreateDeviceEvent(
+                  string.Empty,
+                  id.scp_id,
+                  UtilitiesHelper.ByteToHexStr(id.mac_addr),
+                  id.serial_number.ToString(),
+                  string.Empty,
+                  0,
+                  $"{id.sft_rev_major}.{id.sft_rev_minor}",
+                  "aero",
+                  DateTime.UtcNow,
+                  ScpSyncStatus.SYNC.ToString(),
+                  1
+                  );
+            await publisher.PublishAsync(MessageConstant.Device.DEVICE_EXCHANGE,MessageConstant.Device.DEVICE_CREATED_KEY,@event);
 
 
             // Send to get IP and Port 
